@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../core/theme/app_colors.dart';
@@ -6,6 +7,7 @@ import '../../../shared/providers/todo_provider.dart';
 import '../../../models/todo.dart';
 import '../../todo/screens/add_todo_screen.dart';
 import '../../home/widgets/enhanced_task_card.dart';
+import '../../todo/screens/edit_todo_screen.dart';
 
 class EnhancedCalendarScreen extends ConsumerStatefulWidget {
   const EnhancedCalendarScreen({super.key});
@@ -16,31 +18,24 @@ class EnhancedCalendarScreen extends ConsumerStatefulWidget {
 
 class _EnhancedCalendarScreenState extends ConsumerState<EnhancedCalendarScreen> {
   DateTime _selectedDate = DateTime.now();
-  final PageController _pageController = PageController();
-
-  @override
-  void dispose() {
-    _pageController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     // final currentUser = ref.watch(currentUserProvider); // unused
     final allTodos = ref.watch(todoListProvider);
-    
+
     // Filter todos for selected date
     final dayTodos = allTodos.where((todo) {
       if (todo.dueDate == null) return false;
       return todo.dueDate!.year == _selectedDate.year &&
-             todo.dueDate!.month == _selectedDate.month &&
-             todo.dueDate!.day == _selectedDate.day;
+          todo.dueDate!.month == _selectedDate.month &&
+          todo.dueDate!.day == _selectedDate.day;
     }).toList();
 
     return Scaffold(
-      backgroundColor: theme.brightness == Brightness.dark 
-          ? AppColors.darkBackground 
+      backgroundColor: theme.brightness == Brightness.dark
+          ? AppColors.darkBackground
           : AppColors.lightBackground,
       body: SafeArea(
         child: Column(
@@ -52,19 +47,20 @@ class _EnhancedCalendarScreenState extends ConsumerState<EnhancedCalendarScreen>
                 gradient: LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
-                  colors: theme.brightness == Brightness.dark 
+                  colors: theme.brightness == Brightness.dark
                       ? [
-                          AppColors.darkCard,
-                          AppColors.darkSurface,
-                        ]
+                    AppColors.darkCard,
+                    AppColors.darkSurface,
+                  ]
                       : [
-                          AppColors.white,
-                          AppColors.lightBackground.withValues(alpha: 0.8),
-                        ],
+                    AppColors.white,
+                    AppColors.lightBackground.withValues(alpha: 0.8),
+                  ],
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: (theme.brightness == Brightness.dark ? AppColors.darkMainText : AppColors.lightMainText).withValues(alpha: 0.08),
+                    color: (theme.brightness == Brightness.dark ? AppColors.darkMainText : AppColors.lightMainText)
+                        .withValues(alpha: 0.08),
                     blurRadius: 16,
                     offset: const Offset(0, 4),
                   ),
@@ -100,8 +96,8 @@ class _EnhancedCalendarScreenState extends ConsumerState<EnhancedCalendarScreen>
                           'Calendar',
                           style: theme.textTheme.titleLarge?.copyWith(
                             fontWeight: FontWeight.bold,
-                            color: theme.brightness == Brightness.dark 
-                                ? AppColors.darkMainText 
+                            color: theme.brightness == Brightness.dark
+                                ? AppColors.darkMainText
                                 : AppColors.lightMainText,
                           ),
                         ),
@@ -109,8 +105,8 @@ class _EnhancedCalendarScreenState extends ConsumerState<EnhancedCalendarScreen>
                         Text(
                           _formatSelectedDate(_selectedDate),
                           style: theme.textTheme.bodyMedium?.copyWith(
-                            color: theme.brightness == Brightness.dark 
-                                ? AppColors.darkSecondaryText 
+                            color: theme.brightness == Brightness.dark
+                                ? AppColors.darkSecondaryText
                                 : AppColors.lightMainText.withValues(alpha: 0.7),
                             fontWeight: FontWeight.w500,
                           ),
@@ -147,93 +143,104 @@ class _EnhancedCalendarScreenState extends ConsumerState<EnhancedCalendarScreen>
               ),
             ),
 
-            // Calendar Widget
-            Container(
-              margin: const EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                color: theme.brightness == Brightness.dark ? AppColors.darkCard : AppColors.white,
-                borderRadius: BorderRadius.circular(20),
-                border: Border.all(
-                  color: theme.brightness == Brightness.dark 
-                      ? AppColors.darkBorder
-                      : AppColors.lightMainText.withValues(alpha: 0.1),
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    color: (theme.brightness == Brightness.dark ? AppColors.darkMainText : AppColors.lightMainText).withValues(alpha: 0.08),
-                    blurRadius: 16,
-                    offset: const Offset(0, 8),
+            // Calendar Widget - constrain height so it doesn't push the tasks section off-screen
+            // (previously an unconstrained column could expand and cause the tasks list to be clipped
+            // or to appear inside a scrollable container that prevented full visibility)
+            ConstrainedBox(
+              constraints: const BoxConstraints(maxHeight: 420),
+              child: Container(
+                margin: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: theme.brightness == Brightness.dark ? AppColors.darkCard : AppColors.white,
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(
+                    color: theme.brightness == Brightness.dark
+                        ? AppColors.darkBorder
+                        : AppColors.lightMainText.withValues(alpha: 0.1),
                   ),
-                ],
-              ),
-              child: Column(
-                children: [
-                  // Calendar Header
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              _selectedDate = DateTime(_selectedDate.year, _selectedDate.month - 1);
-                            });
-                          },
-                          child: Container(
-                            padding: const EdgeInsets.all(8),
-                            decoration: BoxDecoration(
-                              color: AppColors.primaryAccent.withValues(alpha: 0.1),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            child: Icon(
-                              Icons.chevron_left,
-                              color: AppColors.primaryAccent,
-                              size: 20,
-                            ),
-                          ),
-                        ),
-                        Text(
-                          _formatMonthYear(_selectedDate),
-                          style: theme.textTheme.titleMedium?.copyWith(
-                            fontWeight: FontWeight.bold,
-                            color: theme.brightness == Brightness.dark 
-                                ? AppColors.darkMainText 
-                                : AppColors.lightMainText,
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              _selectedDate = DateTime(_selectedDate.year, _selectedDate.month + 1);
-                            });
-                          },
-                          child: Container(
-                            padding: const EdgeInsets.all(8),
-                            decoration: BoxDecoration(
-                              color: AppColors.primaryAccent.withValues(alpha: 0.1),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            child: Icon(
-                              Icons.chevron_right,
-                              color: AppColors.primaryAccent,
-                              size: 20,
-                            ),
-                          ),
-                        ),
-                      ],
+                  boxShadow: [
+                    BoxShadow(
+                      color: (theme.brightness == Brightness.dark ? AppColors.darkMainText : AppColors.lightMainText)
+                          .withValues(alpha: 0.08),
+                      blurRadius: 16,
+                      offset: const Offset(0, 8),
                     ),
+                  ],
+                ),
+                // Let the calendar content scroll if needed, but keep the overall widget height bounded
+                child: SingleChildScrollView(
+                  physics: const ClampingScrollPhysics(),
+                  child: Column(
+                    children: [
+                      // Calendar Header
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  _selectedDate = DateTime(_selectedDate.year, _selectedDate.month - 1);
+                                });
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.all(8),
+                                decoration: BoxDecoration(
+                                  color: AppColors.primaryAccent.withValues(alpha: 0.1),
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                child: Icon(
+                                  Icons.chevron_left,
+                                  color: AppColors.primaryAccent,
+                                  size: 20,
+                                ),
+                              ),
+                            ),
+                            Text(
+                              _formatMonthYear(_selectedDate),
+                              style: theme.textTheme.titleMedium?.copyWith(
+                                fontWeight: FontWeight.bold,
+                                color: theme.brightness == Brightness.dark
+                                    ? AppColors.darkMainText
+                                    : AppColors.lightMainText,
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  _selectedDate = DateTime(_selectedDate.year, _selectedDate.month + 1);
+                                });
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.all(8),
+                                decoration: BoxDecoration(
+                                  color: AppColors.primaryAccent.withValues(alpha: 0.1),
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                child: Icon(
+                                  Icons.chevron_right,
+                                  color: AppColors.primaryAccent,
+                                  size: 20,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      // Calendar Grid
+                      _buildCalendarGrid(theme, allTodos),
+                    ],
                   ),
-                  // Calendar Grid
-                  _buildCalendarGrid(theme, allTodos),
-                ],
+                ),
               ),
             ),
 
             // Tasks for selected date
             Expanded(
-              child: Container(
-                margin: const EdgeInsets.symmetric(horizontal: 20),
+              child: Padding(
+                // remove the extra container -> use padding to keep layout simple and allow the tasks area to fully expand
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -244,8 +251,8 @@ class _EnhancedCalendarScreenState extends ConsumerState<EnhancedCalendarScreen>
                           'Tasks for ${_formatSelectedDate(_selectedDate)}',
                           style: theme.textTheme.titleMedium?.copyWith(
                             fontWeight: FontWeight.bold,
-                            color: theme.brightness == Brightness.dark 
-                                ? AppColors.darkMainText 
+                            color: theme.brightness == Brightness.dark
+                                ? AppColors.darkMainText
                                 : AppColors.lightMainText,
                           ),
                         ),
@@ -275,37 +282,38 @@ class _EnhancedCalendarScreenState extends ConsumerState<EnhancedCalendarScreen>
                       child: dayTodos.isEmpty
                           ? _buildEmptyState(theme)
                           : ListView.builder(
-                              itemCount: dayTodos.length,
-                              itemBuilder: (context, index) {
-                                final todo = dayTodos[index];
-                                return Padding(
-                                  padding: const EdgeInsets.only(bottom: 12),
-                                  child: EnhancedTaskCard(
-                                    todo: todo,
-                                    onTap: () {
-                                      Navigator.of(context).push(
-                                        MaterialPageRoute(
-                                          builder: (context) => AddTodoScreen(todoToEdit: todo),
-                                        ),
-                                      );
-                                    },
-                                    onToggle: () {
-                                      ref.read(todoListProvider.notifier).toggleTodo(todo.id);
-                                    },
-                                    onEdit: () {
-                                      Navigator.of(context).push(
-                                        MaterialPageRoute(
-                                          builder: (context) => AddTodoScreen(todoToEdit: todo),
-                                        ),
-                                      );
-                                    },
-                                    onDelete: () {
-                                      ref.read(todoListProvider.notifier).deleteTodo(todo.id);
-                                    },
+                        itemCount: dayTodos.length,
+                        padding: EdgeInsets.zero,
+                        itemBuilder: (context, index) {
+                          final todo = dayTodos[index];
+                          return Padding(
+                            padding: const EdgeInsets.only(bottom: 12),
+                            child: EnhancedTaskCard(
+                              todo: todo,
+                              onTap: () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (context) => AddTodoScreen(todoToEdit: todo),
                                   ),
                                 );
                               },
+                              onToggle: () {
+                                ref.read(todoListProvider.notifier).toggleTodo(todo.id);
+                              },
+                              onEdit: () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (context) => EditTodoScreen(todo: todo),
+                                  ),
+                                );
+                              },
+                              onDelete: () {
+                                ref.read(todoListProvider.notifier).deleteTodo(todo.id);
+                              },
                             ),
+                          );
+                        },
+                      ),
                     ),
                   ],
                 ),
@@ -332,16 +340,16 @@ class _EnhancedCalendarScreenState extends ConsumerState<EnhancedCalendarScreen>
           Row(
             children: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
                 .map((day) => Expanded(
-                      child: Center(
-                        child: Text(
-                          day,
-                          style: theme.textTheme.bodySmall?.copyWith(
-                            fontWeight: FontWeight.w600,
-                            color: isDark ? AppColors.darkSecondaryText : AppColors.lightMainText.withValues(alpha: 0.6),
-                          ),
-                        ),
-                      ),
-                    ))
+              child: Center(
+                child: Text(
+                  day,
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    fontWeight: FontWeight.w600,
+                    color: isDark ? AppColors.darkSecondaryText : AppColors.lightMainText.withValues(alpha: 0.6),
+                  ),
+                ),
+              ),
+            ))
                 .toList(),
           ),
           const SizedBox(height: 12),
@@ -354,27 +362,30 @@ class _EnhancedCalendarScreenState extends ConsumerState<EnhancedCalendarScreen>
                   final dayNumber = (week * 7 + day) - firstWeekday + 2;
                   final isCurrentMonth = dayNumber > 0 && dayNumber <= daysInMonth;
                   final date = isCurrentMonth ? DateTime(_selectedDate.year, _selectedDate.month, dayNumber) : null;
-                  final isSelected = date != null && 
+                  final isSelected = date != null &&
                       date.year == _selectedDate.year &&
                       date.month == _selectedDate.month &&
                       date.day == _selectedDate.day;
-                  final isToday = date != null && 
+                  final isToday = date != null &&
                       date.year == DateTime.now().year &&
                       date.month == DateTime.now().month &&
                       date.day == DateTime.now().day;
-                  final hasTasks = date != null && allTodos.any((todo) => 
+                  final hasTasks = date != null &&
+                      allTodos.any((todo) =>
                       todo.dueDate != null &&
-                      todo.dueDate!.year == date.year &&
-                      todo.dueDate!.month == date.month &&
-                      todo.dueDate!.day == date.day);
+                          todo.dueDate!.year == date.year &&
+                          todo.dueDate!.month == date.month &&
+                          todo.dueDate!.day == date.day);
 
                   return Expanded(
                     child: GestureDetector(
-                      onTap: isCurrentMonth ? () {
+                      onTap: isCurrentMonth
+                          ? () {
                         setState(() {
                           _selectedDate = date!;
                         });
-                      } : null,
+                      }
+                          : null,
                       child: Container(
                         height: 40,
                         margin: const EdgeInsets.all(2),
@@ -382,8 +393,8 @@ class _EnhancedCalendarScreenState extends ConsumerState<EnhancedCalendarScreen>
                           color: isSelected
                               ? AppColors.primaryAccent
                               : isToday
-                                  ? AppColors.primaryAccent.withValues(alpha: 0.2)
-                                  : Colors.transparent,
+                              ? AppColors.primaryAccent.withValues(alpha: 0.2)
+                              : Colors.transparent,
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: Stack(
@@ -407,9 +418,7 @@ class _EnhancedCalendarScreenState extends ConsumerState<EnhancedCalendarScreen>
                                   width: 6,
                                   height: 6,
                                   decoration: BoxDecoration(
-                                    color: isSelected 
-                                        ? AppColors.white 
-                                        : AppColors.secondaryAccent,
+                                    color: isSelected ? AppColors.white : AppColors.secondaryAccent,
                                     shape: BoxShape.circle,
                                   ),
                                 ),
@@ -430,7 +439,7 @@ class _EnhancedCalendarScreenState extends ConsumerState<EnhancedCalendarScreen>
 
   Widget _buildEmptyState(ThemeData theme) {
     final isDark = theme.brightness == Brightness.dark;
-    
+
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -459,9 +468,7 @@ class _EnhancedCalendarScreenState extends ConsumerState<EnhancedCalendarScreen>
           Text(
             'Select a date to view tasks or create a new one',
             style: theme.textTheme.bodyMedium?.copyWith(
-              color: isDark 
-                  ? AppColors.darkSecondaryText 
-                  : AppColors.lightMainText.withValues(alpha: 0.6),
+              color: isDark ? AppColors.darkSecondaryText : AppColors.lightMainText.withValues(alpha: 0.6),
             ),
             textAlign: TextAlign.center,
           ),

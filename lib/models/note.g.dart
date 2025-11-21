@@ -29,13 +29,14 @@ class NoteAdapter extends TypeAdapter<Note> {
       isLocked: fields[9] as bool,
       type: fields[10] as NoteType,
       category: fields[11] as String?,
+      userId: fields[12] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, Note obj) {
     writer
-      ..writeByte(12)
+      ..writeByte(13)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -59,7 +60,9 @@ class NoteAdapter extends TypeAdapter<Note> {
       ..writeByte(10)
       ..write(obj.type)
       ..writeByte(11)
-      ..write(obj.category);
+      ..write(obj.category)
+      ..writeByte(12)
+      ..write(obj.userId);
   }
 
   @override

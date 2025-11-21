@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../shared/widgets/custom_bottom_nav_bar.dart';
+import '../../shared/widgets/modern_bottom_nav_bar.dart';
 import '../home/screens/home_screen.dart';
 import '../calendar/screens/enhanced_calendar_screen.dart';
 import '../todo/screens/enhanced_todo_list_screen.dart';
@@ -44,24 +44,36 @@ class _MainScreenState extends ConsumerState<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView(
-        controller: _pageController,
-        onPageChanged: (index) {
-          setState(() {
-            _selectedIndex = index;
-          });
-        },
-        children: const [
-          HomeScreen(),
-          EnhancedCalendarScreen(),
-          EnhancedTodoListScreen(),
-          EnhancedNotesScreen(),
-          SettingsScreen(),
+      backgroundColor: Colors.transparent,
+      body: Stack(
+        children: [
+          // Main content area that takes up full screen
+          PageView(
+            controller: _pageController,
+            onPageChanged: (index) {
+              setState(() {
+                _selectedIndex = index;
+              });
+            },
+            children: const [
+              HomeScreen(),
+              EnhancedCalendarScreen(),
+              EnhancedTodoListScreen(),
+              EnhancedNotesScreen(),
+              SettingsScreen(),
+            ],
+          ),
+          // Floating navigation bar at bottom
+          Positioned(
+            left: 0,
+            right: 0,
+            bottom: 0,
+            child: ModernBottomNavBar(
+              selectedIndex: _selectedIndex,
+              onItemSelected: _onItemTapped,
+            ),
+          ),
         ],
-      ),
-      bottomNavigationBar: CustomBottomNavBar(
-        selectedIndex: _selectedIndex,
-        onItemSelected: _onItemTapped,
       ),
     );
   }

@@ -64,51 +64,71 @@ class DatabaseService {
     return _todosBox.get(todoId);
   }
 
-  static List<Todo> getAllTodos() {
-    return _todosBox.values.toList();
-  }
-
-  static List<Todo> getTodosByCategory(String category) {
+  static List<Todo> getAllTodos({String? userId}) {
+    if (userId == null || userId.isEmpty) {
+      return _todosBox.values.toList();
+    }
     return _todosBox.values
-        .where((todo) => todo.category == category)
+        .where((todo) => todo.userId == userId)
         .toList();
   }
 
-  static List<Todo> getCompletedTodos() {
+  // Alias for getAllTodos for backward compatibility
+  static List<Todo> getTodos({String? userId}) {
+    return getAllTodos(userId: userId);
+  }
+
+  static List<Todo> getTodosByCategory(String category, {String? userId}) {
     return _todosBox.values
-        .where((todo) => todo.isCompleted)
+        .where((todo) => 
+            todo.category == category && 
+            (userId == null || userId.isEmpty || todo.userId == userId))
         .toList();
   }
 
-  static List<Todo> getPendingTodos() {
+  static List<Todo> getCompletedTodos({String? userId}) {
     return _todosBox.values
-        .where((todo) => !todo.isCompleted)
+        .where((todo) => 
+            todo.isCompleted && 
+            (userId == null || userId.isEmpty || todo.userId == userId))
         .toList();
   }
 
-  static List<Todo> getOverdueTodos() {
+  static List<Todo> getPendingTodos({String? userId}) {
     return _todosBox.values
-        .where((todo) => todo.isOverdue)
+        .where((todo) => 
+            !todo.isCompleted && 
+            (userId == null || userId.isEmpty || todo.userId == userId))
         .toList();
   }
 
-  static List<Todo> getTodosByDate(DateTime date) {
+  static List<Todo> getOverdueTodos({String? userId}) {
+    return _todosBox.values
+        .where((todo) => 
+            todo.isOverdue && 
+            (userId == null || userId.isEmpty || todo.userId == userId))
+        .toList();
+  }
+
+  static List<Todo> getTodosByDate(DateTime date, {String? userId}) {
     return _todosBox.values
         .where((todo) => 
             todo.dueDate != null && 
             todo.dueDate!.year == date.year &&
             todo.dueDate!.month == date.month &&
-            todo.dueDate!.day == date.day)
+            todo.dueDate!.day == date.day &&
+            (userId == null || userId.isEmpty || todo.userId == userId))
         .toList();
   }
 
-  static List<Todo> searchTodos(String query) {
+  static List<Todo> searchTodos(String query, {String? userId}) {
     final lowercaseQuery = query.toLowerCase();
     return _todosBox.values
         .where((todo) => 
-            todo.title.toLowerCase().contains(lowercaseQuery) ||
+            (todo.title.toLowerCase().contains(lowercaseQuery) ||
             todo.description.toLowerCase().contains(lowercaseQuery) ||
-            todo.tags.any((tag) => tag.toLowerCase().contains(lowercaseQuery)))
+            todo.tags.any((tag) => tag.toLowerCase().contains(lowercaseQuery))) &&
+            (userId == null || userId.isEmpty || todo.userId == userId))
         .toList();
   }
 
@@ -120,6 +140,10 @@ class DatabaseService {
   static User? getCurrentUser() {
     final users = _usersBox.values.toList();
     return users.isNotEmpty ? users.first : null;
+  }
+  
+  static User? getUserById(String userId) {
+    return _usersBox.get(userId);
   }
 
   static Future<void> deleteUser(String userId) async {
@@ -139,8 +163,13 @@ class DatabaseService {
     return _categoriesBox.get(categoryId);
   }
 
-  static List<Category> getAllCategories() {
-    return _categoriesBox.values.toList();
+  static List<Category> getAllCategories({String? userId}) {
+    if (userId == null || userId.isEmpty) {
+      return _categoriesBox.values.toList();
+    }
+    return _categoriesBox.values
+        .where((category) => category.userId == userId)
+        .toList();
   }
 
   // Note operations
@@ -156,29 +185,39 @@ class DatabaseService {
     return _notesBox.get(noteId);
   }
 
-  static List<Note> getAllNotes() {
-    return _notesBox.values.toList();
-  }
-
-  static List<Note> getNotesByTodo(String todoId) {
+  static List<Note> getAllNotes({String? userId}) {
+    if (userId == null || userId.isEmpty) {
+      return _notesBox.values.toList();
+    }
     return _notesBox.values
-        .where((note) => note.todoId == todoId)
+        .where((note) => note.userId == userId)
         .toList();
   }
 
-  static List<Note> getPinnedNotes() {
+  static List<Note> getNotesByTodo(String todoId, {String? userId}) {
     return _notesBox.values
-        .where((note) => note.isPinned)
+        .where((note) => 
+            note.todoId == todoId &&
+            (userId == null || userId.isEmpty || note.userId == userId))
         .toList();
   }
 
-  static List<Note> searchNotes(String query) {
+  static List<Note> getPinnedNotes({String? userId}) {
+    return _notesBox.values
+        .where((note) => 
+            note.isPinned &&
+            (userId == null || userId.isEmpty || note.userId == userId))
+        .toList();
+  }
+
+  static List<Note> searchNotes(String query, {String? userId}) {
     final lowercaseQuery = query.toLowerCase();
     return _notesBox.values
         .where((note) => 
-            note.title.toLowerCase().contains(lowercaseQuery) ||
+            (note.title.toLowerCase().contains(lowercaseQuery) ||
             note.content.toLowerCase().contains(lowercaseQuery) ||
-            note.tags.any((tag) => tag.toLowerCase().contains(lowercaseQuery)))
+            note.tags.any((tag) => tag.toLowerCase().contains(lowercaseQuery))) &&
+            (userId == null || userId.isEmpty || note.userId == userId))
         .toList();
   }
 
@@ -196,32 +235,43 @@ class DatabaseService {
   }
 
   // Statistics
-  static int getTotalTodosCount() {
-    return _todosBox.length;
-  }
-
-  static int getCompletedTodosCount() {
+  static int getTotalTodosCount({String? userId}) {
+    if (userId == null || userId.isEmpty) {
+      return _todosBox.length;
+    }
     return _todosBox.values
-        .where((todo) => todo.isCompleted)
+        .where((todo) => todo.userId == userId)
         .length;
   }
 
-  static int getPendingTodosCount() {
+  static int getCompletedTodosCount({String? userId}) {
     return _todosBox.values
-        .where((todo) => !todo.isCompleted)
+        .where((todo) => 
+            todo.isCompleted &&
+            (userId == null || userId.isEmpty || todo.userId == userId))
         .length;
   }
 
-  static int getOverdueTodosCount() {
+  static int getPendingTodosCount({String? userId}) {
     return _todosBox.values
-        .where((todo) => todo.isOverdue)
+        .where((todo) => 
+            !todo.isCompleted &&
+            (userId == null || userId.isEmpty || todo.userId == userId))
         .length;
   }
 
-  static double getCompletionRate() {
-    final total = getTotalTodosCount();
+  static int getOverdueTodosCount({String? userId}) {
+    return _todosBox.values
+        .where((todo) => 
+            todo.isOverdue &&
+            (userId == null || userId.isEmpty || todo.userId == userId))
+        .length;
+  }
+
+  static double getCompletionRate({String? userId}) {
+    final total = getTotalTodosCount(userId: userId);
     if (total == 0) return 0.0;
-    return getCompletedTodosCount() / total;
+    return getCompletedTodosCount(userId: userId) / total;
   }
 
   // Cleanup

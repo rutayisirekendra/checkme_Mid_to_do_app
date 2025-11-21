@@ -24,14 +24,18 @@ class _SearchWidgetState extends ConsumerState<SearchWidget> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
-    // final todoList = ref.watch(todoListProvider); // unused
     final searchQuery = ref.watch(searchQueryProvider);
 
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
-        color: theme.colorScheme.surface,
+        color: isDark ? AppColors.darkCard : AppColors.white,
         borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+          color: isDark 
+              ? AppColors.darkBorder
+              : AppColors.lightMainText.withValues(alpha: 0.1),
+        ),
         boxShadow: [
           BoxShadow(
             color: (isDark ? AppColors.darkMainText : AppColors.lightMainText).withValues(alpha: 0.1),
@@ -45,20 +49,29 @@ class _SearchWidgetState extends ConsumerState<SearchWidget> {
         onChanged: (value) {
           ref.read(searchQueryProvider.notifier).updateQuery(value);
         },
+        style: TextStyle(
+          color: isDark ? AppColors.darkMainText : AppColors.lightMainText,
+        ),
         decoration: InputDecoration(
           hintText: 'Search tasks...',
           hintStyle: TextStyle(
-            color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
+            color: isDark 
+                ? AppColors.darkSecondaryText
+                : AppColors.lightMainText.withValues(alpha: 0.6),
           ),
           prefixIcon: Icon(
             Icons.search,
-            color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
+            color: isDark 
+                ? AppColors.darkAccent
+                : AppColors.primaryAccent,
           ),
           suffixIcon: searchQuery.isNotEmpty
               ? IconButton(
                   icon: Icon(
                     Icons.clear,
-                    color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
+                    color: isDark 
+                        ? AppColors.darkSecondaryText
+                        : AppColors.lightMainText.withValues(alpha: 0.6),
                   ),
                   onPressed: () {
                     _searchController.clear();

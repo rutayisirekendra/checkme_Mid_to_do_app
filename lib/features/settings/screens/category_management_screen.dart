@@ -16,9 +16,10 @@ class CategoryManagementScreen extends ConsumerStatefulWidget {
 class _CategoryManagementScreenState extends ConsumerState<CategoryManagementScreen> {
   final _formKey = GlobalKey<FormState>();
   final _nameController = TextEditingController();
-  final _emojiController = TextEditingController();
   Color _selectedColor = AppColors.primaryAccent;
+  IconData _selectedIcon = Icons.category;
   bool _isLoading = false;
+  String? _editingCategoryId;
 
   final List<Color> _availableColors = [
     AppColors.primaryAccent,
@@ -29,12 +30,68 @@ class _CategoryManagementScreenState extends ConsumerState<CategoryManagementScr
     AppColors.flowerPurple,
     AppColors.skyBlue,
     AppColors.lightOverdue,
+    const Color(0xFF2196F3), // Blue
+    const Color(0xFF4CAF50), // Green
+    const Color(0xFFF44336), // Red
+    const Color(0xFFFF9800), // Orange
+    const Color(0xFF9C27B0), // Purple
+    const Color(0xFF607D8B), // Blue Grey
+    const Color(0xFFE91E63), // Pink
+    const Color(0xFF00BCD4), // Cyan
+    const Color(0xFFFF5722), // Deep Orange
+    const Color(0xFF795548), // Brown
+    const Color(0xFF009688), // Teal
+    const Color(0xFFCDDC39), // Lime
+    const Color(0xFFFFEB3B), // Yellow
+    const Color(0xFF3F51B5), // Indigo
+  ];
+
+  final List<IconData> _availableIcons = [
+    Icons.category,
+    Icons.work,
+    Icons.home,
+    Icons.school,
+    Icons.fitness_center,
+    Icons.shopping_cart,
+    Icons.restaurant,
+    Icons.flight,
+    Icons.music_note,
+    Icons.sports_soccer,
+    Icons.book,
+    Icons.local_hospital,
+    Icons.computer,
+    Icons.brush,
+    Icons.camera_alt,
+    Icons.pets,
+    Icons.nature,
+    Icons.beach_access,
+    Icons.nightlife,
+    Icons.movie,
+    Icons.attach_money,
+    Icons.favorite,
+    Icons.star,
+    Icons.lightbulb,
+    Icons.phone,
+    Icons.email,
+    Icons.calendar_today,
+    Icons.games,
+    Icons.headphones,
+    Icons.restaurant_menu,
+    Icons.local_cafe,
+    Icons.directions_car,
+    Icons.train,
+    Icons.spa,
+    Icons.child_care,
+    Icons.people,
+    Icons.person,
+    Icons.business,
+    Icons.apartment,
+    Icons.celebration,
   ];
 
   @override
   void dispose() {
     _nameController.dispose();
-    _emojiController.dispose();
     super.dispose();
   }
 
@@ -46,37 +103,61 @@ class _CategoryManagementScreenState extends ConsumerState<CategoryManagementScr
     });
 
     try {
-      final id = _nameController.text.trim().toLowerCase().replaceAll(' ', '_');
       final name = _nameController.text.trim();
-      final emoji = _emojiController.text.trim();
-      final color = _selectedColor.value;
+      final iconCodePoint = _selectedIcon.codePoint;
 
-      final category = Category(
-        id: id,
-        name: name,
-        icon: emoji,
-        color: color,
-        createdAt: DateTime.now(),
-      );
-
-      ref.read(categoryProvider.notifier).addCategory(category);
-      
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Category created successfully!'),
-            backgroundColor: AppColors.grassGreen,
-          ),
+      if (_editingCategoryId != null) {
+        // Update existing category
+        final existingCategory = ref.read(categoryProvider).firstWhere((c) => c.id == _editingCategoryId);
+        final updatedCategory = existingCategory.copyWith(
+          name: name,
+          iconCodePoint: iconCodePoint,
+          color: _selectedColor.value,
         );
-        _nameController.clear();
-        _emojiController.clear();
-        _selectedColor = AppColors.primaryAccent;
+        ref.read(categoryProvider.notifier).updateCategory(updatedCategory);
+        
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Category updated successfully!'),
+              backgroundColor: AppColors.grassGreen,
+            ),
+          );
+        }
+      } else {
+        // Create new category
+        final id = name.toLowerCase().replaceAll(' ', '_');
+        final category = Category(
+          id: id,
+          name: name,
+          icon: '', // Empty icon string since we're using iconCodePoint
+          iconCodePoint: iconCodePoint,
+          color: _selectedColor.value,
+          createdAt: DateTime.now(),
+        );
+
+        ref.read(categoryProvider.notifier).addCategory(category);
+        
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Category created successfully!'),
+              backgroundColor: AppColors.grassGreen,
+            ),
+          );
+        }
       }
+
+      // Reset form
+      _nameController.clear();
+      _selectedColor = AppColors.primaryAccent;
+      _selectedIcon = Icons.category;
+      _editingCategoryId = null;
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Error creating category: $e'),
+            content: Text('Error: $e'),
             backgroundColor: AppColors.lightOverdue,
           ),
         );
@@ -86,6 +167,83 @@ class _CategoryManagementScreenState extends ConsumerState<CategoryManagementScr
         setState(() {
           _isLoading = false;
         });
+      }
+    }
+  }
+
+  void _editCategory(Category category) {
+    setState(() {
+      _editingCategoryId = category.id;
+      _nameController.text = category.name;
+      _selectedColor = Color(category.color);
+      _selectedIcon = IconData(category.effectiveIconCodePoint, fontFamily: 'MaterialIcons');
+    });
+
+    // Scroll to top to show the form
+    Future.delayed(const Duration(milliseconds: 100), () {
+      Scrollable.ensureVisible(
+        context,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeInOut,
+      );
+    });
+  }
+
+  void _cancelEdit() {
+    setState(() {
+      _editingCategoryId = null;
+      _nameController.clear();
+      _selectedColor = AppColors.primaryAccent;
+      _selectedIcon = Icons.category;
+    });
+  }
+
+  void _showDeleteConfirmation(Category category) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Delete Category'),
+        content: Text('Are you sure you want to delete "${category.name}"? This action cannot be undone.'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text('Cancel'),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+              _deleteCategory(category);
+            },
+            style: TextButton.styleFrom(
+              foregroundColor: AppColors.lightOverdue,
+            ),
+            child: const Text('Delete'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _deleteCategory(Category category) {
+    try {
+      ref.read(categoryProvider.notifier).deleteCategory(category.id);
+      
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Category "${category.name}" deleted successfully'),
+            backgroundColor: AppColors.grassGreen,
+          ),
+        );
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Error deleting category: $e'),
+            backgroundColor: AppColors.lightOverdue,
+          ),
+        );
       }
     }
   }
@@ -128,12 +286,26 @@ class _CategoryManagementScreenState extends ConsumerState<CategoryManagementScr
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'Create New Category',
-                      style: theme.textTheme.titleLarge?.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: isDark ? AppColors.darkMainText : AppColors.lightMainText,
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          _editingCategoryId != null ? 'Edit Category' : 'Create New Category',
+                          style: theme.textTheme.titleLarge?.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: isDark ? AppColors.darkMainText : AppColors.lightMainText,
+                          ),
+                        ),
+                        if (_editingCategoryId != null)
+                          TextButton.icon(
+                            onPressed: _cancelEdit,
+                            icon: const Icon(Icons.close),
+                            label: const Text('Cancel'),
+                            style: TextButton.styleFrom(
+                              foregroundColor: AppColors.lightOverdue,
+                            ),
+                          ),
+                      ],
                     ),
                     const SizedBox(height: 20),
 
@@ -151,20 +323,68 @@ class _CategoryManagementScreenState extends ConsumerState<CategoryManagementScr
                       },
                     ),
 
-                    const SizedBox(height: 16),
+                    const SizedBox(height: 20),
 
-                    // Emoji Selection
-                    CustomTextField(
-                      controller: _emojiController,
-                      label: 'Emoji',
-                      hint: 'Choose an emoji (e.g., 🏠)',
-                      prefixIcon: const Icon(Icons.emoji_emotions_outlined),
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter an emoji';
-                        }
-                        return null;
-                      },
+                    // Icon Selection
+                    Text(
+                      'Choose Icon',
+                      style: theme.textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.w600,
+                        color: isDark ? AppColors.darkMainText : AppColors.lightMainText,
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    Container(
+                      height: 280,
+                      padding: const EdgeInsets.all(12),
+                      decoration: BoxDecoration(
+                        color: isDark ? AppColors.darkBackground : AppColors.lightBackground,
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(
+                          color: isDark ? AppColors.darkBorder : AppColors.lightMainText.withValues(alpha: 0.1),
+                        ),
+                      ),
+                      child: GridView.builder(
+                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 6,
+                          crossAxisSpacing: 8,
+                          mainAxisSpacing: 8,
+                          childAspectRatio: 1,
+                        ),
+                        itemCount: _availableIcons.length,
+                        itemBuilder: (context, index) {
+                          final icon = _availableIcons[index];
+                          final isSelected = _selectedIcon == icon;
+                          return GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                _selectedIcon = icon;
+                              });
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: isSelected 
+                                    ? _selectedColor.withValues(alpha: 0.2)
+                                    : (isDark ? AppColors.darkCard : AppColors.white),
+                                borderRadius: BorderRadius.circular(8),
+                                border: Border.all(
+                                  color: isSelected 
+                                      ? _selectedColor
+                                      : (isDark ? AppColors.darkBorder : AppColors.lightMainText.withValues(alpha: 0.1)),
+                                  width: isSelected ? 2 : 1,
+                                ),
+                              ),
+                              child: Icon(
+                                icon,
+                                size: 24,
+                                color: isSelected 
+                                    ? _selectedColor
+                                    : (isDark ? AppColors.darkMainText : AppColors.lightMainText),
+                              ),
+                            ),
+                          );
+                        },
+                      ),
                     ),
 
                     const SizedBox(height: 20),
@@ -223,9 +443,9 @@ class _CategoryManagementScreenState extends ConsumerState<CategoryManagementScr
 
                     const SizedBox(height: 24),
 
-                    // Create Button
+                    // Create/Update Button
                     CustomButton(
-                      text: 'Create Category',
+                      text: _editingCategoryId != null ? 'Update Category' : 'Create Category',
                       onPressed: _isLoading ? null : _createCategory,
                       isLoading: _isLoading,
                       backgroundColor: isDark ? AppColors.darkAccent : AppColors.primaryAccent,
@@ -261,57 +481,43 @@ class _CategoryManagementScreenState extends ConsumerState<CategoryManagementScr
               child: Row(
                 children: [
                   Container(
-                    width: 40,
-                    height: 40,
+                    width: 48,
+                    height: 48,
                     decoration: BoxDecoration(
-                      color: Color(category.color).withValues(alpha: 0.1),
-                      borderRadius: BorderRadius.circular(20),
-                      border: Border.all(
-                        color: Color(category.color),
-                        width: 2,
-                      ),
+                      color: Color(category.color).withValues(alpha: 0.15),
+                      borderRadius: BorderRadius.circular(12),
                     ),
-                    child: Center(
-                      child: Text(
-                        category.icon,
-                        style: const TextStyle(fontSize: 20),
-                      ),
+                    child: Icon(
+                      IconData(category.effectiveIconCodePoint, fontFamily: 'MaterialIcons'),
+                      color: Color(category.color),
+                      size: 24,
                     ),
                   ),
                   const SizedBox(width: 16),
                   Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          category.name,
-                          style: theme.textTheme.titleMedium?.copyWith(
-                            fontWeight: FontWeight.w600,
-                            color: isDark ? AppColors.darkMainText : AppColors.lightMainText,
-                          ),
-                        ),
-                        Text(
-                          'Color: ${Color(category.color).toString()}',
-                          style: theme.textTheme.bodySmall?.copyWith(
-                            color: isDark ? AppColors.darkSecondaryText : AppColors.lightMainText.withValues(alpha: 0.7),
-                          ),
-                        ),
-                      ],
+                    child: Text(
+                      category.name,
+                      style: theme.textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.w600,
+                        color: isDark ? AppColors.darkMainText : AppColors.lightMainText,
+                      ),
                     ),
                   ),
                   IconButton(
-                    onPressed: () {
-                      // TODO: Implement category deletion
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          content: Text('Category deletion coming soon!'),
-                        ),
-                      );
-                    },
+                    onPressed: () => _editCategory(category),
+                    icon: Icon(
+                      Icons.edit_outlined,
+                      color: AppColors.primaryAccent,
+                    ),
+                    tooltip: 'Edit',
+                  ),
+                  IconButton(
+                    onPressed: () => _showDeleteConfirmation(category),
                     icon: Icon(
                       Icons.delete_outline,
                       color: AppColors.lightOverdue,
                     ),
+                    tooltip: 'Delete',
                   ),
                 ],
               ),

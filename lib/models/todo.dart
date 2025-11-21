@@ -50,6 +50,9 @@ class Todo extends HiveObject {
   @HiveField(14)
   DateTime? completedAt;
 
+  @HiveField(15)
+  String userId;
+
   Todo({
     String? id,
     required this.title,
@@ -66,6 +69,7 @@ class Todo extends HiveObject {
     List<String>? tags,
     this.note,
     this.completedAt,
+    this.userId = '',
   })  : id = id ?? const Uuid().v4(),
         createdAt = createdAt ?? DateTime.now(),
         attachments = attachments ?? [],
@@ -109,6 +113,7 @@ class Todo extends HiveObject {
     List<String>? tags,
     String? note,
     DateTime? completedAt,
+    String? userId,
   }) {
     return Todo(
       id: id ?? this.id,
@@ -126,6 +131,7 @@ class Todo extends HiveObject {
       tags: tags ?? this.tags,
       note: note ?? this.note,
       completedAt: completedAt ?? this.completedAt,
+      userId: userId ?? this.userId,
     );
   }
 
@@ -146,6 +152,7 @@ class Todo extends HiveObject {
       'tags': tags,
       'note': note,
       'completedAt': completedAt?.toIso8601String(),
+      'userId': userId,
     };
   }
 
@@ -177,6 +184,7 @@ class Todo extends HiveObject {
       completedAt: json['completedAt'] != null
           ? DateTime.parse(json['completedAt'])
           : null,
+      userId: json['userId'] ?? '',
     );
   }
 }

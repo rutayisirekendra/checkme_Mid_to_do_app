@@ -5,6 +5,7 @@ import '../../../shared/widgets/custom_button.dart';
 import '../../../shared/widgets/custom_icon_button.dart';
 import '../../../shared/providers/auth_provider.dart';
 import '../../../shared/providers/theme_provider.dart';
+import '../../../models/user.dart';
 import 'edit_profile_screen.dart';
 import 'category_management_screen.dart';
 
@@ -14,11 +15,13 @@ class SettingsScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
-    final currentUser = ref.watch(currentUserProvider);
+    final currentUserAsync = ref.watch(currentUserProvider);
     final isDark = theme.brightness == Brightness.dark;
 
     final canPop = Navigator.of(context).canPop();
-    return Scaffold(
+    
+    return currentUserAsync.when(
+      data: (currentUser) => Scaffold(
       backgroundColor: isDark ? AppColors.darkBackground : AppColors.lightBackground,
       appBar: AppBar(
         title: const Text('Settings'),
@@ -35,7 +38,8 @@ class SettingsScreen extends ConsumerWidget {
             : null,
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0, bottom: 100.0),
+        physics: const AlwaysScrollableScrollPhysics(),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -82,14 +86,35 @@ class SettingsScreen extends ConsumerWidget {
               textColor: AppColors.white,
             ),
 
-            const SizedBox(height: 20),
+            const SizedBox(height: 40),
           ],
         ),
       ),
+    ),
+    loading: () => Scaffold(
+      backgroundColor: isDark ? AppColors.darkBackground : AppColors.lightBackground,
+      appBar: AppBar(
+        title: const Text('Settings'),
+        backgroundColor: isDark ? AppColors.darkCard : AppColors.white,
+        elevation: 0,
+      ),
+      body: const Center(child: CircularProgressIndicator()),
+    ),
+    error: (error, stack) => Scaffold(
+      backgroundColor: isDark ? AppColors.darkBackground : AppColors.lightBackground,
+      appBar: AppBar(
+        title: const Text('Settings'),
+        backgroundColor: isDark ? AppColors.darkCard : AppColors.white,
+        elevation: 0,
+      ),
+      body: Center(
+        child: Text('Error: $error'),
+      ),
+    ),
     );
   }
 
-  Widget _buildProfileSection(BuildContext context, ThemeData theme, currentUser, bool isDark) {
+  Widget _buildProfileSection(BuildContext context, ThemeData theme, User? currentUser, bool isDark) {
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
@@ -176,7 +201,7 @@ class SettingsScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildAppearanceSection(BuildContext context, ThemeData theme, WidgetRef ref, currentUser) {
+  Widget _buildAppearanceSection(BuildContext context, ThemeData theme, WidgetRef ref, User? currentUser) {
     final isDark = theme.brightness == Brightness.dark;
     final themeMode = ref.watch(themeProvider);
     
@@ -201,7 +226,7 @@ class SettingsScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildNotificationsSection(BuildContext context, ThemeData theme, WidgetRef ref, currentUser) {
+  Widget _buildNotificationsSection(BuildContext context, ThemeData theme, WidgetRef ref, User? currentUser) {
     final isDark = theme.brightness == Brightness.dark;
     return _buildSection(
       context,
@@ -234,7 +259,7 @@ class SettingsScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildSecuritySection(BuildContext context, ThemeData theme, WidgetRef ref, currentUser) {
+  Widget _buildSecuritySection(BuildContext context, ThemeData theme, WidgetRef ref, User? currentUser) {
     final isDark = theme.brightness == Brightness.dark;
     return _buildSection(
       context,
@@ -509,9 +534,28 @@ class SettingsScreen extends ConsumerWidget {
             child: const Text('Cancel'),
           ),
           TextButton(
-            onPressed: () {
-              ref.read(profileProvider.notifier).logout();
+            onPressed: () async {
               Navigator.of(context).pop();
+              try {
+                await ref.read(logoutProvider.notifier).logout();
+                if (context.mounted) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Logged out successfully'),
+                      backgroundColor: AppColors.primaryAccent,
+                    ),
+                  );
+                }
+              } catch (e) {
+                if (context.mounted) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('Logout failed: ${e.toString()}'),
+                      backgroundColor: AppColors.lightOverdue,
+                    ),
+                  );
+                }
+              }
             },
             child: const Text('Logout'),
           ),

@@ -6,6 +6,8 @@ import '../../../services/database_service.dart';
 import '../../../shared/widgets/custom_button.dart';
 import '../../../shared/widgets/custom_text_field.dart';
 import '../../../shared/providers/category_provider.dart';
+import '../../../shared/providers/auth_provider.dart';
+import '../../../shared/providers/note_provider.dart';
 
 class AddNoteScreen extends ConsumerStatefulWidget {
   final Note? noteToEdit;
@@ -52,6 +54,14 @@ class _AddNoteScreenState extends ConsumerState<AddNoteScreen> {
     });
 
     try {
+      // Get current user ID
+      final userAsync = ref.read(currentUserProvider);
+      final userId = userAsync.value?.id;
+      
+      if (userId == null || userId.isEmpty) {
+        throw Exception('User not authenticated');
+      }
+
       final note = widget.noteToEdit?.copyWith(
         title: _titleController.text.trim(),
         content: _contentController.text.trim(),
@@ -65,20 +75,28 @@ class _AddNoteScreenState extends ConsumerState<AddNoteScreen> {
         isPinned: _isPinned,
         isLocked: _isLocked,
         category: _selectedCategory.isEmpty ? 'Personal' : _selectedCategory,
+        userId: userId, // Set userId for new notes
       );
 
-      await DatabaseService.saveNote(note);
+      if (widget.noteToEdit != null) {
+        await ref.read(noteListProvider.notifier).updateNote(note);
+      } else {
+        await ref.read(noteListProvider.notifier).addNote(note);
+      }
       
       if (mounted) {
+        Navigator.of(context).pop(true); // Return true to indicate success
+        
+        // Show snackbar after navigation
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(widget.noteToEdit != null 
                 ? 'Note updated successfully' 
                 : 'Note created successfully'),
             backgroundColor: AppColors.grassGreen,
+            duration: const Duration(seconds: 2),
           ),
         );
-        Navigator.of(context).pop();
       }
     } catch (e) {
       if (mounted) {
@@ -304,6 +322,9 @@ class _AddNoteScreenState extends ConsumerState<AddNoteScreen> {
             runSpacing: 8,
             children: categories.map((category) {
               final isSelected = _selectedCategory == category.name;
+              final categoryIcon = IconData(category.effectiveIconCodePoint, fontFamily: 'MaterialIcons');
+              final categoryColor = Color(category.color);
+              
               return GestureDetector(
                 onTap: () {
                   setState(() {
@@ -314,28 +335,30 @@ class _AddNoteScreenState extends ConsumerState<AddNoteScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                   decoration: BoxDecoration(
                     color: isSelected
-                        ? AppColors.secondaryAccent.withValues(alpha: 0.2)
+                        ? categoryColor.withValues(alpha: 0.15)
                         : (isDark ? AppColors.darkSurface : AppColors.lightBackground),
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(
                       color: isSelected
-                          ? AppColors.secondaryAccent
+                          ? categoryColor
                           : (isDark ? AppColors.darkBorder : AppColors.lightMainText.withValues(alpha: 0.2)),
+                      width: isSelected ? 2 : 1,
                     ),
                   ),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text(
-                        category.icon,
-                        style: const TextStyle(fontSize: 16),
+                      Icon(
+                        categoryIcon,
+                        color: isSelected ? categoryColor : (isDark ? AppColors.darkMainText : AppColors.lightMainText.withValues(alpha: 0.6)),
+                        size: 18,
                       ),
                       const SizedBox(width: 8),
                       Text(
                         category.name,
                         style: theme.textTheme.bodySmall?.copyWith(
                           color: isSelected
-                              ? AppColors.secondaryAccent
+                              ? categoryColor
                               : (isDark ? AppColors.darkSecondaryText : AppColors.lightMainText.withValues(alpha: 0.6)),
                           fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
                         ),

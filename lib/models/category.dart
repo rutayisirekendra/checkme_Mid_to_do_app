@@ -1,5 +1,4 @@
 import 'package:hive/hive.dart';
-// import 'package:json_annotation/json_annotation.dart'; // not used
 
 part 'category.g.dart';
 
@@ -20,16 +19,45 @@ class Category {
   @HiveField(4)
   final DateTime createdAt;
 
+  @HiveField(5)
+  final String userId;
+
+  @HiveField(6)
+  final int? iconCodePoint;
+
   Category({
     required this.id,
     required this.name,
     required this.icon,
     required this.color,
     required this.createdAt,
+    this.userId = '',
+    this.iconCodePoint,
   });
 
-  factory Category.fromJson(Map<String, dynamic> json) => _$CategoryFromJson(json);
-  Map<String, dynamic> toJson() => _$CategoryToJson(this);
+  factory Category.fromJson(Map<String, dynamic> json) {
+    return Category(
+      id: json['id'] as String,
+      name: json['name'] as String,
+      icon: json['icon'] as String,
+      color: json['color'] as int,
+      createdAt: DateTime.parse(json['createdAt'] as String),
+      userId: json['userId'] as String? ?? '',
+      iconCodePoint: json['iconCodePoint'] as int?,
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'icon': icon,
+      'color': color,
+      'createdAt': createdAt.toIso8601String(),
+      'userId': userId,
+      'iconCodePoint': iconCodePoint,
+    };
+  }
 
   Category copyWith({
     String? id,
@@ -37,6 +65,8 @@ class Category {
     String? icon,
     int? color,
     DateTime? createdAt,
+    String? userId,
+    int? iconCodePoint,
   }) {
     return Category(
       id: id ?? this.id,
@@ -44,6 +74,11 @@ class Category {
       icon: icon ?? this.icon,
       color: color ?? this.color,
       createdAt: createdAt ?? this.createdAt,
+      userId: userId ?? this.userId,
+      iconCodePoint: iconCodePoint ?? this.iconCodePoint,
     );
   }
+  
+  // Helper to get icon with fallback to default
+  int get effectiveIconCodePoint => iconCodePoint ?? 0xe318; // Icons.category
 }

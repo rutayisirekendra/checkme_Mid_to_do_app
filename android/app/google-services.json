@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "275377835520",
+    "project_id": "mid-to-do-app",
+    "storage_bucket": "mid-to-do-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:275377835520:android:c36a50249edfe2969192e5",
+        "android_client_info": {
+          "package_name": "com.example.mid_to_do_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAir7kucB3pL5Kda7FZsBMPtEE5BhD4OQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

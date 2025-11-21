@@ -30,12 +30,14 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
   }
 
   void _populateFields() {
-    final currentUser = ref.read(currentUserProvider);
-    if (currentUser != null) {
-      _nameController.text = currentUser.name;
-      _emailController.text = currentUser.email;
-      _avatarPath = currentUser.avatarPath;
-    }
+    final userAsync = ref.read(currentUserProvider);
+    userAsync.whenData((currentUser) {
+      if (currentUser != null) {
+        _nameController.text = currentUser.name;
+        _emailController.text = currentUser.email;
+        _avatarPath = currentUser.avatarPath;
+      }
+    });
   }
 
   @override
@@ -163,7 +165,9 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
                               : null,
                           child: _avatarPath == null
                               ? Text(
-                                  (currentUser?.name.substring(0, 1).toUpperCase() ?? 'U'),
+                                  (_nameController.text.isNotEmpty 
+                                      ? _nameController.text.substring(0, 1).toUpperCase() 
+                                      : 'U'),
                                   style: const TextStyle(
                                     color: AppColors.white,
                                     fontWeight: FontWeight.bold,

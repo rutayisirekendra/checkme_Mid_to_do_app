@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../core/theme/app_colors.dart';
-import '../../../models/note.dart';
-import '../../../services/database_service.dart';
+import '../../../shared/providers/note_provider.dart';
 import '../screens/add_note_screen.dart';
 import '../../../shared/widgets/enhanced_screen_header.dart';
-import '../../home/widgets/enhanced_note_card.dart';
+import '../../home/widgets/modern_note_card.dart';
 
 class EnhancedNotesScreen extends ConsumerStatefulWidget {
   const EnhancedNotesScreen({super.key});
@@ -15,158 +14,143 @@ class EnhancedNotesScreen extends ConsumerStatefulWidget {
 }
 
 class _EnhancedNotesScreenState extends ConsumerState<EnhancedNotesScreen> {
-  List<Note> _notes = [];
-  bool _isLoading = true;
-
-  @override
-  void initState() {
-    super.initState();
-    _loadNotes();
-  }
-
-  Future<void> _loadNotes() async {
-    try {
-      final notes = DatabaseService.getAllNotes();
-      if (mounted) {
-        setState(() {
-          _notes = notes;
-          _isLoading = false;
-        });
-      }
-    } catch (e) {
-      if (mounted) {
-        setState(() {
-          _isLoading = false;
-        });
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Error loading notes: $e'),
-            backgroundColor: AppColors.lightOverdue,
-          ),
-        );
-      }
-    }
-  }
-
-  Future<void> _editNote(Note note) async {
-    final result = await Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) => AddNoteScreen(noteToEdit: note),
-      ),
-    );
-    if (result == true) {
-      _loadNotes();
-    }
-  }
-
-  Future<void> _showDeleteConfirmation(Note note) async {
-    final confirmed = await showDialog<bool>(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('Delete Note'),
-        content: Text('Are you sure you want to delete "${note.title}"?'),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(false),
-            child: const Text('Cancel'),
-          ),
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(true),
-            style: TextButton.styleFrom(
-              foregroundColor: AppColors.lightOverdue,
-            ),
-            child: const Text('Delete'),
-          ),
-        ],
-      ),
-    );
-
-    if (confirmed == true) {
-      try {
-        await DatabaseService.deleteNote(note.id);
-        _loadNotes();
-        if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('Note deleted successfully'),
-              backgroundColor: AppColors.grassGreen,
-            ),
-          );
-        }
-      } catch (e) {
-        if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text('Error deleting note: $e'),
-              backgroundColor: AppColors.lightOverdue,
-            ),
-          );
-        }
-      }
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
+    final notes = ref.watch(noteProvider);
 
     return Scaffold(
       backgroundColor: isDark ? AppColors.darkBackground : AppColors.lightBackground,
       body: SafeArea(
         child: Column(
-        children: [
-          // Enhanced Header
-          EnhancedScreenHeader(
-            title: 'My Notes',
-            subtitle: '${_notes.length} notes • ${_notes.where((n) => n.isPinned).length} pinned',
-            icon: Icons.note_rounded,
-            onActionTap: () async {
-              final result = await Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => const AddNoteScreen(),
-                ),
-              );
-              if (result == true) {
-                _loadNotes();
-              }
-            },
-            actionText: 'Add Note',
-            actionIcon: Icons.add_rounded,
-          ),
+          children: [
+            // Enhanced Header
+            EnhancedScreenHeader(
+              title: 'My Notes',
+              subtitle: '${notes.length} notes • ${notes.where((n) => n.isPinned).length} pinned',
+              icon: Icons.note_rounded,
+              onActionTap: () async {
+                final result = await Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const AddNoteScreen(),
+                  ),
+                );
+                if (result == true) {
+                  await ref.read(noteProvider.notifier).refresh();
+                }
+              },
+              actionText: 'Add Note',
+              actionIcon: Icons.add_rounded,
+            ),
 
-          // Notes List
-          Expanded(
-            child: _isLoading
-                ? const Center(child: CircularProgressIndicator())
-                : _notes.isEmpty
-                    ? _buildEmptyState(theme, isDark)
-                    : RefreshIndicator(
-                        onRefresh: _loadNotes,
-                        child: ListView.builder(
-                          padding: const EdgeInsets.all(20),
-                          itemCount: _notes.length,
-                          itemBuilder: (context, index) {
-                            final note = _notes[index];
-                            return Padding(
-                              padding: const EdgeInsets.only(bottom: 12),
-                              child: EnhancedNoteCard(
-                                note: note,
-                                onTap: () => _editNote(note),
-                                onEdit: () => _editNote(note),
-                                onDelete: () => _showDeleteConfirmation(note),
-                                onToggleDone: (updated) {
-                                  setState(() {
-                                    _notes[index] = updated;
-                                  });
-                                },
-                              ),
-                            );
-                          },
-                        ),
+            const SizedBox(height: 20),
+
+            // Search for notes
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: TextField(
+                decoration: InputDecoration(
+                  hintText: 'Search your notes...',
+                  hintStyle: TextStyle(
+                    color: isDark
+                        ? AppColors.darkSecondaryText
+                        : AppColors.lightMainText.withValues(alpha: 0.6),
+                  ),
+                  filled: true,
+                  fillColor: isDark
+                      ? AppColors.darkCard
+                      : const Color(0xFFF2F2F5),
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                  prefixIcon: Container(
+                    margin: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: isDark
+                          ? AppColors.darkAccent.withValues(alpha: 0.2)
+                          : const Color(0xFFFFE5D6),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Icon(
+                      Icons.search_rounded,
+                      color: isDark
+                          ? AppColors.darkAccent
+                          : AppColors.primaryAccent,
+                    ),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(28),
+                    borderSide: BorderSide(
+                      color: isDark
+                          ? AppColors.darkBorder
+                          : Colors.black.withValues(alpha: 0.05),
+                    ),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(28),
+                    borderSide: BorderSide(
+                      color: isDark
+                          ? AppColors.darkAccent
+                          : AppColors.primaryAccent,
+                    ),
+                  ),
+                ),
+                style: TextStyle(
+                  color: isDark ? AppColors.darkMainText : AppColors.lightMainText,
+                ),
+              ),
+            ),
+            const SizedBox(height: 12),
+
+            // Notes List
+            Expanded(
+              child: notes.isEmpty
+                  ? _buildEmptyState(theme, isDark)
+                  : RefreshIndicator(
+                      onRefresh: () async {
+                        await ref.read(noteProvider.notifier).refresh();
+                      },
+                      child: ListView.builder(
+                        padding: const EdgeInsets.all(20),
+                        itemCount: notes.length,
+                        itemBuilder: (context, index) {
+                          final note = notes[index];
+                          return Padding(
+                            padding: const EdgeInsets.only(bottom: 12),
+                            child: ModernNoteCard(
+                              note: note,
+                              onTap: () async {
+                                final result = await Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (context) => AddNoteScreen(noteToEdit: note),
+                                  ),
+                                );
+                                if (result == true) {
+                                  await ref.read(noteProvider.notifier).refresh();
+                                }
+                              },
+                              onEdit: () async {
+                                final result = await Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (context) => AddNoteScreen(noteToEdit: note),
+                                  ),
+                                );
+                                if (result == true) {
+                                  await ref.read(noteProvider.notifier).refresh();
+                                }
+                              },
+                              onDelete: () {
+                                ref.read(noteProvider.notifier).deleteNote(note.id);
+                              },
+                              onTogglePin: () {
+                                ref.read(noteProvider.notifier).togglePin(note.id);
+                              },
+                            ),
+                          );
+                        },
                       ),
-          ),
-        ],
+                    ),
+            ),
+          ],
         ),
       ),
     );
@@ -226,7 +210,7 @@ class _EnhancedNotesScreenState extends ConsumerState<EnhancedNotesScreen> {
                   ),
                 );
                 if (result == true) {
-                  _loadNotes();
+                  await ref.read(noteProvider.notifier).refresh();
                 }
               },
               icon: const Icon(Icons.add_rounded),

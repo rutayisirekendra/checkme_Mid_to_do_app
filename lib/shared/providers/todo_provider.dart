@@ -1,10 +1,12 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../models/todo.dart';
 import '../../services/database_service.dart';
+import '../../services/streak_service.dart';
+import 'auth_provider.dart';
 
 // Todo list provider
 final todoListProvider = StateNotifierProvider<TodoListNotifier, List<Todo>>((ref) {
-  return TodoListNotifier();
+  return TodoListNotifier(ref);
 });
 
 // Search query provider
@@ -114,16 +116,40 @@ final todoStatsProvider = Provider<TodoStats>((ref) {
 });
 
 class TodoListNotifier extends StateNotifier<List<Todo>> {
-  TodoListNotifier() : super([]) {
+  final Ref _ref;
+  
+  TodoListNotifier(this._ref) : super([]) {
     _loadTodos();
+    // Listen to auth changes and reload todos when user changes
+    _ref.listen(currentUserProvider, (previous, next) {
+      _loadTodos();
+    });
+  }
+
+  String? get _currentUserId {
+    final userAsync = _ref.read(currentUserProvider);
+    return userAsync.value?.id;
   }
 
   void _loadTodos() {
-    state = DatabaseService.getAllTodos();
+    final userId = _currentUserId;
+    if (userId == null || userId.isEmpty) {
+      state = [];
+      return;
+    }
+    state = DatabaseService.getAllTodos(userId: userId);
   }
 
   Future<void> addTodo(Todo todo) async {
-    await DatabaseService.saveTodo(todo);
+    final userId = _currentUserId;
+    if (userId == null || userId.isEmpty) return;
+    
+    // Ensure todo has userId set
+    final todoWithUser = todo.userId.isEmpty 
+        ? todo.copyWith(userId: userId) 
+        : todo;
+    
+    await DatabaseService.saveTodo(todoWithUser);
     _loadTodos();
   }
 
@@ -140,11 +166,24 @@ class TodoListNotifier extends StateNotifier<List<Todo>> {
   Future<void> toggleTodo(String todoId) async {
     final todo = DatabaseService.getTodo(todoId);
     if (todo != null) {
+      final wasCompleted = todo.isCompleted;
       final updatedTodo = todo.copyWith(
         isCompleted: !todo.isCompleted,
         completedAt: !todo.isCompleted ? DateTime.now() : null,
       );
       await DatabaseService.saveTodo(updatedTodo);
+      // Update streak if task was just completed (not uncompleted)
+      if (!wasCompleted && updatedTodo.isCompleted) {
+        try {
+          final userId = _currentUserId;
+          if (userId != null && userId.isNotEmpty) {
+            await StreakService.updateUserStreak(userId);
+          }
+        } catch (e) {
+          print('Error updating streak: $e');
+        }
+      }
+      
       _loadTodos();
     }
   }

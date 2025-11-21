@@ -32,13 +32,14 @@ class TodoAdapter extends TypeAdapter<Todo> {
       tags: (fields[12] as List?)?.cast<String>(),
       note: fields[13] as String?,
       completedAt: fields[14] as DateTime?,
+      userId: fields[15] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, Todo obj) {
     writer
-      ..writeByte(15)
+      ..writeByte(16)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -68,7 +69,9 @@ class TodoAdapter extends TypeAdapter<Todo> {
       ..writeByte(13)
       ..write(obj.note)
       ..writeByte(14)
-      ..write(obj.completedAt);
+      ..write(obj.completedAt)
+      ..writeByte(15)
+      ..write(obj.userId);
   }
 
   @override

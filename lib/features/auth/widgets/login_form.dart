@@ -167,24 +167,37 @@ class _LoginFormState extends ConsumerState<LoginForm> {
           const SizedBox(height: 16),
 
           // Biometric Login Button
-          if (ref.watch(currentUserProvider)?.biometricEnabled == true)
-            GlassmorphismButton(
-              onPressed: loginState.isLoading ? null : _handleBiometricLogin,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Icon(Icons.fingerprint, color: AppColors.white),
-                  const SizedBox(width: 8),
-                  Text(
-                    'Sign in with Biometrics',
-                    style: theme.textTheme.titleMedium?.copyWith(
-                      color: AppColors.white,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ],
-              ),
-            ),
+          Consumer(
+            builder: (context, ref, child) {
+              final userAsync = ref.watch(currentUserProvider);
+              return userAsync.when(
+                data: (user) {
+                  if (user?.biometricEnabled == true) {
+                    return GlassmorphismButton(
+                      onPressed: loginState.isLoading ? null : _handleBiometricLogin,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(Icons.fingerprint, color: AppColors.white),
+                          const SizedBox(width: 8),
+                          Text(
+                            'Sign in with Biometrics',
+                            style: theme.textTheme.titleMedium?.copyWith(
+                              color: AppColors.white,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  }
+                  return const SizedBox.shrink();
+                },
+                loading: () => const SizedBox.shrink(),
+                error: (_, __) => const SizedBox.shrink(),
+              );
+            },
+          ),
 
           const SizedBox(height: 16),
 
@@ -207,9 +220,8 @@ class _LoginFormState extends ConsumerState<LoginForm> {
             ),
           ),
         ],
-        ),
       ),
-    );
+    ));
   }
 
   void _handleLogin() {

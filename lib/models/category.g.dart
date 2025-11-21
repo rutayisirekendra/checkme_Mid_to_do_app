@@ -22,13 +22,15 @@ class CategoryAdapter extends TypeAdapter<Category> {
       icon: fields[2] as String,
       color: fields[3] as int,
       createdAt: fields[4] as DateTime,
+      userId: fields[5] as String,
+      iconCodePoint: fields[6] as int?,
     );
   }
 
   @override
   void write(BinaryWriter writer, Category obj) {
     writer
-      ..writeByte(5)
+      ..writeByte(7)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -38,7 +40,11 @@ class CategoryAdapter extends TypeAdapter<Category> {
       ..writeByte(3)
       ..write(obj.color)
       ..writeByte(4)
-      ..write(obj.createdAt);
+      ..write(obj.createdAt)
+      ..writeByte(5)
+      ..write(obj.userId)
+      ..writeByte(6)
+      ..write(obj.iconCodePoint);
   }
 
   @override
@@ -51,23 +57,3 @@ class CategoryAdapter extends TypeAdapter<Category> {
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
-
-// **************************************************************************
-// JsonSerializableGenerator
-// **************************************************************************
-
-Category _$CategoryFromJson(Map<String, dynamic> json) => Category(
-      id: json['id'] as String,
-      name: json['name'] as String,
-      icon: json['icon'] as String,
-      color: (json['color'] as num).toInt(),
-      createdAt: DateTime.parse(json['createdAt'] as String),
-    );
-
-Map<String, dynamic> _$CategoryToJson(Category instance) => <String, dynamic>{
-      'id': instance.id,
-      'name': instance.name,
-      'icon': instance.icon,
-      'color': instance.color,
-      'createdAt': instance.createdAt.toIso8601String(),
-    };

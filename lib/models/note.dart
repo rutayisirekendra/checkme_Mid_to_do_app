@@ -41,6 +41,9 @@ class Note extends HiveObject {
   @HiveField(11)
   String? category;
 
+  @HiveField(12)
+  String userId;
+
   Note({
     String? id,
     required this.title,
@@ -54,6 +57,7 @@ class Note extends HiveObject {
     this.isLocked = false,
     this.type = NoteType.text,
     this.category,
+    this.userId = '',
   })  : id = id ?? const Uuid().v4(),
         createdAt = createdAt ?? DateTime.now(),
         updatedAt = updatedAt ?? DateTime.now(),
@@ -73,6 +77,7 @@ class Note extends HiveObject {
     bool? isLocked,
     NoteType? type,
     String? category,
+    String? userId,
   }) {
     return Note(
       id: id ?? this.id,
@@ -87,6 +92,7 @@ class Note extends HiveObject {
       isLocked: isLocked ?? this.isLocked,
       type: type ?? this.type,
       category: category ?? this.category,
+      userId: userId ?? this.userId,
     );
   }
 
@@ -104,6 +110,7 @@ class Note extends HiveObject {
       'isLocked': isLocked,
       'type': type.name,
       'category': category,
+      'userId': userId,
     };
   }
 
@@ -124,6 +131,7 @@ class Note extends HiveObject {
         orElse: () => NoteType.text,
       ),
       category: json['category'],
+      userId: json['userId'] ?? '',
     );
   }
 }

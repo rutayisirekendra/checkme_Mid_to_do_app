@@ -139,6 +139,7 @@ class CategorySelector extends ConsumerWidget {
               
               final category = categories[index];
               final isSelected = selectedCategoryId == category.id;
+              final categoryIcon = IconData(category.effectiveIconCodePoint, fontFamily: 'MaterialIcons');
               
               return GestureDetector(
                 onTap: () => onCategorySelected(category.id),
@@ -192,11 +193,10 @@ class CategorySelector extends ConsumerWidget {
                             width: 1,
                           ),
                         ),
-                        child: Center(
-                          child: Text(
-                            category.icon,
-                            style: const TextStyle(fontSize: 20),
-                          ),
+                        child: Icon(
+                          categoryIcon,
+                          color: Color(category.color),
+                          size: 22,
                         ),
                       ),
                       const SizedBox(height: 8),

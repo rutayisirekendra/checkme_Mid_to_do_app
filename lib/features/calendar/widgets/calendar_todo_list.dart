@@ -8,6 +8,7 @@ class CalendarTodoList extends StatelessWidget {
   final Function(Todo) onTodoTap;
   final Function(Todo) onTodoToggle;
   final Function(Todo) onTodoDelete;
+  final Function(Todo)? onTodoEdit;
 
   const CalendarTodoList({
     super.key,
@@ -16,6 +17,7 @@ class CalendarTodoList extends StatelessWidget {
     required this.onTodoTap,
     required this.onTodoToggle,
     required this.onTodoDelete,
+    this.onTodoEdit,
   });
 
   @override
@@ -56,13 +58,15 @@ class CalendarTodoList extends StatelessWidget {
       );
     }
 
-    return ListView.builder(
-      padding: const EdgeInsets.all(16),
-      itemCount: dayTodos.length,
-      itemBuilder: (context, index) {
-        final todo = dayTodos[index];
-        return _buildTodoCard(todo, theme, isDark);
-      },
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: ListView.builder(
+        itemCount: dayTodos.length,
+        itemBuilder: (context, index) {
+          final todo = dayTodos[index];
+          return _buildTodoCard(todo, theme, isDark);
+        },
+      ),
     );
   }
 
@@ -106,11 +110,24 @@ class CalendarTodoList extends StatelessWidget {
             : null,
         trailing: PopupMenuButton<String>(
           onSelected: (value) {
-            if (value == 'delete') {
+            if (value == 'edit' && onTodoEdit != null) {
+              onTodoEdit!(todo);
+            } else if (value == 'delete') {
               onTodoDelete(todo);
             }
           },
           itemBuilder: (context) => [
+            if (onTodoEdit != null)
+              const PopupMenuItem(
+                value: 'edit',
+                child: Row(
+                  children: [
+                    Icon(Icons.edit, size: 20, color: AppColors.primaryAccent),
+                    SizedBox(width: 8),
+                    Text('Edit'),
+                  ],
+                ),
+              ),
             const PopupMenuItem(
               value: 'delete',
               child: Row(

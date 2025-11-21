@@ -20,6 +20,18 @@ class _AuthScreenState extends ConsumerState<AuthScreen> {
     super.dispose();
   }
 
+  // Method to switch to login tab (called from register form)
+  void _switchToLoginTab() {
+    setState(() {
+      _currentPage = 0;
+    });
+    _pageController.animateToPage(
+      0,
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeInOut,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -226,6 +238,15 @@ class _LoginFormContentState extends ConsumerState<_LoginFormContent> {
   bool _obscurePassword = true;
 
   @override
+  void initState() {
+    super.initState();
+    // Reset login state when the form is initialized
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      ref.read(loginProvider.notifier).reset();
+    });
+  }
+
+  @override
   void dispose() {
     _emailController.dispose();
     _passwordController.dispose();
@@ -375,6 +396,15 @@ class _RegisterFormContentState extends ConsumerState<_RegisterFormContent> {
   bool _agreeToTerms = false;
 
   @override
+  void initState() {
+    super.initState();
+    // Reset register state when the form is initialized
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      ref.read(registerProvider.notifier).reset();
+    });
+  }
+
+  @override
   void dispose() {
     _nameController.dispose();
     _emailController.dispose();
@@ -396,6 +426,36 @@ class _RegisterFormContentState extends ConsumerState<_RegisterFormContent> {
             backgroundColor: AppColors.lightOverdue,
           ),
         );
+      } else if (next.success && !next.isLoading) {
+        // Registration successful, switch to login tab
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Registration successful! Please log in with your credentials.'),
+            backgroundColor: AppColors.primaryAccent,
+            duration: Duration(seconds: 3),
+          ),
+        );
+        
+        // Clear form fields
+        _nameController.clear();
+        _emailController.clear();
+        _passwordController.clear();
+        _confirmPasswordController.clear();
+        setState(() {
+          _agreeToTerms = false;
+        });
+        
+        // Reset the register provider state
+        ref.read(registerProvider.notifier).reset();
+        
+        // Switch to login tab after a short delay
+        Future.delayed(const Duration(milliseconds: 500), () {
+          if (mounted) {
+            // Find the parent AuthScreen and switch to login tab
+            final authScreenState = context.findAncestorStateOfType<_AuthScreenState>();
+            authScreenState?._switchToLoginTab();
+          }
+        });
       }
     });
 

@@ -5,7 +5,9 @@ import '../../../shared/providers/todo_provider.dart';
 import '../../../shared/providers/auth_provider.dart';
 import '../../../shared/providers/category_provider.dart';
 import '../../../models/todo.dart';
+import '../../../models/user.dart' as models;
 import '../../todo/screens/add_todo_screen.dart';
+import '../../todo/screens/edit_todo_screen.dart';
 import '../widgets/enhanced_home_app_bar.dart';
 import '../widgets/enhanced_growing_garden.dart';
 import '../widgets/enhanced_daily_inspiration.dart';
@@ -40,13 +42,39 @@ class _EnhancedHomeScreenState extends ConsumerState<EnhancedHomeScreen> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final currentUser = ref.watch(currentUserProvider);
+    final currentUserAsync = ref.watch(currentUserProvider);
     final todoStats = ref.watch(todoStatsProvider);
     final filteredTodos = ref.watch(filteredTodoListProvider);
 
+    return currentUserAsync.when(
+      data: (currentUser) => _buildHomeContent(
+        context,
+        theme,
+        currentUser,
+        todoStats,
+        filteredTodos,
+      ),
+      loading: () => const Scaffold(
+        body: Center(child: CircularProgressIndicator()),
+      ),
+      error: (error, stack) => Scaffold(
+        body: Center(
+          child: Text('Error: ${error.toString()}'),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildHomeContent(
+      BuildContext context,
+      ThemeData theme,
+      models.User? currentUser,
+      TodoStats todoStats,
+      List<Todo> filteredTodos,
+      ) {
     return Scaffold(
-      backgroundColor: theme.brightness == Brightness.dark 
-          ? AppColors.darkBackground 
+      backgroundColor: theme.brightness == Brightness.dark
+          ? AppColors.darkBackground
           : AppColors.lightBackground,
       body: SafeArea(
         child: SingleChildScrollView(
@@ -99,8 +127,8 @@ class _EnhancedHomeScreenState extends ConsumerState<EnhancedHomeScreen> {
                           'Your Tasks',
                           style: theme.textTheme.titleLarge?.copyWith(
                             fontWeight: FontWeight.bold,
-                            color: theme.brightness == Brightness.dark 
-                                ? AppColors.darkMainText 
+                            color: theme.brightness == Brightness.dark
+                                ? AppColors.darkMainText
                                 : AppColors.lightMainText,
                           ),
                         ),
@@ -133,22 +161,29 @@ class _EnhancedHomeScreenState extends ConsumerState<EnhancedHomeScreen> {
                         padding: const EdgeInsets.only(bottom: 12),
                         child: EnhancedTaskCard(
                           todo: todo,
-                          onTap: () {
-                            Navigator.of(context).push(
+                          onTap: () async {
+                            // Await the edit screen and refresh when returning so id and edits persist in the list
+                            await Navigator.of(context).push(
                               MaterialPageRoute(
                                 builder: (context) => AddTodoScreen(todoToEdit: todo),
                               ),
                             );
+                            if (mounted) {
+                              await ref.read(todoListProvider.notifier).refresh();
+                            }
                           },
                           onToggle: () {
                             ref.read(todoListProvider.notifier).toggleTodo(todo.id);
                           },
-                          onEdit: () {
-                            Navigator.of(context).push(
+                          onEdit: () async {
+                            await Navigator.of(context).push(
                               MaterialPageRoute(
-                                builder: (context) => AddTodoScreen(todoToEdit: todo),
+                                builder: (context) => EditTodoScreen(todo: todo),
                               ),
                             );
+                            if (mounted) {
+                              await ref.read(todoListProvider.notifier).refresh();
+                            }
                           },
                           onDelete: () {
                             ref.read(todoListProvider.notifier).deleteTodo(todo.id);
@@ -182,19 +217,19 @@ class _EnhancedHomeScreenState extends ConsumerState<EnhancedHomeScreen> {
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: isDark 
+          colors: isDark
               ? [
-                  AppColors.darkCard,
-                  AppColors.darkSurface,
-                ]
+            AppColors.darkCard,
+            AppColors.darkSurface,
+          ]
               : [
-                  AppColors.white,
-                  AppColors.lightBackground.withValues(alpha: 0.6),
-                ],
+            AppColors.white,
+            AppColors.lightBackground.withValues(alpha: 0.6),
+          ],
         ),
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
-          color: isDark 
+          color: isDark
               ? AppColors.darkBorder
               : AppColors.lightMainText.withValues(alpha: 0.1),
         ),
@@ -251,9 +286,9 @@ class _EnhancedHomeScreenState extends ConsumerState<EnhancedHomeScreen> {
                 ),
                 ...categories.map((cat) => Padding(
                   padding: const EdgeInsets.only(left: 8),
-                  child: _buildFilterChip(
+                  child: _buildCategoryFilterChip(
                     theme: theme,
-                    label: '${cat.icon} ${cat.name}',
+                    category: cat,
                     selected: selectedCategoryId == cat.id,
                     onTap: () => ref.read(selectedCategoryFilterProvider.notifier).state = cat.id,
                   ),
@@ -358,6 +393,58 @@ class _EnhancedHomeScreenState extends ConsumerState<EnhancedHomeScreen> {
     );
   }
 
+  Widget _buildCategoryFilterChip({
+    required ThemeData theme,
+    required category,
+    required bool selected,
+    required VoidCallback onTap,
+  }) {
+    final isDark = theme.brightness == Brightness.dark;
+    final categoryIcon = IconData(category.effectiveIconCodePoint, fontFamily: 'MaterialIcons');
+    final categoryColor = Color(category.color);
+
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        decoration: BoxDecoration(
+          color: selected
+              ? categoryColor.withValues(alpha: 0.15)
+              : (isDark ? AppColors.darkSurface : AppColors.lightBackground),
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(
+            color: selected
+                ? categoryColor
+                : (isDark ? AppColors.darkBorder : AppColors.lightMainText.withValues(alpha: 0.2)),
+            width: selected ? 2 : 1,
+          ),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              categoryIcon,
+              size: 16,
+              color: selected
+                  ? categoryColor
+                  : (isDark ? AppColors.darkSecondaryText : AppColors.lightMainText.withValues(alpha: 0.6)),
+            ),
+            const SizedBox(width: 6),
+            Text(
+              category.name,
+              style: theme.textTheme.bodySmall?.copyWith(
+                color: selected
+                    ? categoryColor
+                    : (isDark ? AppColors.darkSecondaryText : AppColors.lightMainText.withValues(alpha: 0.6)),
+                fontWeight: selected ? FontWeight.w600 : FontWeight.normal,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   Widget _buildPriorityChip({
     required ThemeData theme,
     required Priority priority,
@@ -366,7 +453,7 @@ class _EnhancedHomeScreenState extends ConsumerState<EnhancedHomeScreen> {
   }) {
     final isDark = theme.brightness == Brightness.dark;
     final priorityData = _getPriorityData(priority);
-    
+
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -410,7 +497,7 @@ class _EnhancedHomeScreenState extends ConsumerState<EnhancedHomeScreen> {
 
   Widget _buildEmptyState(ThemeData theme) {
     final isDark = theme.brightness == Brightness.dark;
-    
+
     return Container(
       padding: const EdgeInsets.all(40),
       decoration: BoxDecoration(
@@ -446,8 +533,8 @@ class _EnhancedHomeScreenState extends ConsumerState<EnhancedHomeScreen> {
           Text(
             'Add your first task to get started!',
             style: theme.textTheme.bodyMedium?.copyWith(
-              color: isDark 
-                  ? AppColors.darkSecondaryText 
+              color: isDark
+                  ? AppColors.darkSecondaryText
                   : AppColors.lightMainText.withValues(alpha: 0.6),
             ),
             textAlign: TextAlign.center,
@@ -483,3 +570,6 @@ class _EnhancedHomeScreenState extends ConsumerState<EnhancedHomeScreen> {
     }
   }
 }
+
+
+
