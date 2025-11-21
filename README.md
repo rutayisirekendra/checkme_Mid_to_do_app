@@ -393,7 +393,7 @@ Please consider:
 ---
 
 ## 📬 Contact
-Questions? Feedback? We'd love to hear from you:
+Questions? Feedback? I'd love to hear from you:
 - **Email**: rwabigwikendra@gmail.com
 
 
