@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../models/note.dart';
+import '../../../models/category.dart';
 import '../../../shared/providers/category_provider.dart';
 
 class EnhancedNoteCard extends ConsumerWidget {
@@ -24,18 +25,29 @@ class EnhancedNoteCard extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
-    final categories = ref.watch(categoryProvider);
+    final categoryNotifier = ref.watch(categoryProvider.notifier);
+    
+    // Try to find category by ID first, then by name as fallback
+    Category category;
+    if (note.category != null && note.category!.isNotEmpty) {
+      final categoryById = categoryNotifier.getCategoryById(note.category!);
+      if (categoryById != null) {
+        category = categoryById;
+      } else {
+        // Fallback: find by name for backwards compatibility
+        final categories = ref.watch(categoryProvider);
+        final categoryByName = categories.firstWhere(
+          (cat) => cat.name == note.category,
+          orElse: () => categoryNotifier.getCategoryByIdWithFallback(''),
+        );
+        category = categoryByName;
+      }
+    } else {
+      category = categoryNotifier.getCategoryByIdWithFallback('');
+    }
 
-    // Find category by matching name
-    final category = categories.cast<dynamic>().firstWhere(
-          (cat) => cat.name == (note.category ?? 'Personal'),
-      orElse: () => null,
-    );
-
-    final categoryColor = category != null ? Color(category.color) : AppColors.primaryAccent;
-    final categoryIcon = category != null
-        ? IconData(category.effectiveIconCodePoint, fontFamily: 'MaterialIcons')
-        : Icons.note;
+    final categoryColor = Color(category.color);
+    final categoryIcon = IconData(category.effectiveIconCodePoint, fontFamily: 'MaterialIcons');
 
     // Small icon/card background used for category icon
     Widget _smallIconBg({required Widget child, required Color color}) {

@@ -137,54 +137,88 @@ class TodoListNotifier extends StateNotifier<List<Todo>> {
       state = [];
       return;
     }
-    state = DatabaseService.getAllTodos(userId: userId);
+    
+    try {
+      final todos = DatabaseService.getAllTodos(userId: userId);
+      state = todos;
+    } catch (e) {
+      // Handle database errors gracefully
+      print('Error loading todos: $e');
+      state = [];
+    }
   }
 
   Future<void> addTodo(Todo todo) async {
     final userId = _currentUserId;
-    if (userId == null || userId.isEmpty) return;
+    if (userId == null || userId.isEmpty) {
+      throw Exception('User not authenticated');
+    }
     
     // Ensure todo has userId set
     final todoWithUser = todo.userId.isEmpty 
         ? todo.copyWith(userId: userId) 
         : todo;
-    
-    await DatabaseService.saveTodo(todoWithUser);
-    _loadTodos();
+
+    try {
+      await DatabaseService.saveTodo(todoWithUser);
+      _loadTodos(); // Reload from database
+    } catch (e) {
+      throw Exception('Failed to save todo: $e');
+    }
   }
 
   Future<void> updateTodo(Todo todo) async {
-    await DatabaseService.saveTodo(todo);
-    _loadTodos();
+    final userId = _currentUserId;
+    if (userId == null || userId.isEmpty) {
+      throw Exception('User not authenticated');
+    }
+    
+    try {
+      await DatabaseService.saveTodo(todo);
+      _loadTodos(); // Reload from database
+    } catch (e) {
+      throw Exception('Failed to update todo: $e');
+    }
   }
 
   Future<void> deleteTodo(String todoId) async {
-    await DatabaseService.deleteTodo(todoId);
-    _loadTodos();
+    try {
+      await DatabaseService.deleteTodo(todoId);
+      _loadTodos(); // Reload from database
+    } catch (e) {
+      throw Exception('Failed to delete todo: $e');
+    }
   }
 
   Future<void> toggleTodo(String todoId) async {
-    final todo = DatabaseService.getTodo(todoId);
-    if (todo != null) {
-      final wasCompleted = todo.isCompleted;
-      final updatedTodo = todo.copyWith(
-        isCompleted: !todo.isCompleted,
-        completedAt: !todo.isCompleted ? DateTime.now() : null,
-      );
-      await DatabaseService.saveTodo(updatedTodo);
-      // Update streak if task was just completed (not uncompleted)
-      if (!wasCompleted && updatedTodo.isCompleted) {
-        try {
-          final userId = _currentUserId;
-          if (userId != null && userId.isNotEmpty) {
+    final userId = _currentUserId;
+    if (userId == null || userId.isEmpty) {
+      throw Exception('User not authenticated');
+    }
+    
+    try {
+      final todo = DatabaseService.getTodo(todoId);
+      if (todo != null) {
+        final wasCompleted = todo.isCompleted;
+        final updatedTodo = todo.copyWith(
+          isCompleted: !todo.isCompleted,
+          completedAt: !todo.isCompleted ? DateTime.now() : null,
+        );
+        await DatabaseService.saveTodo(updatedTodo);
+        
+        // Update streak if task was just completed (not uncompleted)
+        if (!wasCompleted && updatedTodo.isCompleted) {
+          try {
             await StreakService.updateUserStreak(userId);
+          } catch (e) {
+            print('Error updating streak: $e');
           }
-        } catch (e) {
-          print('Error updating streak: $e');
         }
+        
+        _loadTodos(); // Reload from database
       }
-      
-      _loadTodos();
+    } catch (e) {
+      throw Exception('Failed to toggle todo: $e');
     }
   }
 

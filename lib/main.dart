@@ -94,6 +94,7 @@ class AuthGate extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final authStateAsync = ref.watch(authStateProvider);
+    final currentUserAsync = ref.watch(currentUserProvider);
     
     return authStateAsync.when(
       data: (authState) {
@@ -101,17 +102,28 @@ class AuthGate extends ConsumerWidget {
           case AuthState.loading:
             return const SplashScreen();
           case AuthState.authenticated:
-            // Update user state provider
-            final userAsync = ref.watch(currentUserProvider);
-            userAsync.whenData((user) {
-              if (user != null) {
-                Future.microtask(() {
-                  ref.read(userStateProvider.notifier).state = user;
-                });
-              }
-            });
-            return const MainScreen();
+            // Only show main screen if we have a confirmed user
+            return currentUserAsync.when(
+              data: (user) {
+                if (user != null) {
+                  // Update user state provider
+                  Future.microtask(() {
+                    ref.read(userStateProvider.notifier).state = user;
+                  });
+                  return const MainScreen();
+                } else {
+                  // User is null but auth says authenticated, show loading
+                  return const SplashScreen();
+                }
+              },
+              loading: () => const SplashScreen(),
+              error: (_, __) => const AuthScreen(),
+            );
           case AuthState.unauthenticated:
+            // Clear user state when unauthenticated
+            Future.microtask(() {
+              ref.read(userStateProvider.notifier).state = null;
+            });
             return const AuthScreen();
         }
       },

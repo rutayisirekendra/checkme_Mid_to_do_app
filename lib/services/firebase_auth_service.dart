@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../models/user.dart' as app_models;
+import '../models/category.dart';
 import 'database_service.dart';
 
 class FirebaseAuthService {
@@ -53,6 +54,7 @@ class FirebaseAuthService {
       // First, ensure we're signed out
       await _auth.signOut();
       
+      // Create user account and keep them signed in
       final UserCredential credential = await _auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
@@ -62,7 +64,7 @@ class FirebaseAuthService {
       await credential.user?.updateDisplayName(name);
       await credential.user?.reload();
       
-      // Create the app user in the database before signing out
+      // Create the app user in the database
       final firebaseUser = credential.user;
       app_models.User? appUser;
       
@@ -75,22 +77,21 @@ class FirebaseAuthService {
           lastLoginAt: DateTime.now(),
         );
         await DatabaseService.saveUser(appUser);
+        
+        // Ensure categories are seeded for new user
+        await _ensureCategoriesSeeded(firebaseUser.uid);
       }
       
-      // CRITICAL: Sign out the user immediately after registration
-      // This ensures they have to log in manually after signup
-      await _auth.signOut();
-      
-      // Wait a moment to ensure sign-out is complete
-      await Future.delayed(const Duration(milliseconds: 200));
+      // DON'T sign out - keep user authenticated after registration
+      // This allows them to go directly to the app
       
       return appUser;
     } on FirebaseAuthException catch (e) {
-      // Ensure we're signed out even if there's an error
+      // Only sign out if there was an error
       await _auth.signOut();
       throw _handleAuthException(e);
     } catch (e) {
-      // Ensure we're signed out even if there's an error
+      // Only sign out if there was an error
       await _auth.signOut();
       throw Exception('Registration failed: ${e.toString()}');
     }
@@ -184,6 +185,73 @@ class FirebaseAuthService {
         return 'Email/password accounts are not enabled.';
       default:
         return 'Authentication failed: ${e.message}';
+    }
+  }
+
+  // Helper method to ensure categories are seeded for new users
+  static Future<void> _ensureCategoriesSeeded(String userId) async {
+    try {
+      // Check if user already has categories
+      final existingCategories = DatabaseService.getAllCategories(userId: userId);
+      if (existingCategories.isNotEmpty) {
+        return; // User already has categories
+      }
+
+      // Seed default categories
+      final defaultCategories = [
+        {
+          'id': 'work',
+          'name': 'Work',
+          'icon': '💼',
+          'iconCodePoint': 0xe8f9,
+          'color': 0xFF2196F3,
+        },
+        {
+          'id': 'personal',
+          'name': 'Personal',
+          'icon': '🏠',
+          'iconCodePoint': 0xe88a,
+          'color': 0xFF4CAF50,
+        },
+        {
+          'id': 'health',
+          'name': 'Health',
+          'icon': '💚',
+          'iconCodePoint': 0xe548,
+          'color': 0xFFF44336,
+        },
+        {
+          'id': 'shopping',
+          'name': 'Shopping',
+          'icon': '🛒',
+          'iconCodePoint': 0xe8cc,
+          'color': 0xFFFF9800,
+        },
+        {
+          'id': 'education',
+          'name': 'Education',
+          'icon': '📚',
+          'iconCodePoint': 0xe0af,
+          'color': 0xFF607D8B,
+        },
+      ];
+      
+      for (final catData in defaultCategories) {
+        final category = Category(
+          id: '${userId}_${catData['id']}',
+          name: catData['name'] as String,
+          icon: catData['icon'] as String,
+          iconCodePoint: catData['iconCodePoint'] as int,
+          color: catData['color'] as int,
+          userId: userId,
+          createdAt: DateTime.now(),
+        );
+        await DatabaseService.saveCategory(category);
+      }
+      
+      print('Seeded ${defaultCategories.length} categories for user $userId');
+    } catch (e) {
+      print('Failed to seed categories for user $userId: $e');
     }
   }
 }

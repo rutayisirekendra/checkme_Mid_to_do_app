@@ -30,39 +30,75 @@ class NoteListNotifier extends StateNotifier<List<Note>> {
       state = [];
       return;
     }
-    state = DatabaseService.getAllNotes(userId: userId);
+    
+    try {
+      final notes = DatabaseService.getAllNotes(userId: userId);
+      state = notes;
+    } catch (e) {
+      // Handle database errors gracefully
+      print('Error loading notes: $e');
+      state = [];
+    }
   }
 
   Future<void> addNote(Note note) async {
     final userId = _currentUserId;
-    if (userId == null || userId.isEmpty) return;
+    if (userId == null || userId.isEmpty) {
+      throw Exception('User not authenticated');
+    }
     
     // Ensure note has userId set
     final noteWithUser = note.userId.isEmpty 
         ? note.copyWith(userId: userId) 
         : note;
     
-    await DatabaseService.saveNote(noteWithUser);
-    _loadNotes();
+    try {
+      await DatabaseService.saveNote(noteWithUser);
+      _loadNotes(); // Reload from database
+    } catch (e) {
+      throw Exception('Failed to save note: $e');
+    }
   }
 
   Future<void> updateNote(Note note) async {
-    await DatabaseService.saveNote(note);
-    _loadNotes();
+    final userId = _currentUserId;
+    if (userId == null || userId.isEmpty) {
+      throw Exception('User not authenticated');
+    }
+    
+    try {
+      await DatabaseService.saveNote(note);
+      _loadNotes(); // Reload from database
+    } catch (e) {
+      throw Exception('Failed to update note: $e');
+    }
   }
 
   Future<void> deleteNote(String noteId) async {
-    await DatabaseService.deleteNote(noteId);
-    _loadNotes();
+    try {
+      await DatabaseService.deleteNote(noteId);
+      _loadNotes(); // Reload from database
+    } catch (e) {
+      throw Exception('Failed to delete note: $e');
+    }
   }
 
   Future<void> togglePin(String noteId) async {
-    final noteIndex = state.indexWhere((note) => note.id == noteId);
-    if (noteIndex != -1) {
-      final note = state[noteIndex];
-      final updatedNote = note.copyWith(isPinned: !note.isPinned);
-      await DatabaseService.saveNote(updatedNote);
-      _loadNotes();
+    final userId = _currentUserId;
+    if (userId == null || userId.isEmpty) {
+      throw Exception('User not authenticated');
+    }
+    
+    try {
+      final noteIndex = state.indexWhere((note) => note.id == noteId);
+      if (noteIndex != -1) {
+        final note = state[noteIndex];
+        final updatedNote = note.copyWith(isPinned: !note.isPinned);
+        await DatabaseService.saveNote(updatedNote);
+        _loadNotes(); // Reload from database
+      }
+    } catch (e) {
+      throw Exception('Failed to toggle note pin: $e');
     }
   }
 

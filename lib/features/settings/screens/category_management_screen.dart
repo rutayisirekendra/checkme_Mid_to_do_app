@@ -125,8 +125,11 @@ class _CategoryManagementScreenState extends ConsumerState<CategoryManagementScr
           );
         }
       } else {
-        // Create new category
-        final id = name.toLowerCase().replaceAll(' ', '_');
+        // Create new category with unique ID
+        final baseId = name.toLowerCase().replaceAll(' ', '_').replaceAll(RegExp(r'[^\w]'), '');
+        final timestamp = DateTime.now().millisecondsSinceEpoch.toString().substring(8); // Last 5 digits
+        final id = '${baseId}_$timestamp';
+        
         final category = Category(
           id: id,
           name: name,
@@ -265,6 +268,26 @@ class _CategoryManagementScreenState extends ConsumerState<CategoryManagementScr
           icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.of(context).pop(),
         ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.refresh),
+            onPressed: () async {
+              // Debug: Force reload categories
+              print('=== CATEGORY REFRESH DEBUG ===');
+              await ref.read(categoryProvider.notifier).forceReload();
+              await ref.read(categoryProvider.notifier).migrateCategoryReferences();
+              if (mounted) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Categories refreshed and migrated!'),
+                    backgroundColor: AppColors.primaryAccent,
+                  ),
+                );
+              }
+            },
+            tooltip: 'Refresh Categories',
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),

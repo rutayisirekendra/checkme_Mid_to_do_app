@@ -336,10 +336,8 @@ class TaskCard extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
-    final category = ref.watch(categoryProvider).firstWhere(
-          (cat) => cat.id == todo.category,
-      orElse: () => ref.watch(categoryProvider).first,
-    );
+    final categoryNotifier = ref.watch(categoryProvider.notifier);
+    final category = categoryNotifier.getCategoryByIdWithFallback(todo.category);
 
     final categoryIcon = IconData(category.effectiveIconCodePoint, fontFamily: 'MaterialIcons');
 

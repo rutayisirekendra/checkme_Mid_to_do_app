@@ -215,7 +215,7 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
       );
       
       if (user != null) {
-        // Registration successful - user is already signed out in the service
+        // Registration successful - user remains signed in
         state = state.copyWith(isLoading: false, success: true, error: null);
       } else {
         state = state.copyWith(

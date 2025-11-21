@@ -27,16 +27,11 @@ class EnhancedTaskCard extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
-    final categories = ref.watch(categoryProvider);
-    final category = categories.cast<dynamic>().firstWhere(
-          (cat) => cat.id == todo.category,
-      orElse: () => null,
-    );
+    final categoryNotifier = ref.watch(categoryProvider.notifier);
+    final category = categoryNotifier.getCategoryByIdWithFallback(todo.category);
 
-    final categoryColor = category != null ? Color(category.color) : AppColors.primaryAccent;
-    final categoryIcon = category != null
-        ? IconData(category.effectiveIconCodePoint, fontFamily: 'MaterialIcons')
-        : Icons.category;
+    final categoryColor = Color(category.color);
+    final categoryIcon = IconData(category.effectiveIconCodePoint, fontFamily: 'MaterialIcons');
 
     // compute due status (label + color) using date-only comparison
     Map<String, dynamic>? dueStatus;

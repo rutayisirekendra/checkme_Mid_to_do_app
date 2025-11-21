@@ -427,12 +427,12 @@ class _RegisterFormContentState extends ConsumerState<_RegisterFormContent> {
           ),
         );
       } else if (next.success && !next.isLoading) {
-        // Registration successful, switch to login tab
+        // Registration successful - show success message
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            content: Text('Registration successful! Please log in with your credentials.'),
+            content: Text('Registration successful! Welcome to CheckMe!'),
             backgroundColor: AppColors.primaryAccent,
-            duration: Duration(seconds: 3),
+            duration: Duration(seconds: 2),
           ),
         );
         
@@ -448,14 +448,8 @@ class _RegisterFormContentState extends ConsumerState<_RegisterFormContent> {
         // Reset the register provider state
         ref.read(registerProvider.notifier).reset();
         
-        // Switch to login tab after a short delay
-        Future.delayed(const Duration(milliseconds: 500), () {
-          if (mounted) {
-            // Find the parent AuthScreen and switch to login tab
-            final authScreenState = context.findAncestorStateOfType<_AuthScreenState>();
-            authScreenState?._switchToLoginTab();
-          }
-        });
+        // Don't switch to login tab - user is now authenticated
+        // AuthGate will automatically navigate to MainScreen
       }
     });
 
