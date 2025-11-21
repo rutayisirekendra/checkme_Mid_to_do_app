@@ -49,43 +49,149 @@ A premium, multi-platform Flutter productivity app that helps you capture, organ
 
 ---
 
-## 📹 Demo Video (Placeholder)
+<div align="center">
 
-> Showcase your beautiful animations and gamification features here.
+## 🎬 See CheckMe in Action
 
-<!-- Replace this block with an actual embed or thumbnail -->
-<p align="center">
-    <a href="https://your-video-link.example" target="_blank">
-        <img src="docs/media/demo-placeholder.png" alt="Demo Video" width="600" style="border-radius:12px;">
-    </a>
-</p>
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <h3>🌟 App Demo</h3>
+      <a href="https://your-video-link.example" target="_blank">
+        <img src="https://via.placeholder.com/400x225/667eea/ffffff?text=🎮+Watch+Demo" alt="CheckMe Demo Video" style="border-radius: 15px; box-shadow: 0 8px 32px rgba(0,0,0,0.2);" width="100%" />
+      </a>
+      <br/><br/>
+      <a href="https://your-video-link.example" target="_blank">
+        <img src="https://img.shields.io/badge/▶️%20Watch%20Demo-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="Watch Demo" />
+      </a>
+    </td>
+    <td align="center" width="50%">
+      <h3>📱 Features Showcase</h3>
+      <a href="https://your-features-video.example" target="_blank">
+        <img src="https://via.placeholder.com/400x225/764ba2/ffffff?text=✨+Features+Tour" alt="CheckMe Features" style="border-radius: 15px; box-shadow: 0 8px 32px rgba(0,0,0,0.2);" width="100%" />
+      </a>
+      <br/><br/>
+      <a href="https://your-features-video.example" target="_blank">
+        <img src="https://img.shields.io/badge/🚀%20Features%20Tour-667eea?style=for-the-badge&logo=play&logoColor=white" alt="Features Tour" />
+      </a>
+    </td>
+  </tr>
+</table>
 
-```
-<!-- Example Markdown for YouTube Embed (GitHub doesn't render iframe, so use thumbnail link): -->
-[![Watch the demo](https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg)](https://youtu.be/VIDEO_ID)
-```
+<details>
+<summary>🎥 <strong>Video Highlights</strong></summary>
+<br/>
+
+- 🎨 **Beautiful Animations**: Glassmorphism effects and smooth transitions
+- 🌱 **Growing Garden**: Watch your productivity garden bloom with each completed task
+- 📊 **Analytics Dashboard**: Real-time insights into your productivity patterns
+- 🔐 **Seamless Authentication**: Quick signup and biometric login
+- 📝 **Smart Task Management**: Categories, priorities, and due dates made simple
+- 🎯 **Achievement System**: Unlock badges and celebrate your progress
+
+</details>
+
+</div>
 
 ---
 
-## 📱 Download APK
+<div align="center">
 
-Experience CheckMe instantly on your Android device.
+## 📲 Download & Install
 
-<p align="center">
-  <a href="https://github.com/your-org/checkme-app/releases/latest/download/checkme-app.apk" target="_blank">
-    <img alt="Download APK" src="https://img.shields.io/badge/Download%20APK-Android-3DDC84?style=for-the-badge&logo=android&logoColor=white&labelColor=34A853" />
-  </a>
-</p>
+<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 20px; margin: 20px 0;">
 
-<p align="center">
-  <a href="https://github.com/your-org/checkme-app/releases/latest/download/checkme-app.apk" target="_blank">
-    <img src="https://img.shields.io/badge/Latest%20Release-v1.0.0-blue?style=flat-square&logo=github" alt="Latest Release" />
-  </a>
-  <img src="https://img.shields.io/badge/Size-~25MB-green?style=flat-square" alt="APK Size" />
-  <img src="https://img.shields.io/badge/Min%20SDK-21%20(Android%205.0)-orange?style=flat-square&logo=android" alt="Minimum Android Version" />
-</p>
+### 🚀 Get CheckMe Now
 
-> **Note:** Enable "Install from unknown sources" in your Android settings to install the APK. The app requires Android 5.0 (API level 21) or higher.
+<table>
+  <tr>
+    <td align="center" width="33%">
+      <img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white&labelColor=34A853" alt="Android" />
+      <br/><br/>
+      <a href="https://github.com/your-org/checkme-app/releases/latest/download/checkme-app.apk" target="_blank">
+        <img src="https://img.shields.io/badge/📱%20Download%20APK-34A853?style=for-the-badge&logo=download&logoColor=white" alt="Download APK" />
+      </a>
+      <br/><br/>
+      <img src="https://img.shields.io/badge/Size-~25MB-success?style=flat-square" alt="APK Size" />
+      <br/>
+      <img src="https://img.shields.io/badge/Min%20SDK-21%20(Android%205.0)-orange?style=flat-square" alt="Minimum Version" />
+    </td>
+    <td align="center" width="33%">
+      <img src="https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=apple&logoColor=white" alt="iOS" />
+      <br/><br/>
+      <a href="#" target="_blank">
+        <img src="https://img.shields.io/badge/🍎%20Coming%20Soon-999999?style=for-the-badge&logo=apple&logoColor=white" alt="iOS Coming Soon" />
+      </a>
+      <br/><br/>
+      <img src="https://img.shields.io/badge/TestFlight-Soon-blue?style=flat-square" alt="TestFlight" />
+      <br/>
+      <img src="https://img.shields.io/badge/iOS-14.0+-lightgrey?style=flat-square" alt="iOS Version" />
+    </td>
+    <td align="center" width="33%">
+      <img src="https://img.shields.io/badge/Web-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Web" />
+      <br/><br/>
+      <a href="https://checkme-app.web.app" target="_blank">
+        <img src="https://img.shields.io/badge/🌐%20Launch%20Web%20App-4285F4?style=for-the-badge&logo=web&logoColor=white" alt="Web App" />
+      </a>
+      <br/><br/>
+      <img src="https://img.shields.io/badge/PWA-Ready-success?style=flat-square" alt="PWA" />
+      <br/>
+      <img src="https://img.shields.io/badge/All%20Browsers-Supported-green?style=flat-square" alt="Browser Support" />
+    </td>
+  </tr>
+</table>
+
+</div>
+
+### 📋 Installation Guide
+
+<details>
+<summary>📱 <strong>Android APK Installation</strong></summary>
+<br/>
+
+1. **Download** the APK file from the link above
+2. **Enable** "Install from unknown sources" in your device settings:
+   - Go to Settings > Security > Unknown Sources
+   - Or Settings > Apps > Special Access > Install Unknown Apps
+3. **Open** the downloaded APK file
+4. **Follow** the installation prompts
+5. **Launch** CheckMe and start organizing! 🎉
+
+> ⚠️ **Note**: Requires Android 5.0 (API level 21) or higher
+
+</details>
+
+<details>
+<summary>🍎 <strong>iOS TestFlight (Coming Soon)</strong></summary>
+<br/>
+
+1. **Join** our TestFlight beta program (link coming soon)
+2. **Install** TestFlight app from the App Store if you haven't already
+3. **Open** the TestFlight invitation link
+4. **Install** CheckMe from TestFlight
+5. **Enjoy** the beta experience and share feedback! 📝
+
+> 📱 **Requirements**: iOS 14.0 or later
+
+</details>
+
+<details>
+<summary>🌐 <strong>Web App Usage</strong></summary>
+<br/>
+
+1. **Visit** [checkme-app.web.app](https://checkme-app.web.app) in any modern browser
+2. **Create** your account or sign in
+3. **Add to Home Screen** for a native app-like experience:
+   - **Chrome/Edge**: Click the install icon in the address bar
+   - **Safari**: Share → Add to Home Screen
+   - **Firefox**: Menu → Install
+4. **Enjoy** full CheckMe functionality in your browser! 🚀
+
+> 🔧 **Supported**: Chrome, Safari, Firefox, Edge, and other modern browsers
+
+</details>
+
+</div>
 
 ---
 
@@ -208,33 +314,105 @@ lib/
     └── constants.dart
 ```
 
-### Data Flow Diagram
+### 🔄 Data Flow Architecture
+
+<div align="center">
 
 ```mermaid
-flowchart LR
-  U[User] -->|interacts| UI[Flutter UI]
-  UI -->|watches| P[Riverpod Providers]
-  P -->|notifies| UI
-  subgraph State Management
-    AN[Auth Notifier]
-    TN[Todo Notifier]
-    NN[Note Notifier]
-    CN[Category Notifier]
-  end
-  P --> AN
-  P --> TN
-  P --> NN
-  P --> CN
-  AN -->|persist| HIVE[(Hive Database)]
-  TN -->|persist| HIVE
-  NN -->|persist| HIVE
-  CN -->|persist| HIVE
-  AN -->|authenticate| FB[Firebase Auth]
-  FB -->|user session| AN
-  HIVE -->|rehydrate| TN
-  HIVE -->|rehydrate| NN
-  HIVE -->|rehydrate| CN
+flowchart TB
+    %% User Layer
+    User[👤 User] --> UI[🖥️ Flutter UI Layer]
+    
+    %% UI Layer
+    UI --> |"watches providers"| P[📡 Riverpod State Layer]
+    P --> |"reactive updates"| UI
+    
+    %% State Management Layer
+    subgraph StateLayer ["🧠 State Management"]
+        direction TB
+        AP[🔐 Auth Provider<br/>User Session]
+        TP[📝 Todo Provider<br/>Task Management] 
+        NP[📒 Note Provider<br/>Note Management]
+        CP[🏷️ Category Provider<br/>Category System]
+        ThP[🎨 Theme Provider<br/>UI Preferences]
+    end
+    
+    P --> StateLayer
+    
+    %% Service Layer
+    subgraph ServiceLayer ["⚡ Business Logic Services"]
+        direction TB
+        AS[🔑 Firebase Auth<br/>Authentication]
+        NS[🔔 Notification<br/>Service]
+        SS[🎮 Streak<br/>Service]
+        DS[💾 Database<br/>Service]
+    end
+    
+    StateLayer --> ServiceLayer
+    
+    %% Storage Layer  
+    subgraph StorageLayer ["💾 Persistence Layer"]
+        direction LR
+        HIVE[(🗃️ Hive Database<br/>Local Storage)]
+        FIRE[🔥 Firebase<br/>Authentication]
+        FILES[📁 Local Files<br/>Attachments]
+    end
+    
+    ServiceLayer --> StorageLayer
+    
+    %% Styling
+    classDef userStyle fill:#667eea,stroke:#764ba2,stroke-width:3px,color:#fff
+    classDef uiStyle fill:#f093fb,stroke:#f5576c,stroke-width:2px,color:#fff
+    classDef stateStyle fill:#4facfe,stroke:#00f2fe,stroke-width:2px,color:#fff
+    classDef serviceStyle fill:#43e97b,stroke:#38f9d7,stroke-width:2px,color:#fff
+    classDef storageStyle fill:#fa709a,stroke:#fee140,stroke-width:2px,color:#fff
+    classDef providerStyle fill:#a8edea,stroke:#fed6e3,stroke-width:1px,color:#333
+    
+    class User userStyle
+    class UI uiStyle  
+    class P stateStyle
+    class StateLayer stateStyle
+    class ServiceLayer serviceStyle
+    class StorageLayer storageStyle
+    class AP,TP,NP,CP,ThP providerStyle
+    class AS,NS,SS,DS providerStyle
+    class HIVE,FIRE,FILES providerStyle
 ```
+
+</div>
+
+#### 🔍 Architecture Layers Explained
+
+<table>
+<tr>
+<td width="50%">
+
+**🎯 Frontend Layer**
+- **User Interaction**: Touch, gestures, input
+- **Flutter UI**: Material 3 widgets, animations
+- **Provider Watching**: Reactive state consumption
+
+**🧠 State Management**
+- **Riverpod Providers**: Centralized state
+- **Real-time Updates**: Automatic UI refresh
+- **Type Safety**: Compile-time checks
+
+</td>
+<td width="50%">
+
+**⚡ Business Logic**
+- **Firebase Auth**: Secure authentication
+- **Local Services**: Notifications, streaks
+- **Data Processing**: CRUD operations
+
+**💾 Data Persistence**
+- **Hive Database**: Fast local storage
+- **Firebase**: User authentication
+- **File System**: Attachment management
+
+</td>
+</tr>
+</table>
 
 ---
 
@@ -393,7 +571,7 @@ Please consider:
 ---
 
 ## 📬 Contact
-Questions? Feedback? I'd love to hear from you:
+Questions? Feedback? We'd love to hear from you:
 - **Email**: rwabigwikendra@gmail.com
 
 
