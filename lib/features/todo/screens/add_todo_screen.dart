@@ -190,7 +190,7 @@ class _AddTodoScreenState extends ConsumerState<AddTodoScreen> {
           'Priority',
           style: theme.textTheme.titleMedium?.copyWith(
             fontWeight: FontWeight.w600,
-            color: AppColors.lightMainText,
+            color: isDark ? AppColors.darkMainText : AppColors.lightMainText,
           ),
         ),
         const SizedBox(height: 12),
@@ -258,7 +258,7 @@ class _AddTodoScreenState extends ConsumerState<AddTodoScreen> {
           'Due Date',
           style: theme.textTheme.titleMedium?.copyWith(
             fontWeight: FontWeight.w600,
-            color: AppColors.lightMainText,
+            color: isDark ? AppColors.darkMainText : AppColors.lightMainText,
           ),
         ),
         const SizedBox(height: 12),
@@ -287,7 +287,7 @@ class _AddTodoScreenState extends ConsumerState<AddTodoScreen> {
                       : 'Select due date (optional)',
                   style: theme.textTheme.bodyLarge?.copyWith(
                     color: _selectedDueDate != null 
-                        ? AppColors.lightMainText
+                        ? (isDark ? AppColors.darkMainText : AppColors.lightMainText)
                         : (isDark ? AppColors.darkMainText : AppColors.lightMainText).withValues(alpha: 0.5),
                   ),
                 ),

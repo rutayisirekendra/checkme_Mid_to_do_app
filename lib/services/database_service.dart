@@ -3,18 +3,21 @@ import '../models/todo.dart';
 import '../models/user.dart';
 import '../models/note.dart';
 import '../models/category.dart';
+import '../models/notification.dart';
 
 class DatabaseService {
   static const String _todosBoxName = 'todos';
   static const String _usersBoxName = 'users';
   static const String _notesBoxName = 'notes';
   static const String _categoriesBoxName = 'categories';
+  static const String _notificationsBoxName = 'notifications';
   static const String _settingsBoxName = 'settings';
 
   static late Box<Todo> _todosBox;
   static late Box<User> _usersBox;
   static late Box<Note> _notesBox;
   static late Box<Category> _categoriesBox;
+  static late Box<NotificationModel> _notificationsBox;
   static late Box<dynamic> _settingsBox;
 
   static Future<void> init() async {
@@ -42,13 +45,47 @@ class DatabaseService {
     if (!Hive.isAdapterRegistered(2)) {
       Hive.registerAdapter(RecurrenceTypeAdapter());
     }
+    if (!Hive.isAdapterRegistered(7)) {
+      Hive.registerAdapter(NotificationModelAdapter());
+    }
+    if (!Hive.isAdapterRegistered(8)) {
+      Hive.registerAdapter(NotificationTypeAdapter());
+    }
 
-    // Open boxes
-    _todosBox = await Hive.openBox<Todo>(_todosBoxName);
-    _usersBox = await Hive.openBox<User>(_usersBoxName);
-    _notesBox = await Hive.openBox<Note>(_notesBoxName);
-    _categoriesBox = await Hive.openBox<Category>(_categoriesBoxName);
-    _settingsBox = await Hive.openBox<dynamic>(_settingsBoxName);
+    try {
+      // Open boxes with error handling for TypeId conflicts
+      _todosBox = await Hive.openBox<Todo>(_todosBoxName);
+      _usersBox = await Hive.openBox<User>(_usersBoxName);
+      _notesBox = await Hive.openBox<Note>(_notesBoxName);
+      _categoriesBox = await Hive.openBox<Category>(_categoriesBoxName);
+      _notificationsBox = await Hive.openBox<NotificationModel>(_notificationsBoxName);
+      _settingsBox = await Hive.openBox<dynamic>(_settingsBoxName);
+    } catch (e) {
+      // If there's a TypeAdapter conflict, clear the boxes and recreate them
+      print('TypeAdapter conflict detected, clearing boxes: $e');
+      await _clearAllBoxes();
+      
+      // Retry opening boxes
+      _todosBox = await Hive.openBox<Todo>(_todosBoxName);
+      _usersBox = await Hive.openBox<User>(_usersBoxName);
+      _notesBox = await Hive.openBox<Note>(_notesBoxName);
+      _categoriesBox = await Hive.openBox<Category>(_categoriesBoxName);
+      _notificationsBox = await Hive.openBox<NotificationModel>(_notificationsBoxName);
+      _settingsBox = await Hive.openBox<dynamic>(_settingsBoxName);
+    }
+  }
+
+  static Future<void> _clearAllBoxes() async {
+    try {
+      await Hive.deleteBoxFromDisk(_todosBoxName);
+      await Hive.deleteBoxFromDisk(_usersBoxName);
+      await Hive.deleteBoxFromDisk(_notesBoxName);
+      await Hive.deleteBoxFromDisk(_categoriesBoxName);
+      await Hive.deleteBoxFromDisk(_notificationsBoxName);
+      await Hive.deleteBoxFromDisk(_settingsBoxName);
+    } catch (e) {
+      print('Error clearing boxes: $e');
+    }
   }
 
   // Todo operations
@@ -274,12 +311,57 @@ class DatabaseService {
     return getCompletedTodosCount(userId: userId) / total;
   }
 
+  // Notification CRUD operations
+  static Future<void> saveNotification(NotificationModel notification) async {
+    await _notificationsBox.put(notification.id, notification);
+  }
+
+  static NotificationModel? getNotification(String id) {
+    return _notificationsBox.get(id);
+  }
+
+  static List<NotificationModel> getAllNotifications({String? userId}) {
+    if (userId == null || userId.isEmpty) {
+      return _notificationsBox.values.toList();
+    }
+    return _notificationsBox.values
+        .where((notification) => notification.userId == userId)
+        .toList();
+  }
+
+  static Future<void> deleteNotification(String id) async {
+    await _notificationsBox.delete(id);
+  }
+
+  static List<NotificationModel> getUnreadNotifications({String? userId}) {
+    if (userId == null || userId.isEmpty) {
+      return _notificationsBox.values
+          .where((notification) => !notification.isRead)
+          .toList();
+    }
+    return _notificationsBox.values
+        .where((notification) => notification.userId == userId && !notification.isRead)
+        .toList();
+  }
+
+  static int getUnreadNotificationsCount({String? userId}) {
+    if (userId == null || userId.isEmpty) {
+      return _notificationsBox.values
+          .where((notification) => !notification.isRead)
+          .length;
+    }
+    return _notificationsBox.values
+        .where((notification) => notification.userId == userId && !notification.isRead)
+        .length;
+  }
+
   // Cleanup
   static Future<void> clearAllData() async {
     await _todosBox.clear();
     await _usersBox.clear();
     await _notesBox.clear();
     await _categoriesBox.clear();
+    await _notificationsBox.clear();
     await _settingsBox.clear();
   }
 
@@ -288,6 +370,7 @@ class DatabaseService {
     await _usersBox.close();
     await _notesBox.close();
     await _categoriesBox.close();
+    await _notificationsBox.close();
     await _settingsBox.close();
   }
 }

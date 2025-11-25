@@ -18,7 +18,8 @@ class _EnhancedNotesScreenState extends ConsumerState<EnhancedNotesScreen> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
-    final notes = ref.watch(noteProvider);
+    final notes = ref.watch(filteredNoteListProvider);
+    final allNotes = ref.watch(noteProvider);
 
     return Scaffold(
       backgroundColor: isDark ? AppColors.darkBackground : AppColors.lightBackground,
@@ -28,7 +29,7 @@ class _EnhancedNotesScreenState extends ConsumerState<EnhancedNotesScreen> {
             // Enhanced Header
             EnhancedScreenHeader(
               title: 'My Notes',
-              subtitle: '${notes.length} notes • ${notes.where((n) => n.isPinned).length} pinned',
+              subtitle: '${allNotes.length} notes • ${allNotes.where((n) => n.isPinned).length} pinned',
               icon: Icons.note_rounded,
               onActionTap: () async {
                 final result = await Navigator.of(context).push(
@@ -50,6 +51,9 @@ class _EnhancedNotesScreenState extends ConsumerState<EnhancedNotesScreen> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: TextField(
+                onChanged: (value) {
+                  ref.read(noteSearchQueryProvider.notifier).updateQuery(value);
+                },
                 decoration: InputDecoration(
                   hintText: 'Search your notes...',
                   hintStyle: TextStyle(

@@ -183,8 +183,18 @@ class FirebaseAuthService {
         return 'Too many requests. Try again later.';
       case 'operation-not-allowed':
         return 'Email/password accounts are not enabled.';
+      case 'network-request-failed':
+        return 'Network error. Please check your internet connection and try again.';
+      case 'timeout':
+        return 'Request timed out. Please check your internet connection.';
       default:
-        return 'Authentication failed: ${e.message}';
+        // Handle network errors specifically
+        if (e.message?.contains('network error') == true || 
+            e.message?.contains('timeout') == true ||
+            e.message?.contains('unreachable host') == true) {
+          return 'Network connection issue. Please check your internet connection and try again.';
+        }
+        return 'Authentication failed: ${e.message ?? e.code}';
     }
   }
 

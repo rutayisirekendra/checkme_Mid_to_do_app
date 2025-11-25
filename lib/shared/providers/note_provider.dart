@@ -8,6 +8,37 @@ final noteListProvider = StateNotifierProvider<NoteListNotifier, List<Note>>((re
   return NoteListNotifier(ref);
 });
 
+// Note search query provider
+final noteSearchQueryProvider = StateNotifierProvider<NoteSearchQueryNotifier, String>((ref) {
+  return NoteSearchQueryNotifier();
+});
+
+// Filtered note list provider
+final filteredNoteListProvider = Provider<List<Note>>((ref) {
+  final notes = ref.watch(noteListProvider);
+  final searchQuery = ref.watch(noteSearchQueryProvider);
+
+  List<Note> filteredNotes = notes;
+
+  // Apply search filter
+  if (searchQuery.isNotEmpty) {
+    final query = searchQuery.toLowerCase();
+    filteredNotes = filteredNotes.where((note) =>
+        note.title.toLowerCase().contains(query) ||
+        note.content.toLowerCase().contains(query) ||
+        (note.category?.toLowerCase().contains(query) ?? false)).toList();
+  }
+
+  // Sort by pinned status and then by creation date
+  filteredNotes.sort((a, b) {
+    if (a.isPinned && !b.isPinned) return -1;
+    if (!a.isPinned && b.isPinned) return 1;
+    return b.createdAt.compareTo(a.createdAt);
+  });
+
+  return filteredNotes;
+});
+
 class NoteListNotifier extends StateNotifier<List<Note>> {
   final Ref _ref;
   
@@ -104,6 +135,19 @@ class NoteListNotifier extends StateNotifier<List<Note>> {
 
   Future<void> refresh() async {
     _loadNotes();
+  }
+}
+
+// Note search query notifier
+class NoteSearchQueryNotifier extends StateNotifier<String> {
+  NoteSearchQueryNotifier() : super('');
+
+  void updateQuery(String query) {
+    state = query;
+  }
+
+  void clearQuery() {
+    state = '';
   }
 }
 

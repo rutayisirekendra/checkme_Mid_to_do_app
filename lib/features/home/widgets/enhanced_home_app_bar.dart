@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../../shared/providers/notification_provider.dart';
 
-class EnhancedHomeAppBar extends StatelessWidget {
+class EnhancedHomeAppBar extends ConsumerWidget {
   final String userName;
   final int currentStreak;
   final VoidCallback? onProfileTap;
@@ -16,9 +18,10 @@ class EnhancedHomeAppBar extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
+    final unreadCount = ref.watch(unreadNotificationsCountProvider);
 
     return Container(
       padding: const EdgeInsets.fromLTRB(20, 16, 20, 20),
@@ -141,23 +144,55 @@ class EnhancedHomeAppBar extends StatelessWidget {
 
           const SizedBox(width: 12),
 
-          // Notification Button
+          // Notification Button with Badge
           GestureDetector(
             onTap: onNotificationTap,
-            child: Container(
-              padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                color: isDark ? AppColors.darkSurface : AppColors.lightBackground,
-                borderRadius: BorderRadius.circular(12),
-                border: Border.all(
-                  color: isDark ? AppColors.darkBorder : AppColors.lightMainText.withValues(alpha: 0.1),
+            child: Stack(
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    color: isDark ? AppColors.darkSurface : AppColors.lightBackground,
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(
+                      color: isDark ? AppColors.darkBorder : AppColors.lightMainText.withValues(alpha: 0.1),
+                    ),
+                  ),
+                  child: Icon(
+                    Icons.notifications_outlined,
+                    color: isDark ? AppColors.darkMainText : AppColors.lightMainText,
+                    size: 20,
+                  ),
                 ),
-              ),
-              child: Icon(
-                Icons.notifications_outlined,
-                color: isDark ? AppColors.darkMainText : AppColors.lightMainText,
-                size: 20,
-              ),
+                if (unreadCount > 0)
+                  Positioned(
+                    right: 4,
+                    top: 4,
+                    child:                    Container(
+                      width: 16,
+                      height: 16,
+                      padding: const EdgeInsets.symmetric(horizontal: 4),
+                      decoration: BoxDecoration(
+                        color: AppColors.lightOverdue,
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(
+                          color: isDark ? AppColors.darkSurface : AppColors.lightBackground,
+                          width: 1.5,
+                        ),
+                      ),
+                      child: Center(
+                        child: Text(
+                          unreadCount > 99 ? '99+' : '$unreadCount',
+                          style: TextStyle(
+                            color: AppColors.white,
+                            fontSize: unreadCount > 9 ? 8 : 9,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+              ],
             ),
           ),
         ],

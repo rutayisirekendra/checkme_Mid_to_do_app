@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../core/theme/app_colors.dart';
 
-class EnhancedGrowingGarden extends StatelessWidget {
+class EnhancedGrowingGarden extends ConsumerWidget {
   final int completedTasks;
   final int totalTasks;
 
@@ -12,7 +13,7 @@ class EnhancedGrowingGarden extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
     final progress = totalTasks > 0 ? completedTasks / totalTasks : 0.0;

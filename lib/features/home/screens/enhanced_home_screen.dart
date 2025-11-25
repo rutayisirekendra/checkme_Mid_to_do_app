@@ -4,6 +4,8 @@ import '../../../core/theme/app_colors.dart';
 import '../../../shared/providers/todo_provider.dart';
 import '../../../shared/providers/auth_provider.dart';
 import '../../../shared/providers/category_provider.dart';
+import '../../../shared/providers/notification_provider.dart';
+import '../../../shared/providers/streak_provider.dart';
 import '../../../models/todo.dart';
 import '../../../models/user.dart' as models;
 import '../../todo/screens/add_todo_screen.dart';
@@ -23,6 +25,7 @@ class EnhancedHomeScreen extends ConsumerStatefulWidget {
 
 class _EnhancedHomeScreenState extends ConsumerState<EnhancedHomeScreen> {
   final _scrollController = ScrollController();
+  String? _lastUserId;
 
   @override
   void initState() {
@@ -30,6 +33,7 @@ class _EnhancedHomeScreenState extends ConsumerState<EnhancedHomeScreen> {
     // Refresh todos when screen loads
     WidgetsBinding.instance.addPostFrameCallback((_) {
       ref.read(todoListProvider.notifier).refresh();
+      _invalidateStreakProviders();
     });
   }
 
@@ -37,6 +41,16 @@ class _EnhancedHomeScreenState extends ConsumerState<EnhancedHomeScreen> {
   void dispose() {
     _scrollController.dispose();
     super.dispose();
+  }
+
+  void _invalidateStreakProviders() {
+    try {
+      ref.invalidate(currentStreakProvider);
+      ref.invalidate(streakStatsProvider);
+      ref.invalidate(hasCompletedTodayProvider);
+    } catch (e) {
+      print('Error invalidating streak providers: $e');
+    }
   }
 
   @override
@@ -47,13 +61,27 @@ class _EnhancedHomeScreenState extends ConsumerState<EnhancedHomeScreen> {
     final filteredTodos = ref.watch(filteredTodoListProvider);
 
     return currentUserAsync.when(
-      data: (currentUser) => _buildHomeContent(
-        context,
-        theme,
-        currentUser,
-        todoStats,
-        filteredTodos,
-      ),
+      data: (currentUser) {
+        // Watch streak provider inside the data callback
+        final currentStreak = ref.watch(currentStreakProvider);
+        
+        // Detect user changes and refresh streak providers
+        if (currentUser != null && currentUser.id != _lastUserId) {
+          _lastUserId = currentUser.id;
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            _invalidateStreakProviders();
+          });
+        }
+        
+        return _buildHomeContent(
+          context,
+          theme,
+          currentUser,
+          todoStats,
+          filteredTodos,
+          currentStreak,
+        );
+      },
       loading: () => const Scaffold(
         body: Center(child: CircularProgressIndicator()),
       ),
@@ -71,6 +99,7 @@ class _EnhancedHomeScreenState extends ConsumerState<EnhancedHomeScreen> {
       models.User? currentUser,
       TodoStats todoStats,
       List<Todo> filteredTodos,
+      int currentStreak,
       ) {
     return Scaffold(
       backgroundColor: theme.brightness == Brightness.dark
@@ -85,7 +114,7 @@ class _EnhancedHomeScreenState extends ConsumerState<EnhancedHomeScreen> {
               // Enhanced App Bar
               EnhancedHomeAppBar(
                 userName: currentUser?.name ?? 'User',
-                currentStreak: currentUser?.currentStreak ?? 0,
+                currentStreak: currentStreak,
                 onProfileTap: () {},
                 onNotificationTap: () {
                   Navigator.of(context).push(
@@ -199,7 +228,45 @@ class _EnhancedHomeScreenState extends ConsumerState<EnhancedHomeScreen> {
           ),
         ),
       ),
-      // No FAB on home per request
+      // Debug FAB for testing notifications and streak
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () async {
+          try {
+            // Add sample notifications
+            await ref.read(notificationListProvider.notifier).createSampleNotifications();
+            
+            // Add sample completed todos for streak testing
+            await ref.read(todoListProvider.notifier).createSampleCompletedTodos();
+            
+            // Show success snackbar
+            if (mounted) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Sample notifications & completed todos added! Check your streak! 🎉🔥'),
+                  backgroundColor: Colors.green,
+                  duration: Duration(seconds: 3),
+                ),
+              );
+            }
+          } catch (e) {
+            // Show error snackbar
+            if (mounted) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text('Error: ${e.toString()}'),
+                  backgroundColor: Colors.red,
+                ),
+              );
+            }
+          }
+        },
+        backgroundColor: AppColors.primaryAccent,
+        icon: const Icon(Icons.auto_fix_high, color: Colors.white),
+        label: const Text(
+          'Test Features',
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+        ),
+      ),
     );
   }
 

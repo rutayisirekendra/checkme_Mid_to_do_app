@@ -3,6 +3,8 @@ import '../../models/todo.dart';
 import '../../services/database_service.dart';
 import '../../services/streak_service.dart';
 import 'auth_provider.dart';
+import 'streak_provider.dart';
+import 'notification_provider.dart';
 
 // Todo list provider
 final todoListProvider = StateNotifierProvider<TodoListNotifier, List<Todo>>((ref) {
@@ -209,7 +211,23 @@ class TodoListNotifier extends StateNotifier<List<Todo>> {
         // Update streak if task was just completed (not uncompleted)
         if (!wasCompleted && updatedTodo.isCompleted) {
           try {
+            final previousStreak = StreakService.calculateCurrentStreak(userId);
             await StreakService.updateUserStreak(userId);
+            final newStreak = StreakService.calculateCurrentStreak(userId);
+            
+            // Create streak notification if streak increased
+            if (newStreak > previousStreak) {
+              try {
+                await _ref.read(notificationListProvider.notifier).createStreakNotification(newStreak);
+              } catch (e) {
+                print('Error creating streak notification: $e');
+              }
+            }
+            
+            // Force refresh of all streak-related providers
+            _ref.invalidate(streakStatsProvider);
+            _ref.invalidate(currentStreakProvider);
+            _ref.invalidate(hasCompletedTodayProvider);
           } catch (e) {
             print('Error updating streak: $e');
           }
@@ -261,6 +279,69 @@ class TodoListNotifier extends StateNotifier<List<Todo>> {
 
   Future<void> refresh() async {
     _loadTodos();
+  }
+
+  // Debug method to create sample completed todos for testing streaks
+  Future<void> createSampleCompletedTodos() async {
+    final userId = _currentUserId;
+    if (userId == null || userId.isEmpty) {
+      throw Exception('User not authenticated');
+    }
+
+    final now = DateTime.now();
+    final sampleTodos = [
+      // Today's completed task
+      Todo(
+        id: 'sample_today_${now.millisecondsSinceEpoch}',
+        title: '✅ Complete morning workout',
+        description: 'Did a great 30-minute workout session!',
+        isCompleted: true,
+        completedAt: DateTime(now.year, now.month, now.day, 9, 0), // Today 9 AM
+        userId: userId,
+        createdAt: DateTime(now.year, now.month, now.day, 7, 0),
+        priority: Priority.medium,
+      ),
+      // Yesterday's completed task
+      Todo(
+        id: 'sample_yesterday_${now.millisecondsSinceEpoch}',
+        title: '📚 Read daily chapter',
+        description: 'Finished chapter 5 of productivity book',
+        isCompleted: true,
+        completedAt: DateTime(now.year, now.month, now.day - 1, 20, 0), // Yesterday 8 PM
+        userId: userId,
+        createdAt: DateTime(now.year, now.month, now.day - 1, 7, 0),
+        priority: Priority.medium,
+      ),
+      // Day before yesterday's completed task
+      Todo(
+        id: 'sample_day_before_${now.millisecondsSinceEpoch}',
+        title: '🧘 Meditation session',
+        description: '15 minutes of mindfulness meditation',
+        isCompleted: true,
+        completedAt: DateTime(now.year, now.month, now.day - 2, 18, 30), // Day before yesterday 6:30 PM
+        userId: userId,
+        createdAt: DateTime(now.year, now.month, now.day - 2, 7, 0),
+        priority: Priority.medium,
+      ),
+    ];
+
+    try {
+      for (final todo in sampleTodos) {
+        await DatabaseService.saveTodo(todo);
+      }
+      
+      // Update user streak
+      await StreakService.updateUserStreak(userId);
+      
+      // Refresh providers
+      _ref.invalidate(streakStatsProvider);
+      _ref.invalidate(currentStreakProvider);
+      _ref.invalidate(hasCompletedTodayProvider);
+      
+      _loadTodos(); // Reload todos list
+    } catch (e) {
+      throw Exception('Failed to create sample todos: $e');
+    }
   }
 }
 

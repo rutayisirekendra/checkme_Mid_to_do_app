@@ -1,4 +1,3 @@
-import '../models/user.dart';
 import '../models/todo.dart';
 import 'database_service.dart';
 
@@ -9,10 +8,47 @@ class StreakService {
     final today = DateTime(now.year, now.month, now.day);
     
     // Get all completed todos for the user
-    final completedTodos = DatabaseService.getTodos()
+    final completedTodos = DatabaseService.getAllTodos(userId: userId)
         .where((todo) => todo.isCompleted && todo.completedAt != null)
         .toList();
     
+    // Check if user has completed any tasks today
+    final hasCompletedToday = completedTodos.any((todo) {
+      final completedDate = DateTime(
+        todo.completedAt!.year,
+        todo.completedAt!.month,
+        todo.completedAt!.day,
+      );
+      return completedDate == today;
+    });
+    
+    // If user completed tasks today, start with streak of 1
+    if (hasCompletedToday) {
+      // Group completed todos by date
+      final Map<DateTime, List<Todo>> todosByDate = {};
+      for (final todo in completedTodos) {
+        final completedDate = DateTime(
+          todo.completedAt!.year,
+          todo.completedAt!.month,
+          todo.completedAt!.day,
+        );
+        todosByDate.putIfAbsent(completedDate, () => []).add(todo);
+      }
+      
+      // Start with 1 for today and count backwards
+      int streak = 1;
+      DateTime checkDate = today.subtract(const Duration(days: 1));
+      
+      // Count consecutive days backwards
+      while (todosByDate.containsKey(checkDate)) {
+        streak++;
+        checkDate = checkDate.subtract(const Duration(days: 1));
+      }
+      
+      return streak;
+    }
+    
+    // If no tasks completed today, check for existing streak
     if (completedTodos.isEmpty) return 0;
     
     // Group completed todos by date
@@ -26,20 +62,11 @@ class StreakService {
       todosByDate.putIfAbsent(completedDate, () => []).add(todo);
     }
     
-    // Count consecutive days starting from today/yesterday
+    // Count consecutive days starting from yesterday
     int streak = 0;
-    DateTime checkDate = today;
+    DateTime checkDate = today.subtract(const Duration(days: 1));
     
-    // Check if there are completed tasks today
-    if (todosByDate.containsKey(today)) {
-      streak = 1;
-      checkDate = today.subtract(const Duration(days: 1));
-    } else {
-      // If no tasks completed today, start checking from yesterday
-      checkDate = today.subtract(const Duration(days: 1));
-    }
-    
-    // Count consecutive days backwards
+    // Count consecutive days backwards from yesterday
     while (todosByDate.containsKey(checkDate)) {
       streak++;
       checkDate = checkDate.subtract(const Duration(days: 1));
@@ -71,7 +98,7 @@ class StreakService {
     final now = DateTime.now();
     final today = DateTime(now.year, now.month, now.day);
     
-    final completedTodos = DatabaseService.getTodos()
+    final completedTodos = DatabaseService.getAllTodos(userId: userId)
         .where((todo) => todo.isCompleted && todo.completedAt != null)
         .toList();
     
@@ -96,7 +123,7 @@ class StreakService {
       };
     }
     
-    final completedCount = DatabaseService.getTodos()
+    final completedCount = DatabaseService.getAllTodos(userId: userId)
         .where((todo) => todo.isCompleted)
         .length;
     
