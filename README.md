@@ -58,10 +58,27 @@ A premium, multi-platform Flutter productivity app that helps you capture, organ
 <h3 style="color: white; margin-bottom: 30px;">🌟 Experience CheckMe in Action</h3>
 
 <div style="position: relative; width: 100%; max-width: 800px; margin: 0 auto;">
-  <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.3);">
+  <!-- Clickable thumbnail that expands to video -->
+  <div id="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); cursor: pointer; background: #000;">
+    <!-- Thumbnail image -->
+    <img 
+      id="video-thumbnail"
+      src="https://img.youtube.com/vi/kGYghJ56HTk/maxresdefault.jpg" 
+      alt="CheckMe Demo Video"
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"
+      onclick="loadVideo()"
+    />
+    <!-- Play button overlay -->
+    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2;">
+      <div style="width: 80px; height: 80px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 25px rgba(0,0,0,0.3); transition: all 0.3s ease;">
+        <span style="font-size: 30px; margin-left: 5px; color: #667eea;">▶️</span>
+      </div>
+    </div>
+    <!-- Video iframe (hidden until clicked) -->
     <iframe 
-      src="https://www.youtube.com/embed/kGYghJ56HTk?rel=0" 
-      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+      id="video-iframe"
+      src=""
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; display: none;"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
       allowfullscreen
       title="CheckMe Demo Video">
@@ -88,7 +105,18 @@ A premium, multi-platform Flutter productivity app that helps you capture, organ
 
 </div>
 
----
+<script>
+function loadVideo() {
+  const thumbnail = document.getElementById('video-thumbnail');
+  const iframe = document.getElementById('video-iframe');
+  const container = document.getElementById('video-container');
+  
+  // Hide thumbnail, show iframe
+  thumbnail.style.display = 'none';
+  iframe.style.display = 'block';
+  iframe.src = 'https://www.youtube.com/embed/kGYghJ56HTk?autoplay=1&rel=0';
+}
+</script>---
 ## 📱 Download CheckMe for Android
 
 <div style="background: linear-gradient(135deg, #34A853 0%, #0F9D58 100%); padding: 50px; border-radius: 30px; margin: 30px 0; box-shadow: 0 20px 50px rgba(52, 168, 83, 0.3);">
