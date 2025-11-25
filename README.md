@@ -58,7 +58,7 @@ A premium, multi-platform Flutter productivity app that helps you capture, organ
 <h3 style="color: white; margin-bottom: 30px;">🌟 Experience CheckMe in Action</h3>
 
 <div style="position: relative; width: 100%; max-width: 800px; margin: 0 auto;">
-  <a href="https://your-video-link.example" target="_blank">
+  <a href="https://youtu.be/kGYghJ56HTk" target="_blank">
     <img src="https://via.placeholder.com/800x450/667eea/ffffff?text=🎮+Play+Demo+Video" alt="CheckMe Demo Video" style="width: 100%; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); transition: transform 0.3s ease;" />
   </a>
   
