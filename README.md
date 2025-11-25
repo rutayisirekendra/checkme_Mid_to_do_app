@@ -62,7 +62,7 @@ A premium, multi-platform Flutter productivity app that helps you capture, organ
       <img 
         src="https://img.youtube.com/vi/kGYghJ56HTk/maxresdefault.jpg" 
         alt="CheckMe Demo Video"
-        style="width: 100%; height: auto; display: block; border-radius: 20px;"
+        style="width: 100%; height: auto; display: block;"
       />
     </div>
   </a>
@@ -70,13 +70,20 @@ A premium, multi-platform Flutter productivity app that helps you capture, organ
 
 <br/>
 
+<div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+  <a href="https://youtu.be/kGYghJ56HTk" target="_blank">
+    <img src="https://img.shields.io/badge/▶️%20Watch%20on%20YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white&labelColor=CC0000" alt="Watch on YouTube" />
+  </a>
+</div>
+
 <p style="color: white; margin-top: 20px; font-style: italic;">
   "See the magic of productivity gamification in action! 🌱✨"
 </p>
 
 </div>
 
-</div>---
+</div>
+---
 
 ## 📱 Download CheckMe for Android
 
