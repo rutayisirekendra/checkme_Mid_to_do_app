@@ -167,14 +167,42 @@ A premium, multi-platform Flutter productivity app that helps you capture, organ
   </tr>
 </table>
 
-### 🎨 Dark Mode Excellence
+### 🎯 Smart Organization & Categories
+
+<table style="border: none;">
+  <tr>
+    <td align="center" width="33%">
+      <div style="padding: 15px; background: linear-gradient(135deg, #fa709a, #fee140); border-radius: 12px; margin: 10px;">
+        <h5 style="color: white; margin-bottom: 10px;">🏷️ Categories View 1</h5>
+        <img src="screenshots/category_dark.png" alt="Categories 1" style="width: 100%; border-radius: 8px;" />
+        <p style="color: white; font-size: 11px; margin-top: 8px;">Smart task categorization system</p>
+      </div>
+    </td>
+    <td align="center" width="33%">
+      <div style="padding: 15px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 12px; margin: 10px;">
+        <h5 style="color: white; margin-bottom: 10px;">🗂️ Categories View 2</h5>
+        <img src="screenshots/category_dark2.png" alt="Categories 2" style="width: 100%; border-radius: 8px;" />
+        <p style="color: white; font-size: 11px; margin-top: 8px;">Advanced category management</p>
+      </div>
+    </td>
+    <td align="center" width="33%">
+      <div style="padding: 15px; background: linear-gradient(135deg, #a8edea, #fed6e3); border-radius: 12px; margin: 10px;">
+        <h5 style="color: #333; margin-bottom: 10px;">📅 Calendar</h5>
+        <img src="screenshots/calendar.png" alt="Calendar" style="width: 100%; border-radius: 8px;" />
+        <p style="color: #333; font-size: 11px; margin-top: 8px;">Schedule and due dates view</p>
+      </div>
+    </td>
+  </tr>
+</table>
+
+### 🌙 Dark Mode Excellence
 
 <table style="border: none;">
   <tr>
     <td align="center" width="33%">
       <div style="padding: 15px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 12px; margin: 10px;">
         <h5 style="color: white; margin-bottom: 10px;">🔐 Login Dark</h5>
-        <img src="screenshots/login_dark.png" alt="Dark Login" style="width: 100%; border-radius: 8px;" />
+        <img src="screenshots/logindark.png" alt="Dark Login" style="width: 100%; border-radius: 8px;" />
         <p style="color: white; font-size: 11px; margin-top: 8px;">Secure dark theme authentication</p>
       </div>
     </td>
@@ -195,36 +223,22 @@ A premium, multi-platform Flutter productivity app that helps you capture, organ
   </tr>
 </table>
 
-### 🔄 Organization & Planning
+### 📝 Additional Features
 
 <table style="border: none;">
   <tr>
-    <td align="center" width="25%">
-      <div style="padding: 15px; background: linear-gradient(135deg, #fa709a, #fee140); border-radius: 12px; margin: 10px;">
-        <h5 style="color: white; margin-bottom: 10px;">🏷️ Categories</h5>
-        <img src="screenshots/category_dark.png" alt="Categories" style="width: 100%; border-radius: 8px;" />
-        <p style="color: white; font-size: 11px; margin-top: 8px;">Smart task categorization</p>
-      </div>
-    </td>
-    <td align="center" width="25%">
-      <div style="padding: 15px; background: linear-gradient(135deg, #a8edea, #fed6e3); border-radius: 12px; margin: 10px;">
-        <h5 style="color: #333; margin-bottom: 10px;">📅 Calendar</h5>
-        <img src="screenshots/calendar.png" alt="Calendar" style="width: 100%; border-radius: 8px;" />
-        <p style="color: #333; font-size: 11px; margin-top: 8px;">Schedule and due dates</p>
-      </div>
-    </td>
-    <td align="center" width="25%">
+    <td align="center" width="50%">
       <div style="padding: 15px; background: linear-gradient(135deg, #ffecd2, #fcb69f); border-radius: 12px; margin: 10px;">
         <h5 style="color: #333; margin-bottom: 10px;">📋 Notes</h5>
         <img src="screenshots/notes.png" alt="Notes" style="width: 100%; border-radius: 8px;" />
         <p style="color: #333; font-size: 11px; margin-top: 8px;">Rich note-taking system</p>
       </div>
     </td>
-    <td align="center" width="25%">
-      <div style="padding: 15px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 12px; margin: 10px;">
-        <h5 style="color: white; margin-bottom: 10px;">🗂️ Categories 2</h5>
-        <img src="screenshots/category_dark2.png" alt="Categories View 2" style="width: 100%; border-radius: 8px;" />
-        <p style="color: white; font-size: 11px; margin-top: 8px;">Advanced category management</p>
+    <td align="center" width="50%">
+      <div style="padding: 15px; background: linear-gradient(135deg, #43e97b, #38f9d7); border-radius: 12px; margin: 10px;">
+        <h5 style="color: white; margin-bottom: 10px;">✅ Tasks Overview</h5>
+        <img src="screenshots/tasks.png" alt="Tasks Overview" style="width: 100%; border-radius: 8px;" />
+        <p style="color: white; font-size: 11px; margin-top: 8px;">Complete task management</p>
       </div>
     </td>
   </tr>
@@ -252,9 +266,7 @@ A premium, multi-platform Flutter productivity app that helps you capture, organ
   </div>
 </div>
 
-</div>
-
----
+</div>---
 
 ## 🧩 Architecture Overview
 
