@@ -49,43 +49,177 @@ A premium, multi-platform Flutter productivity app that helps you capture, organ
 
 ---
 
-## 📹 Demo Video (Placeholder)
+<div align="center">
 
-> Showcase your beautiful animations and gamification features here.
+## 🎬 CheckMe Video Demo
 
-<!-- Replace this block with an actual embed or thumbnail -->
-<p align="center">
-    <a href="https://your-video-link.example" target="_blank">
-        <img src="docs/media/demo-placeholder.png" alt="Demo Video" width="600" style="border-radius:12px;">
-    </a>
+<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px; border-radius: 25px; margin: 30px 0; box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);">
+
+<h3 style="color: white; margin-bottom: 30px;">🌟 Experience CheckMe in Action</h3>
+
+<div style="position: relative; width: 100%; max-width: 800px; margin: 0 auto;">
+  <a href="https://your-video-link.example" target="_blank">
+    <img src="https://via.placeholder.com/800x450/667eea/ffffff?text=🎮+Play+Demo+Video" alt="CheckMe Demo Video" style="width: 100%; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); transition: transform 0.3s ease;" />
+  </a>
+  
+  <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+    <div style="width: 80px; height: 80px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 25px rgba(0,0,0,0.2);">
+      <span style="font-size: 30px; margin-left: 5px;">▶️</span>
+    </div>
+  </div>
+</div>
+
+<br/>
+
+<a href="https://your-video-link.example" target="_blank">
+  <img src="https://img.shields.io/badge/▶️%20Watch%20Full%20Demo-FF0000?style=for-the-badge&logo=youtube&logoColor=white&labelColor=CC0000" alt="Watch Demo" />
+</a>
+&nbsp;&nbsp;
+<a href="https://your-features-video.example" target="_blank">
+  <img src="https://img.shields.io/badge/🚀%20Features%20Tour-667eea?style=for-the-badge&logo=play&logoColor=white" alt="Features Tour" />
+</a>
+
+<p style="color: white; margin-top: 20px; font-style: italic;">
+  "See the magic of productivity gamification in action! 🌱✨"
 </p>
 
-```
-<!-- Example Markdown for YouTube Embed (GitHub doesn't render iframe, so use thumbnail link): -->
-[![Watch the demo](https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg)](https://youtu.be/VIDEO_ID)
-```
+</div>
+
+</div>
 
 ---
 
-## 📱 Download APK
+<div align="center">
 
-Experience CheckMe instantly on your Android device.
+## 📱 Download CheckMe for Android
 
-<p align="center">
+<div style="background: linear-gradient(135deg, #34A853 0%, #0F9D58 100%); padding: 50px; border-radius: 30px; margin: 30px 0; box-shadow: 0 20px 50px rgba(52, 168, 83, 0.3);">
+
+<h3 style="color: white; margin-bottom: 40px;">🤖 Get CheckMe on Your Android Device</h3>
+
+<div style="background: rgba(255,255,255,0.15); padding: 40px; border-radius: 20px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);">
+
+<img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white&labelColor=34A853" alt="Android" style="margin-bottom: 30px;" />
+
+<div style="margin: 30px 0;">
   <a href="https://github.com/your-org/checkme-app/releases/latest/download/checkme-app.apk" target="_blank">
-    <img alt="Download APK" src="https://img.shields.io/badge/Download%20APK-Android-3DDC84?style=for-the-badge&logo=android&logoColor=white&labelColor=34A853" />
+    <img src="https://img.shields.io/badge/📱%20Download%20APK-FFFFFF?style=for-the-badge&logo=download&logoColor=34A853&labelColor=34A853" alt="Download APK" style="transform: scale(1.2);" />
   </a>
-</p>
+</div>
 
-<p align="center">
-  <a href="https://github.com/your-org/checkme-app/releases/latest/download/checkme-app.apk" target="_blank">
-    <img src="https://img.shields.io/badge/Latest%20Release-v1.0.0-blue?style=flat-square&logo=github" alt="Latest Release" />
-  </a>
-  <img src="https://img.shields.io/badge/Size-~25MB-green?style=flat-square" alt="APK Size" />
-  <img src="https://img.shields.io/badge/Min%20SDK-21%20(Android%205.0)-orange?style=flat-square&logo=android" alt="Minimum Android Version" />
-</p>
+<div style="display: flex; justify-content: center; gap: 20px; margin-top: 30px;">
+  <img src="https://img.shields.io/badge/📦%20Size-~25MB-success?style=flat-square&labelColor=34A853" alt="APK Size" />
+  <img src="https://img.shields.io/badge/📱%20Min%20SDK-21%20(Android%205.0)-orange?style=flat-square&labelColor=FF9800" alt="Minimum Version" />
+  <img src="https://img.shields.io/badge/🚀%20Latest-v1.0.0-blue?style=flat-square&labelColor=2196F3" alt="Latest Version" />
+</div>
 
-> **Note:** Enable "Install from unknown sources" in your Android settings to install the APK. The app requires Android 5.0 (API level 21) or higher.
+<div style="margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.1); border-radius: 15px; border-left: 4px solid #FFF;">
+  <p style="color: white; margin: 0; font-size: 14px;">
+    <strong>📝 Quick Setup:</strong> Download → Enable "Unknown Sources" → Install → Enjoy! 🎉
+  </p>
+</div>
+
+</div>
+
+<div style="margin-top: 30px;">
+  <img src="https://img.shields.io/badge/⭐-Star%20on%20GitHub-FFCA28?style=for-the-badge&logo=github&logoColor=black" alt="Star on GitHub" />
+  &nbsp;&nbsp;
+  <img src="https://img.shields.io/badge/🔄-Auto%20Updates-4CAF50?style=for-the-badge&logo=refresh&logoColor=white" alt="Auto Updates" />
+</div>
+
+</div>
+
+</div>
+
+---
+
+## 📸 Feature Screenshots
+
+<div align="center">
+
+### ✨ Beautiful Interface & Powerful Features
+
+<table style="border: none;">
+  <tr>
+    <td align="center" width="25%">
+      <div style="padding: 20px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 15px; margin: 10px;">
+        <h4 style="color: white; margin-bottom: 15px;">🏠 Dashboard</h4>
+        <img src="https://via.placeholder.com/300x600/667eea/ffffff?text=📊+Dashboard+View" alt="Dashboard" style="width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.3);" />
+        <p style="color: white; font-size: 12px; margin-top: 10px;">Beautiful analytics & overview</p>
+      </div>
+    </td>
+    <td align="center" width="25%">
+      <div style="padding: 20px; background: linear-gradient(135deg, #f093fb, #f5576c); border-radius: 15px; margin: 10px;">
+        <h4 style="color: white; margin-bottom: 15px;">📝 Task Management</h4>
+        <img src="https://via.placeholder.com/300x600/f093fb/ffffff?text=✅+Smart+Tasks" alt="Tasks" style="width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.3);" />
+        <p style="color: white; font-size: 12px; margin-top: 10px;">Smart categorization & priorities</p>
+      </div>
+    </td>
+    <td align="center" width="25%">
+      <div style="padding: 20px; background: linear-gradient(135deg, #4facfe, #00f2fe); border-radius: 15px; margin: 10px;">
+        <h4 style="color: white; margin-bottom: 15px;">🌱 Growing Garden</h4>
+        <img src="https://via.placeholder.com/300x600/4facfe/ffffff?text=🌿+Garden+Growth" alt="Garden" style="width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.3);" />
+        <p style="color: white; font-size: 12px; margin-top: 10px;">Gamified productivity tracking</p>
+      </div>
+    </td>
+    <td align="center" width="25%">
+      <div style="padding: 20px; background: linear-gradient(135deg, #43e97b, #38f9d7); border-radius: 15px; margin: 10px;">
+        <h4 style="color: white; margin-bottom: 15px;">📊 Analytics</h4>
+        <img src="https://via.placeholder.com/300x600/43e97b/ffffff?text=📈+Insights+%26+Stats" alt="Analytics" style="width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.3);" />
+        <p style="color: white; font-size: 12px; margin-top: 10px;">Detailed productivity insights</p>
+      </div>
+    </td>
+  </tr>
+</table>
+
+### 🎨 More Features
+
+<table style="border: none;">
+  <tr>
+    <td align="center" width="33%">
+      <div style="padding: 15px; background: linear-gradient(135deg, #fa709a, #fee140); border-radius: 12px; margin: 10px;">
+        <h5 style="color: white; margin-bottom: 10px;">🎯 Categories</h5>
+        <img src="https://via.placeholder.com/250x400/fa709a/ffffff?text=🏷️+Smart+Categories" alt="Categories" style="width: 100%; border-radius: 8px;" />
+      </div>
+    </td>
+    <td align="center" width="33%">
+      <div style="padding: 15px; background: linear-gradient(135deg, #a8edea, #fed6e3); border-radius: 12px; margin: 10px;">
+        <h5 style="color: #333; margin-bottom: 10px;">📅 Calendar View</h5>
+        <img src="https://via.placeholder.com/250x400/a8edea/333333?text=📆+Calendar+%26+Due+Dates" alt="Calendar" style="width: 100%; border-radius: 8px;" />
+      </div>
+    </td>
+    <td align="center" width="33%">
+      <div style="padding: 15px; background: linear-gradient(135deg, #ffecd2, #fcb69f); border-radius: 12px; margin: 10px;">
+        <h5 style="color: #333; margin-bottom: 10px;">🌙 Dark Mode</h5>
+        <img src="https://via.placeholder.com/250x400/ffecd2/333333?text=🌓+Beautiful+Themes" alt="Dark Mode" style="width: 100%; border-radius: 8px;" />
+      </div>
+    </td>
+  </tr>
+</table>
+
+<div style="margin: 40px 0; padding: 30px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 20px; color: white;">
+  <h3>🎮 Gamification Features</h3>
+  <div style="display: flex; justify-content: space-around; margin-top: 20px;">
+    <div style="text-align: center;">
+      <div style="font-size: 3em;">🏆</div>
+      <p><strong>Achievements</strong><br/>Unlock badges & rewards</p>
+    </div>
+    <div style="text-align: center;">
+      <div style="font-size: 3em;">🔥</div>
+      <p><strong>Streak Tracking</strong><br/>Maintain daily momentum</p>
+    </div>
+    <div style="text-align: center;">
+      <div style="font-size: 3em;">🌱</div>
+      <p><strong>Growing Garden</strong><br/>Watch your progress bloom</p>
+    </div>
+    <div style="text-align: center;">
+      <div style="font-size: 3em;">📊</div>
+      <p><strong>Progress Analytics</strong><br/>Insights & patterns</p>
+    </div>
+  </div>
+</div>
+
+</div>
 
 ---
 
@@ -208,33 +342,99 @@ lib/
     └── constants.dart
 ```
 
-### Data Flow Diagram
+### 🔄 Data Flow Architecture
+
+<div align="center">
 
 ```mermaid
-flowchart LR
-  U[User] -->|interacts| UI[Flutter UI]
-  UI -->|watches| P[Riverpod Providers]
-  P -->|notifies| UI
-  subgraph State Management
-    AN[Auth Notifier]
-    TN[Todo Notifier]
-    NN[Note Notifier]
-    CN[Category Notifier]
-  end
-  P --> AN
-  P --> TN
-  P --> NN
-  P --> CN
-  AN -->|persist| HIVE[(Hive Database)]
-  TN -->|persist| HIVE
-  NN -->|persist| HIVE
-  CN -->|persist| HIVE
-  AN -->|authenticate| FB[Firebase Auth]
-  FB -->|user session| AN
-  HIVE -->|rehydrate| TN
-  HIVE -->|rehydrate| NN
-  HIVE -->|rehydrate| CN
+flowchart TB
+    User[User Interface] --> UI[Flutter UI Layer]
+    
+    UI --> |watches| P[Riverpod State Layer]
+    P --> |notifies| UI
+    
+    subgraph StateLayer [State Management]
+        direction TB
+        AP[Auth Provider]
+        TP[Todo Provider] 
+        NP[Note Provider]
+        CP[Category Provider]
+        ThP[Theme Provider]
+    end
+    
+    P --> StateLayer
+    
+    subgraph ServiceLayer [Business Logic Services]
+        direction TB
+        AS[Firebase Auth]
+        NS[Notification Service]
+        SS[Streak Service]
+        DS[Database Service]
+    end
+    
+    StateLayer --> ServiceLayer
+    
+    subgraph StorageLayer [Persistence Layer]
+        direction LR
+        HIVE[(Hive Database)]
+        FIRE[Firebase Auth]
+        FILES[Local Files]
+    end
+    
+    ServiceLayer --> StorageLayer
+    
+    classDef userStyle fill:#667eea,stroke:#764ba2,stroke-width:3px,color:#fff
+    classDef uiStyle fill:#f093fb,stroke:#f5576c,stroke-width:2px,color:#fff
+    classDef stateStyle fill:#4facfe,stroke:#00f2fe,stroke-width:2px,color:#fff
+    classDef serviceStyle fill:#43e97b,stroke:#38f9d7,stroke-width:2px,color:#fff
+    classDef storageStyle fill:#fa709a,stroke:#fee140,stroke-width:2px,color:#fff
+    classDef providerStyle fill:#a8edea,stroke:#fed6e3,stroke-width:1px,color:#333
+    
+    class User userStyle
+    class UI uiStyle
+    class P stateStyle
+    class StateLayer stateStyle
+    class ServiceLayer serviceStyle
+    class StorageLayer storageStyle
+    class AP,TP,NP,CP,ThP providerStyle
+    class AS,NS,SS,DS providerStyle
+    class HIVE,FIRE,FILES providerStyle
 ```
+
+</div>
+
+#### 🔍 Architecture Layers Explained
+
+<table>
+<tr>
+<td width="50%">
+
+**🎯 Frontend Layer**
+- **User Interaction**: Touch, gestures, input
+- **Flutter UI**: Material 3 widgets, animations
+- **Provider Watching**: Reactive state consumption
+
+**🧠 State Management**
+- **Riverpod Providers**: Centralized state
+- **Real-time Updates**: Automatic UI refresh
+- **Type Safety**: Compile-time checks
+
+</td>
+<td width="50%">
+
+**⚡ Business Logic**
+- **Firebase Auth**: Secure authentication
+- **Local Services**: Notifications, streaks
+- **Data Processing**: CRUD operations
+
+**💾 Data Persistence**
+- **Hive Database**: Fast local storage
+- **Firebase**: User authentication
+- **File System**: Attachment management
+
+</td>
+</tr>
+</table>
 
 ---
 
