@@ -128,7 +128,6 @@ A premium, multi-platform Flutter productivity app that helps you capture, organ
 </div>
 
 ---
-
 ## 📸 Feature Screenshots
 
 <div align="center">
@@ -139,78 +138,116 @@ A premium, multi-platform Flutter productivity app that helps you capture, organ
   <tr>
     <td align="center" width="25%">
       <div style="padding: 20px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 15px; margin: 10px;">
-        <h4 style="color: white; margin-bottom: 15px;">🏠 Dashboard</h4>
-        <img src="https://via.placeholder.com/300x600/667eea/ffffff?text=📊+Dashboard+View" alt="Dashboard" style="width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.3);" />
-        <p style="color: white; font-size: 12px; margin-top: 10px;">Beautiful analytics & overview</p>
+        <h4 style="color: white; margin-bottom: 15px;">🚀 Splash Screen</h4>
+        <img src="screenshots/splash.png" alt="Splash Screen" style="width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.3);" />
+        <p style="color: white; font-size: 12px; margin-top: 10px;">Beautiful animated welcome</p>
       </div>
     </td>
     <td align="center" width="25%">
       <div style="padding: 20px; background: linear-gradient(135deg, #f093fb, #f5576c); border-radius: 15px; margin: 10px;">
-        <h4 style="color: white; margin-bottom: 15px;">📝 Task Management</h4>
-        <img src="https://via.placeholder.com/300x600/f093fb/ffffff?text=✅+Smart+Tasks" alt="Tasks" style="width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.3);" />
-        <p style="color: white; font-size: 12px; margin-top: 10px;">Smart categorization & priorities</p>
+        <h4 style="color: white; margin-bottom: 15px;">📊 Dashboard</h4>
+        <img src="screenshots/dashboard.png" alt="Dashboard Light" style="width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.3);" />
+        <p style="color: white; font-size: 12px; margin-top: 10px;">Light mode overview & analytics</p>
       </div>
     </td>
     <td align="center" width="25%">
       <div style="padding: 20px; background: linear-gradient(135deg, #4facfe, #00f2fe); border-radius: 15px; margin: 10px;">
-        <h4 style="color: white; margin-bottom: 15px;">🌱 Growing Garden</h4>
-        <img src="https://via.placeholder.com/300x600/4facfe/ffffff?text=🌿+Garden+Growth" alt="Garden" style="width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.3);" />
-        <p style="color: white; font-size: 12px; margin-top: 10px;">Gamified productivity tracking</p>
+        <h4 style="color: white; margin-bottom: 15px;">🌙 Dashboard Dark</h4>
+        <img src="screenshots/dashboard_dark.png" alt="Dashboard Dark" style="width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.3);" />
+        <p style="color: white; font-size: 12px; margin-top: 10px;">Dark mode productivity hub</p>
       </div>
     </td>
     <td align="center" width="25%">
       <div style="padding: 20px; background: linear-gradient(135deg, #43e97b, #38f9d7); border-radius: 15px; margin: 10px;">
-        <h4 style="color: white; margin-bottom: 15px;">📊 Analytics</h4>
-        <img src="https://via.placeholder.com/300x600/43e97b/ffffff?text=📈+Insights+%26+Stats" alt="Analytics" style="width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.3);" />
-        <p style="color: white; font-size: 12px; margin-top: 10px;">Detailed productivity insights</p>
+        <h4 style="color: white; margin-bottom: 15px;">📝 Task Management</h4>
+        <img src="screenshots/tasks.png" alt="Tasks Light" style="width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.3);" />
+        <p style="color: white; font-size: 12px; margin-top: 10px;">Smart task organization</p>
       </div>
     </td>
   </tr>
 </table>
 
-### 🎨 More Features
+### 🎨 Dark Mode Excellence
 
 <table style="border: none;">
   <tr>
     <td align="center" width="33%">
+      <div style="padding: 15px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 12px; margin: 10px;">
+        <h5 style="color: white; margin-bottom: 10px;">🔐 Login Dark</h5>
+        <img src="screenshots/login_dark.png" alt="Dark Login" style="width: 100%; border-radius: 8px;" />
+        <p style="color: white; font-size: 11px; margin-top: 8px;">Secure dark theme authentication</p>
+      </div>
+    </td>
+    <td align="center" width="33%">
+      <div style="padding: 15px; background: linear-gradient(135deg, #2d3748, #4a5568); border-radius: 12px; margin: 10px;">
+        <h5 style="color: white; margin-bottom: 10px;">✅ Tasks Dark</h5>
+        <img src="screenshots/task_dark.png" alt="Dark Tasks" style="width: 100%; border-radius: 8px;" />
+        <p style="color: white; font-size: 11px; margin-top: 8px;">Task management in dark mode</p>
+      </div>
+    </td>
+    <td align="center" width="33%">
+      <div style="padding: 15px; background: linear-gradient(135deg, #1a202c, #2d3748); border-radius: 12px; margin: 10px;">
+        <h5 style="color: white; margin-bottom: 10px;">👤 Profile Dark</h5>
+        <img src="screenshots/profile_dark.png" alt="Dark Profile" style="width: 100%; border-radius: 8px;" />
+        <p style="color: white; font-size: 11px; margin-top: 8px;">User profile with dark elegance</p>
+      </div>
+    </td>
+  </tr>
+</table>
+
+### 🔄 Organization & Planning
+
+<table style="border: none;">
+  <tr>
+    <td align="center" width="25%">
       <div style="padding: 15px; background: linear-gradient(135deg, #fa709a, #fee140); border-radius: 12px; margin: 10px;">
-        <h5 style="color: white; margin-bottom: 10px;">🎯 Categories</h5>
-        <img src="https://via.placeholder.com/250x400/fa709a/ffffff?text=🏷️+Smart+Categories" alt="Categories" style="width: 100%; border-radius: 8px;" />
+        <h5 style="color: white; margin-bottom: 10px;">🏷️ Categories</h5>
+        <img src="screenshots/category_dark.png" alt="Categories" style="width: 100%; border-radius: 8px;" />
+        <p style="color: white; font-size: 11px; margin-top: 8px;">Smart task categorization</p>
       </div>
     </td>
-    <td align="center" width="33%">
+    <td align="center" width="25%">
       <div style="padding: 15px; background: linear-gradient(135deg, #a8edea, #fed6e3); border-radius: 12px; margin: 10px;">
-        <h5 style="color: #333; margin-bottom: 10px;">📅 Calendar View</h5>
-        <img src="https://via.placeholder.com/250x400/a8edea/333333?text=📆+Calendar+%26+Due+Dates" alt="Calendar" style="width: 100%; border-radius: 8px;" />
+        <h5 style="color: #333; margin-bottom: 10px;">📅 Calendar</h5>
+        <img src="screenshots/calendar.png" alt="Calendar" style="width: 100%; border-radius: 8px;" />
+        <p style="color: #333; font-size: 11px; margin-top: 8px;">Schedule and due dates</p>
       </div>
     </td>
-    <td align="center" width="33%">
+    <td align="center" width="25%">
       <div style="padding: 15px; background: linear-gradient(135deg, #ffecd2, #fcb69f); border-radius: 12px; margin: 10px;">
-        <h5 style="color: #333; margin-bottom: 10px;">🌙 Dark Mode</h5>
-        <img src="https://via.placeholder.com/250x400/ffecd2/333333?text=🌓+Beautiful+Themes" alt="Dark Mode" style="width: 100%; border-radius: 8px;" />
+        <h5 style="color: #333; margin-bottom: 10px;">📋 Notes</h5>
+        <img src="screenshots/notes.png" alt="Notes" style="width: 100%; border-radius: 8px;" />
+        <p style="color: #333; font-size: 11px; margin-top: 8px;">Rich note-taking system</p>
+      </div>
+    </td>
+    <td align="center" width="25%">
+      <div style="padding: 15px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 12px; margin: 10px;">
+        <h5 style="color: white; margin-bottom: 10px;">🗂️ Categories 2</h5>
+        <img src="screenshots/category_dark2.png" alt="Categories View 2" style="width: 100%; border-radius: 8px;" />
+        <p style="color: white; font-size: 11px; margin-top: 8px;">Advanced category management</p>
       </div>
     </td>
   </tr>
 </table>
 
 <div style="margin: 40px 0; padding: 30px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 20px; color: white;">
-  <h3>🎮 Gamification Features</h3>
+  <h3>🎮 Gamification & Productivity Features</h3>
   <div style="display: flex; justify-content: space-around; margin-top: 20px;">
     <div style="text-align: center;">
-      <div style="font-size: 3em;">🏆</div>
-      <p><strong>Achievements</strong><br/>Unlock badges & rewards</p>
-    </div>
-    <div style="text-align: center;">
-      <div style="font-size: 3em;">🔥</div>
-      <p><strong>Streak Tracking</strong><br/>Maintain daily momentum</p>
-    </div>
-    <div style="text-align: center;">
-      <div style="font-size: 3em;">🌱</div>
-      <p><strong>Growing Garden</strong><br/>Watch your progress bloom</p>
+      <div style="font-size: 3em;">🌓</div>
+      <p><strong>Dark/Light Themes</strong><br/>Beautiful theme switching</p>
     </div>
     <div style="text-align: center;">
       <div style="font-size: 3em;">📊</div>
-      <p><strong>Progress Analytics</strong><br/>Insights & patterns</p>
+      <p><strong>Smart Dashboard</strong><br/>Productivity analytics & insights</p>
+    </div>
+    <div style="text-align: center;">
+      <div style="font-size: 3em;">✅</div>
+      <p><strong>Task Management</strong><br/>Organize & prioritize efficiently</p>
+    </div>
+    <div style="text-align: center;">
+      <div style="font-size: 3em;">🎯</div>
+      <p><strong>Categories & Tags</strong><br/>Flexible organization system</p>
     </div>
   </div>
 </div>
