@@ -62,32 +62,21 @@ A premium, multi-platform Flutter productivity app that helps you capture, organ
       <img 
         src="https://img.youtube.com/vi/kGYghJ56HTk/maxresdefault.jpg" 
         alt="CheckMe Demo Video"
-        style="width: 100%; height: auto; display: block;"
+        style="width: 100%; height: auto; display: block; border-radius: 20px;"
       />
-      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center;">
-        <div style="width: 80px; height: 80px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 25px rgba(0,0,0,0.3);">
-          <span style="font-size: 30px; margin-left: 5px; color: #667eea;">▶️</span>
-        </div>
-      </div>
     </div>
   </a>
 </div>
 
 <br/>
 
-<div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-  <a href="https://youtu.be/kGYghJ56HTk" target="_blank">
-</div>
-
 <p style="color: white; margin-top: 20px; font-style: italic;">
-  "Click the thumbnail above to watch the demo on YouTube! 🌱✨"
+  "See the magic of productivity gamification in action! 🌱✨"
 </p>
 
 </div>
 
-</div>
-
----
+</div>---
 
 ## 📱 Download CheckMe for Android
 
