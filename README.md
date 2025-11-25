@@ -83,6 +83,8 @@ A premium, multi-platform Flutter productivity app that helps you capture, organ
 </div>
 
 </div>
+
+---
 ---
 
 ## 📱 Download CheckMe for Android
