@@ -77,11 +77,6 @@ A premium, multi-platform Flutter productivity app that helps you capture, organ
 
 <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
   <a href="https://youtu.be/kGYghJ56HTk" target="_blank">
-    <img src="https://img.shields.io/badge/▶️%20Watch%20on%20YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white&labelColor=CC0000" alt="Watch on YouTube" />
-  </a>
-  <a href="https://github.com/your-username/your-repo" target="_blank">
-    <img src="https://img.shields.io/badge/⭐%20Star%20on%20GitHub-667eea?style=for-the-badge&logo=github&logoColor=white" alt="Star on GitHub" />
-  </a>
 </div>
 
 <p style="color: white; margin-top: 20px; font-style: italic;">
