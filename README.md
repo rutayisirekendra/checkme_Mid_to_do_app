@@ -244,26 +244,6 @@ A premium, multi-platform Flutter productivity app that helps you capture, organ
   </tr>
 </table>
 
-<div style="margin: 40px 0; padding: 30px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 20px; color: white;">
-  <h3>🎮 Gamification & Productivity Features</h3>
-  <div style="display: flex; justify-content: space-around; margin-top: 20px;">
-    <div style="text-align: center;">
-      <div style="font-size: 3em;">🌓</div>
-      <p><strong>Dark/Light Themes</strong><br/>Beautiful theme switching</p>
-    </div>
-    <div style="text-align: center;">
-      <div style="font-size: 3em;">📊</div>
-      <p><strong>Smart Dashboard</strong><br/>Productivity analytics & insights</p>
-    </div>
-    <div style="text-align: center;">
-      <div style="font-size: 3em;">✅</div>
-      <p><strong>Task Management</strong><br/>Organize & prioritize efficiently</p>
-    </div>
-    <div style="text-align: center;">
-      <div style="font-size: 3em;">🎯</div>
-      <p><strong>Categories & Tags</strong><br/>Flexible organization system</p>
-    </div>
-  </div>
 </div>
 
 </div>---
