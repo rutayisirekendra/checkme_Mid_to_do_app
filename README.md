@@ -86,72 +86,45 @@ A premium, multi-platform Flutter productivity app that helps you capture, organ
 
 
 ---
-<div style="font-family: 'Inter', sans-serif; color: #e5e7eb; background:#111827; padding:40px; border-radius:16px; max-width:650px; margin:auto;">
+<div align="center">
 
-    <!-- Title -->
-    <h2 style="font-size:30px; font-weight:800; margin-bottom:10px;">
-        ✨ Your Productivity Journey Starts Here
-    </h2>
+<h2>✨ Your Productivity Journey Starts Here</h2>
 
-    <p style="color:#9ca3af; font-size:16px; margin-bottom:30px;">
-        Download the ultimate todo app that makes task management fun and beautiful.
-    </p>
+<p>Download the ultimate todo app that makes task management fun and beautiful.</p>
 
-    <!-- QR Section -->
-    <h3 style="font-size:20px; font-weight:700; margin-bottom:12px;">📱 Scan & Install</h3>
+<h3>📱 Scan & Install</h3>
 
-    <div style="text-align:center; margin-bottom:10px;">
-        <img src="YOUR_QR_CODE_URL_HERE" alt="QR Code" style="width:220px; border-radius:12px;">
-    </div>
+<img src="YOUR_QR_CODE_URL_HERE" alt="QR Code" width="220" />
 
-    <p style="text-align:center; color:#9ca3af; margin-bottom:35px;">
-        📸 Scan to Download Instantly
-    </p>
+<p>📸 Scan to Download Instantly</p>
 
-    <!-- Direct Download -->
-    <h3 style="font-size:20px; font-weight:700; margin-bottom:20px;">🪄 Direct Download</h3>
+<h3>🪄 Direct Download</h3>
 
-    <!-- Modern Download Button -->
-    <div style="text-align:center; margin-bottom:30px;">
-        <a href="YOUR_DOWNLOAD_LINK_HERE"
-           style="
-           display:inline-block;
-           padding:16px 34px;
-           font-size:18px;
-           font-weight:700;
-           color:white;
-           background:linear-gradient(135deg,#6366f1,#8b5cf6);
-           border-radius:14px;
-           text-decoration:none;
-           box-shadow:0 8px 30px rgba(99,102,241,0.4);
-           transition:0.25s;
-        "
-        onmouseover="this.style.boxShadow='0 12px 40px rgba(139,92,246,0.55)'"
-        onmouseout="this.style.boxShadow='0 8px 30px rgba(99,102,241,0.4)'">
-            ⚡ Download CheckMe (25 MB)
-        </a>
-    </div>
+<!-- Modern Download Button -->
+<a href="YOUR_DOWNLOAD_LINK_HERE"
+   style="
+      display:inline-block;
+      background:#6366f1;
+      padding:14px 26px;
+      border-radius:12px;
+      color:white;
+      font-size:18px;
+      font-weight:600;
+      text-decoration:none;
+      box-shadow:0 4px 14px rgba(99,102,241,0.5);
+   ">
+   ⬇️ Download CheckMe (25 MB)
+</a>
 
-    <!-- Info List -->
-    <div style="font-size:15px; color:#d1d5db;">
-        
-        <p style="margin:10px 0;">
-            📦 <strong>25 MB</strong><br>
-            <span style="color:#9ca3af;">Lightweight</span>
-        </p>
+<br><br>
 
-        <p style="margin:10px 0;">
-            🤖 <strong>Android 5.0+</strong><br>
-            <span style="color:#9ca3af;">Supported</span>
-        </p>
-
-        <p style="margin:10px 0;">
-            ⭐ <strong>Version 1.0.0</strong><br>
-            <span style="color:#9ca3af;">Latest</span>
-        </p>
-    </div>
+<!-- App Details -->
+<p>📦 <strong>25 MB</strong> — Lightweight</p>
+<p>🤖 <strong>Android 5.0+</strong> Supported</p>
+<p>⭐ <strong>Version 1.0.0</strong> — Latest</p>
 
 </div>
+
 
 ---
 
