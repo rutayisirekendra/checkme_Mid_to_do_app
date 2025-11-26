@@ -170,7 +170,6 @@ Clean, ad-free experience
 </div>
 
 ---
----
 ## 📸 Feature Screenshots
 
 <div align="center">
