@@ -129,6 +129,25 @@ Opens download immediately
 </a>
 </div>
 
+<!-- Security Verification -->
+<div style="background: linear-gradient(135deg, #667eea, #764ba2); padding: 25px; border-radius: 20px; margin-bottom: 25px; box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);">
+<div style="display: flex; align-items: center; margin-bottom: 15px;">
+<div style="font-size: 28px; margin-right: 15px;">🔒</div>
+<div>
+<div style="color: white; font-size: 18px; font-weight: bold;">Security Verified</div>
+<div style="color: rgba(255,255,255,0.9); font-size: 14px;">SHA-256 Checksum</div>
+</div>
+</div>
+<div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2);">
+<div style="color: #4CAF50; font-size: 12px; word-break: break-all; text-align: center; font-family: 'Monaco', 'Consolas', monospace; line-height: 1.4;">
+f660b125c4ee0658145025b7443fc297fa9aa5e812b5b474d497ea60cd02d2e5
+</div>
+</div>
+<div style="color: rgba(255,255,255,0.8); font-size: 12px; text-align: center; margin-top: 12px;">
+Verify this hash matches your downloaded file
+</div>
+</div>
+
 <!-- App Details -->
 <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 30px 0;">
 <div style="background: linear-gradient(135deg, #2196F3, #21CBF3); padding: 20px 15px; border-radius: 20px; text-align: center; box-shadow: 0 8px 20px rgba(33, 150, 243, 0.3);">
@@ -179,41 +198,6 @@ Opens download immediately
 </td>
 </tr>
 </table>
-
----
-
-### 🎁 Premium Features Included
-
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin: 40px 0;">
-
-<div style="background: linear-gradient(135deg, #667eea, #764ba2); padding: 30px 25px; border-radius: 20px; text-align: center; box-shadow: 0 15px 35px rgba(102, 126, 234, 0.25); position: relative; overflow: hidden;">
-<div style="position: absolute; top: -20px; right: -20px; width: 80px; height: 80px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
-<div style="font-size: 48px; margin-bottom: 15px;">✨</div>
-<h4 style="color: white; margin: 0 0 15px 0; font-size: 20px;">All Features Unlocked</h4>
-<p style="color: rgba(255,255,255,0.9); margin: 0; font-size: 15px; line-height: 1.5;">
-Complete task management with categories, priorities, and smart organization
-</p>
-</div>
-
-<div style="background: linear-gradient(135deg, #f093fb, #f5576c); padding: 30px 25px; border-radius: 20px; text-align: center; box-shadow: 0 15px 35px rgba(240, 147, 251, 0.25); position: relative; overflow: hidden;">
-<div style="position: absolute; top: -20px; left: -20px; width: 80px; height: 80px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
-<div style="font-size: 48px; margin-bottom: 15px;">🎮</div>
-<h4 style="color: white; margin: 0 0 15px 0; font-size: 20px;">Gamified Experience</h4>
-<p style="color: rgba(255,255,255,0.9); margin: 0; font-size: 15px; line-height: 1.5;">
-Growing garden, achievements, and streak tracking to keep you motivated
-</p>
-</div>
-
-<div style="background: linear-gradient(135deg, #4facfe, #00f2fe); padding: 30px 25px; border-radius: 20px; text-align: center; box-shadow: 0 15px 35px rgba(79, 172, 254, 0.25); position: relative; overflow: hidden;">
-<div style="position: absolute; bottom: -20px; right: -20px; width: 80px; height: 80px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
-<div style="font-size: 48px; margin-bottom: 15px;">🔒</div>
-<h4 style="color: white; margin: 0 0 15px 0; font-size: 20px;">Ad-Free & Secure</h4>
-<p style="color: rgba(255,255,255,0.9); margin: 0; font-size: 15px; line-height: 1.5;">
-Clean interface with Firebase authentication and local data encryption
-</p>
-</div>
-
-</div>
 
 </div>
 
