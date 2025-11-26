@@ -90,11 +90,9 @@ A premium, multi-platform Flutter productivity app that helps you capture, organ
 
 <h2>📱 Quick Install</h2>
 
-<!-- QR Code and Download Section -->
-<div style="display: flex; gap: 30px; justify-content: center; align-items: center; flex-wrap: wrap; background: linear-gradient(135deg, #f8fafc, #e2e8f0); padding: 30px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); border: 3px solid #e2e8f0; max-width: 600px; margin: 0 auto;">
-
-<!-- Left Side - QR Code -->
-<div style="text-align: center;">
+<table>
+<tr>
+<td style="text-align: center; padding: 20px; border-right: 2px solid #e2e8f0;">
 <div style="background: linear-gradient(135deg, #48bb78, #38a169); color: white; padding: 12px 20px; border-radius: 12px; margin-bottom: 20px; text-align: center; font-weight: 600; font-size: 16px;">
 📱 Scan QR Code
 </div>
@@ -106,13 +104,9 @@ A premium, multi-platform Flutter productivity app that helps you capture, organ
 <p style="margin-top: 15px; color: #4a5568; font-weight: 600; font-size: 14px;">
 📸 Scan to Download Instantly
 </p>
-</div>
+</td>
 
-<!-- Vertical Separator -->
-<div style="width: 2px; height: 120px; background: linear-gradient(to bottom, #e2e8f0, #cbd5e0, #e2e8f0); border-radius: 1px;"></div>
-
-<!-- Right Side - Download Button -->
-<div style="text-align: center;">
+<td style="text-align: center; padding: 20px;">
 <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 12px 20px; border-radius: 12px; margin-bottom: 20px; text-align: center; font-weight: 600; font-size: 16px;">
 💫 Direct Download
 </div>
@@ -124,9 +118,9 @@ A premium, multi-platform Flutter productivity app that helps you capture, organ
 <p style="margin-top: 15px; color: #4a5568; font-weight: 600; font-size: 14px;">
 🚀 25 MB • Fast & Secure
 </p>
-</div>
-
-</div>
+</td>
+</tr>
+</table>
 
 <br>
 
@@ -135,6 +129,7 @@ A premium, multi-platform Flutter productivity app that helps you capture, organ
 </p>
 
 </div>
+
 ---
 
 ## 📸 Feature Screenshots
