@@ -88,136 +88,81 @@ A premium, multi-platform Flutter productivity app that helps you capture, organ
 ---
 <div align="center">
 
-<h2 style="font-size: 32px; margin-bottom: 30px; background: linear-gradient(135deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 700;">🚀 Quick Install</h2>
-
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 800px; margin: 0 auto; align-items: center;">
+<h2 style="font-size: 28px; margin-bottom: 25px; color: #2d3748; font-weight: 700;">📱 Quick Install</h2>
 
 <!-- QR Code Section -->
 <div style="
-    background: linear-gradient(145deg, #ffffff, #f8f9fa);
-    padding: 30px;
+    background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+    padding: 25px;
     border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
-    border: 3px solid rgba(102, 126, 234, 0.1);
-    text-align: center;
+    display: inline-block;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    border: 3px solid #e2e8f0;
+    margin-bottom: 20px;
 ">
     <div style="
         background: linear-gradient(135deg, #667eea, #764ba2);
-        padding: 15px;
-        border-radius: 15px 15px 0 0;
-        margin: -30px -30px 25px -30px;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 12px;
+        margin: -25px -25px 20px -25px;
+        text-align: center;
+        font-weight: 600;
+        font-size: 16px;
     ">
-        <h3 style="color: white; margin: 0; font-size: 18px; font-weight: 600;">📱 Scan QR Code</h3>
+        📱 Scan QR Code
     </div>
     
     <div style="
         background: white;
-        padding: 20px;
-        border-radius: 15px;
+        padding: 15px;
+        border-radius: 12px;
         display: inline-block;
-        box-shadow: 0 15px 30px rgba(102, 126, 234, 0.2);
-        border: 3px solid #667eea;
-        margin-bottom: 20px;
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+        border: 2px solid #667eea;
     ">
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://github.com/rutayisirekendra/checkme_Mid_to_do_app/releases/download/1.0.0/CheckMe_App.apk&bgcolor=FFFFFF&color=667eea&margin=10&qzone=2" 
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://github.com/rutayisirekendra/checkme_Mid_to_do_app/releases/download/1.0.0/CheckMe_App.apk&bgcolor=FFFFFF&color=667eea&margin=10" 
              alt="Download QR Code" 
              width="180" 
-             style="display: block; border-radius: 10px;" />
+             style="display: block; border-radius: 8px;" />
     </div>
     
-    <div style="
-        background: linear-gradient(135deg, #667eea, #764ba2);
-        padding: 12px 20px;
-        border-radius: 25px;
-        display: inline-block;
-    ">
-        <p style="color: white; margin: 0; font-size: 14px; font-weight: 600;">
-            📸 Point & Scan • Instant Download
-        </p>
-    </div>
-</div>
-
-<!-- Download Button Section -->
-<div style="
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
-    padding: 40px 30px;
-    border-radius: 20px;
-    border: 2px solid rgba(102, 126, 234, 0.15);
-    backdrop-filter: blur(10px);
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-">
-    <!-- Background Pattern -->
-    <div style="
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: 
-            radial-gradient(circle at 20% 80%, rgba(102, 126, 234, 0.08) 0%, transparent 50%),
-            radial-gradient(circle at 80% 20%, rgba(118, 75, 162, 0.06) 0%, transparent 50%);
-    "></div>
-    
-    <div style="position: relative; z-index: 2;">
-        <h3 style="
-            color: #2d3748;
-            font-size: 22px;
-            margin-bottom: 25px;
-            font-weight: 700;
-        ">
-            💫 Direct Download
-        </h3>
-        
-        <a href="https://github.com/rutayisirekendra/checkme_Mid_to_do_app/releases/download/1.0.0/CheckMe_App.apk" 
-           style="
-                display: inline-flex;
-                align-items: center;
-                gap: 12px;
-                padding: 18px 35px;
-                background: linear-gradient(135deg, #667eea, #764ba2);
-                color: white;
-                text-decoration: none;
-                font-size: 18px;
-                font-weight: 700;
-                border-radius: 15px;
-                box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
-                border: 2px solid rgba(255, 255, 255, 0.8);
-                transition: all 0.3s ease;
-                margin-bottom: 20px;
-           "
-           onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 20px 40px rgba(102, 126, 234, 0.5)';"
-           onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 15px 35px rgba(102, 126, 234, 0.4)';">
-           ⬇️ Download Now
-        </a>
-        
-        <div style="
-            background: rgba(102, 126, 234, 0.1);
-            padding: 15px;
-            border-radius: 12px;
-            border: 1px solid rgba(102, 126, 234, 0.2);
-        ">
-            <p style="
-                color: #4a5568;
-                margin: 0;
-                font-size: 14px;
-                font-weight: 600;
-                line-height: 1.4;
-            ">
-                <span style="color: #48bb78;">✓</span> Android APK • 25 MB<br>
-                <span style="color: #48bb78;">✓</span> Fast & Secure • v1.0.0
-            </p>
-        </div>
-    </div>
-</div>
-
-</div>
-
-<div style="text-align: center; margin-top: 25px;">
-    <p style="color: #718096; font-size: 14px; font-style: italic;">
-        Get started in seconds • No registration required • Free forever
+    <p style="margin-top: 15px; color: #4a5568; font-weight: 600; font-size: 14px;">
+        📸 Scan to Download Instantly
     </p>
+</div>
+
+<br>
+
+<!-- Download Now Badge Button -->
+<a href="https://github.com/rutayisirekendra/checkme_Mid_to_do_app/releases/download/1.0.0/CheckMe_App.apk" 
+   style="
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: linear-gradient(135deg, #48bb78, #38a169);
+        color: white;
+        padding: 16px 35px;
+        text-decoration: none;
+        border-radius: 50px;
+        box-shadow: 0 12px 25px rgba(72, 187, 120, 0.4);
+        border: 2px solid rgba(255, 255, 255, 0.9);
+        font-weight: 700;
+        font-size: 18px;
+        transition: all 0.3s ease;
+        margin: 15px 0;
+   "
+   onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 15px 30px rgba(72, 187, 120, 0.5)';"
+   onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 12px 25px rgba(72, 187, 120, 0.4)';">
+   ⬇️ DOWNLOAD NOW
+</a>
+
+<br>
+
+<p style="margin-top: 15px; color: #718096; font-size: 14px; font-weight: 600;">
+    🚀 Android APK • 25 MB • Fast & Secure
+</p>
+
 </div>
 ---
 
