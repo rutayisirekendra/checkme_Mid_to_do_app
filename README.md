@@ -155,6 +155,8 @@ Opens download immediately
 </table>
 
 </div>
+
+
 ---
 
 ## 📸 Feature Screenshots
