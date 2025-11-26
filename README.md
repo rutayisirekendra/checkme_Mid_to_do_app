@@ -86,65 +86,66 @@ A premium, multi-platform Flutter productivity app that helps you capture, organ
 
 
 ---
-
 ## 📱 Download CheckMe for Android
 
-<div align="center" style="background: linear-gradient(135deg, #34A853 0%, #0F9D58 100%); padding: 50px; border-radius: 30px; margin: 40px 0; box-shadow: 0 20px 50px rgba(52, 168, 83, 0.3);">
+<div align="center" style="background: linear-gradient(135deg, #34A853 0%, #0F9D58 100%); padding: 60px 40px; border-radius: 30px; margin: 40px 0; box-shadow: 0 20px 50px rgba(52, 168, 83, 0.3);">
 
-<h2 style="color: white; margin-bottom: 15px;">🚀 Get CheckMe on Your Android Device</h2>
-<p style="color: rgba(255,255,255,0.9); margin-bottom: 40px; font-size: 18px;">Transform your productivity with our beautiful, gamified todo app</p>
+<h2 style="color: white; margin-bottom: 20px; font-size: 32px;">🚀 Get CheckMe on Android</h2>
+<p style="color: rgba(255,255,255,0.9); margin-bottom: 40px; font-size: 18px; max-width: 500px;">
+    Transform your productivity with our beautiful, gamified todo app
+</p>
 
-<div style="background: rgba(255,255,255,0.15); padding: 40px; border-radius: 20px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);">
+<div style="background: rgba(255,255,255,0.15); padding: 40px; border-radius: 25px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); max-width: 600px; margin: 0 auto;">
 
-<!-- Platform Identifier -->
+<!-- Platform Badge -->
 <div style="margin-bottom: 30px;">
-  <img src="https://img.shields.io/badge/Platform-Android-3DDC84?style=for-the-badge&logo=android&logoColor=white&labelColor=34A853" alt="Android Platform" />
+    <img src="https://img.shields.io/badge/Platform-Android-3DDC84?style=for-the-badge&logo=android&logoColor=white&labelColor=34A853" alt="Android Platform" />
 </div>
 
 <!-- Download Button -->
-<div style="margin: 30px 0;">
-  <a href="https://github.com/your-org/checkme-app/releases/latest/download/checkme-app.apk" target="_blank" style="text-decoration: none;">
-    <div style="background: white; padding: 20px 50px; border-radius: 50px; display: inline-block; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2); border: 3px solid transparent;">
-      <span style="color: #34A853; font-size: 22px; font-weight: bold;">📱 DOWNLOAD APK v1.0.0</span>
-    </div>
-  </a>
+<div style="margin: 35px 0;">
+    <a href="https://github.com/your-org/checkme-app/releases/latest/download/checkme-app.apk" target="_blank" style="text-decoration: none; display: inline-block;">
+        <div style="background: white; padding: 20px 50px; border-radius: 50px; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2); border: 3px solid rgba(255,255,255,0.3);">
+            <span style="color: #34A853; font-size: 22px; font-weight: bold;">📱 DOWNLOAD APK</span>
+        </div>
+    </a>
 </div>
 
-<!-- App Specifications -->
-<div style="display: flex; justify-content: center; gap: 20px; margin: 30px 0; flex-wrap: wrap;">
-  <div style="background: rgba(255,255,255,0.2); padding: 12px 20px; border-radius: 25px; min-width: 120px;">
-    <div style="color: white; font-size: 14px; font-weight: bold;">📦 Size</div>
-    <div style="color: white; font-size: 16px;">~25MB</div>
-  </div>
-  <div style="background: rgba(255,255,255,0.2); padding: 12px 20px; border-radius: 25px; min-width: 120px;">
-    <div style="color: white; font-size: 14px; font-weight: bold;">📱 Version</div>
-    <div style="color: white; font-size: 16px;">Android 5.0+</div>
-  </div>
-  <div style="background: rgba(255,255,255,0.2); padding: 12px 20px; border-radius: 25px; min-width: 120px;">
-    <div style="color: white; font-size: 14px; font-weight: bold;">🚀 Release</div>
-    <div style="color: white; font-size: 16px;">v1.0.0</div>
-  </div>
+<!-- App Details -->
+<div style="display: flex; justify-content: center; gap: 25px; margin: 30px 0; flex-wrap: wrap;">
+    <div style="background: rgba(255,255,255,0.2); padding: 15px 20px; border-radius: 20px; min-width: 120px; text-align: center;">
+        <div style="color: white; font-size: 14px; font-weight: bold; margin-bottom: 5px;">📦 Size</div>
+        <div style="color: white; font-size: 16px; font-weight: bold;">~25MB</div>
+    </div>
+    <div style="background: rgba(255,255,255,0.2); padding: 15px 20px; border-radius: 20px; min-width: 120px; text-align: center;">
+        <div style="color: white; font-size: 14px; font-weight: bold; margin-bottom: 5px;">📱 Version</div>
+        <div style="color: white; font-size: 16px; font-weight: bold;">Android 5.0+</div>
+    </div>
+    <div style="background: rgba(255,255,255,0.2); padding: 15px 20px; border-radius: 20px; min-width: 120px; text-align: center;">
+        <div style="color: white; font-size: 14px; font-weight: bold; margin-bottom: 5px;">🚀 Latest</div>
+        <div style="color: white; font-size: 16px; font-weight: bold;">v1.0.0</div>
+    </div>
 </div>
 
 <!-- Installation Guide -->
 <div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 15px; margin-top: 30px; border-left: 4px solid #FFF;">
-  <p style="color: white; margin: 0; font-size: 16px; text-align: center; line-height: 1.6;">
-    <strong>📝 Quick Setup Guide:</strong><br/>
-    1. Download APK → 2. Enable "Unknown Sources" → 3. Install → 4. Enjoy! 🎉
-  </p>
+    <p style="color: white; margin: 0; font-size: 16px; text-align: center; line-height: 1.6;">
+        <strong>📝 Quick Setup:</strong><br/>
+        Download → Enable "Unknown Sources" → Install → Enjoy! 🎉
+    </p>
 </div>
 
 </div>
 
-<!-- Additional Features -->
-<div style="margin-top: 30px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-  <img src="https://img.shields.io/badge/⭐_Star_on_GitHub-FFCA28?style=for-the-badge&logo=github&logoColor=black" alt="Star on GitHub" />
-  <img src="https://img.shields.io/badge/🔒_Privacy_Focused-4CAF50?style=for-the-badge&logo=shield&logoColor=white" alt="Privacy Focused" />
-  <img src="https://img.shields.io/badge/🎯_No_Ads-FF6B6B?style=for-the-badge&logo=block&logoColor=white" alt="No Ads" />
-  <img src="https://img.shields.io/badge/🔄_Auto_Updates-2196F3?style=for-the-badge&logo=refresh&logoColor=white" alt="Auto Updates" />
+<!-- Additional Badges -->
+<div style="margin-top: 35px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+    <img src="https://img.shields.io/badge/⭐_Star_on_GitHub-FFCA28?style=for-the-badge&logo=github&logoColor=black" alt="Star on GitHub" />
+    <img src="https://img.shields.io/badge/🔄_Auto_Updates-4CAF50?style=for-the-badge&logo=refresh&logoColor=white" alt="Auto Updates" />
+    <img src="https://img.shields.io/badge/🔒_Privacy_Focused-2196F3?style=for-the-badge&logo=shield&logoColor=white" alt="Privacy Focused" />
 </div>
 
-</div>---
+</div>
+---
 ## 📸 Feature Screenshots
 
 <div align="center">
