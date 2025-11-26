@@ -88,43 +88,42 @@ A premium, multi-platform Flutter productivity app that helps you capture, organ
 ---
 <div align="center">
 
-<h2>✨ Your Productivity Journey Starts Here</h2>
+<h2>📱 Quick Install</h2>
 
-<p>Download the ultimate todo app that makes task management fun and beautiful.</p>
-
-<h3>📱 Scan & Install</h3>
-
-<img src="YOUR_QR_CODE_URL_HERE" alt="QR Code" width="220" />
-
-<p>📸 Scan to Download Instantly</p>
-
-<h3>🪄 Direct Download</h3>
-
-<!-- Modern Download Button -->
-<a href="YOUR_DOWNLOAD_LINK_HERE"
-   style="
-      display:inline-block;
-      background:#6366f1;
-      padding:14px 26px;
-      border-radius:12px;
-      color:white;
-      font-size:18px;
-      font-weight:600;
-      text-decoration:none;
-      box-shadow:0 4px 14px rgba(99,102,241,0.5);
-   ">
-   ⬇️ Download CheckMe (25 MB)
-</a>
-
-<br><br>
-
-<!-- App Details -->
-<p>📦 <strong>25 MB</strong> — Lightweight</p>
-<p>🤖 <strong>Android 5.0+</strong> Supported</p>
-<p>⭐ <strong>Version 1.0.0</strong> — Latest</p>
-
+<!-- QR Code Box -->
+<div style="
+    padding: 20px;
+    border: 2px solid #444;
+    border-radius: 14px;
+    display: inline-block;
+    background: #1a1a1a;
+">
+    <img src="YOUR_QR_CODE_URL_HERE" alt="QR Code" width="200" />
 </div>
 
+<p style="margin-top: 10px;">📸 Scan to Download Instantly</p>
+
+<br>
+
+<!-- Download Button -->
+<a href="YOUR_DOWNLOAD_LINK_HERE" 
+   style="
+        display:inline-block;
+        padding:14px 28px;
+        background:linear-gradient(135deg, #667eea, #764ba2);
+        color:white;
+        text-decoration:none;
+        font-size:18px;
+        font-weight:600;
+        border-radius:10px;
+        box-shadow:0 8px 20px rgba(118, 75, 162, 0.35);
+   ">
+   ⬇️ Download Now
+</a>
+
+<p style="margin-top:12px; color:#888;">(Android APK — fast & secure)</p>
+
+</div>
 
 ---
 
