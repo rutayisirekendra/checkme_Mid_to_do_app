@@ -84,7 +84,6 @@ A premium, multi-platform Flutter productivity app that helps you capture, organ
 
 </div>
 
-
 ---
 ---
 
@@ -145,28 +144,21 @@ A premium, multi-platform Flutter productivity app that helps you capture, organ
 
 <table>
 <tr>
-<td align="center" width="25%">
+<td align="center" width="33%">
 
 **✨ Features**
 
 All premium features included for free
 
 </td>
-<td align="center" width="25%">
-
-**🔒 Security**
-
-Local data encryption & biometric auth
-
-</td>
-<td align="center" width="25%">
+<td align="center" width="33%">
 
 **🎮 Gamification**
 
 Full garden system & achievements
 
 </td>
-<td align="center" width="25%">
+<td align="center" width="33%">
 
 **📱 No Ads**
 
