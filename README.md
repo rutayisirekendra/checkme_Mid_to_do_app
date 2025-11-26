@@ -85,124 +85,116 @@ A premium, multi-platform Flutter productivity app that helps you capture, organ
 </div>
 
 ---
-<!-- Replace the download section (around lines 103-156) with this -->
-
----
-
-<div align="center">
-
-## 📥 Download CheckMe
-
-<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 60px 40px; border-radius: 40px; margin: 40px 0; box-shadow: 0 30px 60px rgba(102, 126, 234, 0.4); position: relative; overflow: hidden;">
-
-<!-- Decorative Elements -->
-<div style="position: absolute; top: -100px; right: -100px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%); border-radius: 50%;"></div>
-<div style="position: absolute; bottom: -80px; left: -80px; width: 250px; height: 250px; background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%); border-radius: 50%;"></div>
-
-<h2 style="color: white; font-size: 42px; margin-bottom: 15px; text-shadow: 0 4px 12px rgba(0,0,0,0.2);">🤖 Get CheckMe for Android</h2>
-<p style="color: rgba(255,255,255,0.95); font-size: 18px; margin-bottom: 50px; max-width: 600px; margin-left: auto; margin-right: auto;">Download now and start your productivity journey with beautiful task management & gamification!</p>
-
-<table style="width: 100%; max-width: 1200px; margin: 0 auto; border: none;">
-<tr>
-<td align="center" width="50%" style="padding: 30px; vertical-align: top;">
-
-<!-- QR Code Section -->
-<div style="background: rgba(255,255,255,0.98); padding: 45px; border-radius: 30px; box-shadow: 0 25px 50px rgba(0,0,0,0.3); border: 4px solid rgba(255,255,255,0.3); backdrop-filter: blur(10px); position: relative; z-index: 2;">
-
-<div style="background: linear-gradient(135deg, #34A853, #0F9D58); padding: 15px; border-radius: 20px 20px 0 0; margin: -45px -45px 25px -45px;">
-<h3 style="color: white; font-size: 24px; margin: 0; font-weight: 600;">📱 Scan QR Code</h3>
-</div>
-
-<div style="background: white; padding: 25px; border-radius: 20px; display: inline-block; box-shadow: 0 15px 40px rgba(52, 168, 83, 0.25); border: 5px solid #34A853;">
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://github.com/rutayisirekendra/checkme_Mid_to_do_app/releases/download/1.0.0/CheckMe_App.apk&bgcolor=FFFFFF&color=34A853&margin=15&qzone=3" alt="Download QR Code" width="300" style="display: block;"/>
-</div>
-
-</div>
-
-</td>
-<td align="center" width="50%" style="padding: 30px; vertical-align: top;">
-
 <!-- Direct Download Section -->
-<div style="background: rgba(255,255,255,0.15); padding: 45px; border-radius: 30px; backdrop-filter: blur(20px); border: 2px solid rgba(255,255,255,0.25); box-shadow: 0 25px 50px rgba(0,0,0,0.3); position: relative; z-index: 2;">
+<div style="background: rgba(255,255,255,0.12); padding: 45px; border-radius: 30px; backdrop-filter: blur(25px); border: 2px solid rgba(255,255,255,0.2); box-shadow: 0 25px 60px rgba(0,0,0,0.4); position: relative; z-index: 2; overflow: hidden;">
 
-<div style="background: linear-gradient(135deg, #FFD700, #FFA500); padding: 15px; border-radius: 20px 20px 0 0; margin: -45px -45px 30px -45px;">
-<h3 style="color: white; font-size: 24px; margin: 0; font-weight: 600; text-shadow: 0 2px 4px rgba(0,0,0,0.2);">💾 Direct Download</h3>
+<!-- Background Pattern -->
+<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: 
+    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 107, 107, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(77, 171, 247, 0.06) 0%, transparent 50%);"></div>
+
+<!-- Section Header -->
+<div style="background: linear-gradient(135deg, #667eea, #764ba2); padding: 20px; border-radius: 20px 20px 0 0; margin: -45px -45px 35px -45px; position: relative; z-index: 2;">
+<h3 style="color: white; font-size: 26px; margin: 0; font-weight: 700; text-align: center; text-shadow: 0 2px 8px rgba(0,0,0,0.3); letter-spacing: 0.5px;">
+💾 DIRECT DOWNLOAD
+</h3>
 </div>
 
-<!-- Modern Download Button -->
-<a href="https://github.com/rutayisirekendra/checkme_Mid_to_do_app/releases/download/1.0.0/CheckMe_App.apk" style="text-decoration: none; display: block; margin-bottom: 40px;">
-<div style="background: linear-gradient(145deg, #ffffff, #f0f4ff); padding: 45px 50px; border-radius: 25px; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); border: 3px solid #34A853; box-shadow: 0 25px 60px rgba(52, 168, 83, 0.5), 0 0 0 1px rgba(255,255,255,0.8); position: relative; overflow: hidden; cursor: pointer;">
+<!-- Main Download Button -->
+<a href="https://github.com/rutayisirekendra/checkme_Mid_to_do_app/releases/download/1.0.0/CheckMe_App.apk" style="text-decoration: none; display: block; margin-bottom: 40px; position: relative; z-index: 3;">
+<div style="background: linear-gradient(145deg, #ffffff, #f8faff); padding: 50px 40px; border-radius: 25px; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); border: 3px solid rgba(255,255,255,0.8); box-shadow: 
+    0 25px 50px rgba(102, 126, 234, 0.4),
+    0 0 0 1px rgba(255,255,255,0.9),
+    inset 0 2px 4px rgba(255,255,255,0.8); position: relative; overflow: hidden; cursor: pointer;">
 
 <!-- Animated gradient overlay -->
-<div style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(52, 168, 83, 0.1), transparent); transition: left 0.6s ease;"></div>
+<div style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent); transition: left 0.8s ease;"></div>
 
-<!-- Glow effect -->
-<div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 120%; height: 120%; background: radial-gradient(circle, rgba(52, 168, 83, 0.15) 0%, transparent 70%); filter: blur(20px);"></div>
+<!-- Floating Icons -->
+<div style="position: absolute; top: 20px; left: 20px; font-size: 32px; opacity: 0.7;">📱</div>
+<div style="position: absolute; top: 20px; right: 20px; font-size: 32px; opacity: 0.7;">⚡</div>
 
-<div style="position: relative; z-index: 3;">
-<div style="display: flex; align-items: center; justify-content: center; gap: 20px; margin-bottom: 20px;">
-<div style="font-size: 52px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));">📱</div>
-<div style="font-size: 52px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));">⚡</div>
+<div style="position: relative; z-index: 3; text-align: center;">
+<!-- Main Title -->
+<div style="color: #2d3748; font-size: 42px; font-weight: 800; margin-bottom: 15px; letter-spacing: 1px; text-shadow: 0 2px 4px rgba(0,0,0,0.1); background: linear-gradient(135deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+DOWNLOAD CHECKME
 </div>
-<div style="color: #34A853; font-size: 36px; font-weight: 800; margin-bottom: 15px; letter-spacing: 0.5px; text-shadow: 0 2px 8px rgba(0,0,0,0.1);">DOWNLOAD CHECKME</div>
-<div style="color: #666; font-size: 18px; font-weight: 600; margin-bottom: 25px; background: linear-gradient(135deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Premium Todo App • v1.0.0 • Free Forever</div>
 
-<div style="display: flex; justify-content: center; align-items: center; gap: 15px; background: linear-gradient(135deg, rgba(52, 168, 83, 0.1), rgba(15, 157, 88, 0.1)); padding: 18px 30px; border-radius: 50px; border: 2px solid rgba(52, 168, 83, 0.3); backdrop-filter: blur(10px);">
-<div style="font-size: 24px;">🚀</div>
-<div style="color: #34A853; font-size: 16px; font-weight: bold; letter-spacing: 0.5px;">INSTANT DOWNLOAD • 25 MB</div>
+<!-- Subtitle -->
+<div style="color: #718096; font-size: 18px; font-weight: 600; margin-bottom: 30px; letter-spacing: 0.3px;">
+Premium Todo App • v1.0.0 • Free Forever
+</div>
+
+<!-- Download Badge -->
+<div style="display: inline-flex; align-items: center; gap: 12px; background: linear-gradient(135deg, #48bb78, #38a169); padding: 18px 35px; border-radius: 50px; border: 2px solid rgba(255,255,255,0.8); box-shadow: 0 8px 25px rgba(72, 187, 120, 0.4);">
+<div style="font-size: 28px;">🚀</div>
+<div style="color: white; font-size: 17px; font-weight: 700; letter-spacing: 0.5px;">INSTANT DOWNLOAD • 25 MB</div>
 </div>
 </div>
 
 </div>
 </a>
 
-<!-- Requirements Badge -->
-<div style="background: rgba(255,255,255,0.2); padding: 25px; border-radius: 20px; margin-bottom: 25px; border: 1px solid rgba(255,255,255,0.3);">
-<div style="color: white; font-size: 18px; font-weight: bold; margin-bottom: 20px; text-align: center;">📋 System Requirements</div>
-<table style="width: 100%; color: white;">
-<tr>
-<td style="padding: 12px; text-align: left;"><span style="font-size: 22px; margin-right: 15px;">📱</span> Android 5.0+ (API 21)</td>
-</tr>
-<tr>
-<td style="padding: 12px; text-align: left;"><span style="font-size: 22px; margin-right: 15px;">💾</span> 50 MB Free Storage</td>
-</tr>
-<tr>
-<td style="padding: 12px; text-align: left;"><span style="font-size: 22px; margin-right: 15px;">📶</span> Internet for Firebase Sync</td>
-</tr>
-</table>
-</div>
+<!-- Content Grid -->
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px; position: relative; z-index: 3;">
 
-<!-- Download Stats -->
-<div style="background: linear-gradient(135deg, rgba(255,255,255,0.25), rgba(255,255,255,0.15)); padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 15px 40px rgba(0,0,0,0.2);">
-<div style="display: flex; justify-content: space-around; gap: 20px;">
-<div style="text-align: center; flex: 1;">
-<div style="color: white; font-size: 32px; font-weight: bold; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">1.2K+</div>
-<div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-top: 8px; font-weight: 600;">Downloads</div>
+<!-- Requirements Section -->
+<div style="background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.08)); padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(10px); box-shadow: 0 15px 35px rgba(0,0,0,0.2);">
+<div style="color: white; font-size: 20px; font-weight: 700; margin-bottom: 25px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 12px;">
+<span style="font-size: 24px;">📋</span>
+System Requirements
 </div>
-<div style="width: 2px; background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.5), transparent);"></div>
-<div style="text-align: center; flex: 1;">
-<div style="color: white; font-size: 32px; font-weight: bold; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">⭐ 4.8</div>
-<div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-top: 8px; font-weight: 600;">Rating</div>
+<div style="space-y: 15px;">
+<div style="display: flex; align-items: center; gap: 15px; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 15px; border-left: 4px solid #4299e1;">
+<span style="font-size: 24px; color: #4299e1;">📱</span>
+<div>
+<div style="color: white; font-weight: 600; font-size: 15px;">Android 5.0+</div>
+<div style="color: rgba(255,255,255,0.8); font-size: 13px;">API Level 21</div>
 </div>
-<div style="width: 2px; background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.5), transparent);"></div>
-<div style="text-align: center; flex: 1;">
-<div style="color: white; font-size: 32px; font-weight: bold; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">✅ 99%</div>
-<div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-top: 8px; font-weight: 600;">Safe</div>
+</div>
+<div style="display: flex; align-items: center; gap: 15px; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 15px; border-left: 4px solid #ed8936;">
+<span style="font-size: 24px; color: #ed8936;">💾</span>
+<div>
+<div style="color: white; font-weight: 600; font-size: 15px;">50 MB Storage</div>
+<div style="color: rgba(255,255,255,0.8); font-size: 13px;">Free space required</div>
+</div>
+</div>
+<div style="display: flex; align-items: center; gap: 15px; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 15px; border-left: 4px solid #48bb78;">
+<span style="font-size: 24px; color: #48bb78;">📶</span>
+<div>
+<div style="color: white; font-weight: 600; font-size: 15px;">Internet Access</div>
+<div style="color: rgba(255,255,255,0.8); font-size: 13px;">For Firebase sync</div>
+</div>
 </div>
 </div>
 </div>
 
+<!-- Stats Section -->
+<div style="background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.08)); padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(10px); box-shadow: 0 15px 35px rgba(0,0,0,0.2);">
+<div style="color: white; font-size: 20px; font-weight: 700; margin-bottom: 25px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 12px;">
+<span style="font-size: 24px;">📊</span>
+App Statistics
+</div>
+<div style="space-y: 20px;">
+<div style="text-align: center; padding: 20px; background: linear-gradient(135deg, rgba(102, 126, 234, 0.3), rgba(118, 75, 162, 0.3)); border-radius: 15px; border: 1px solid rgba(255,255,255,0.2);">
+<div style="color: white; font-size: 36px; font-weight: 800; margin-bottom: 8px; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">1.2K+</div>
+<div style="color: rgba(255,255,255,0.9); font-size: 15px; font-weight: 600;">Downloads</div>
+</div>
+<div style="text-align: center; padding: 20px; background: linear-gradient(135deg, rgba(246, 173, 85, 0.3), rgba(237, 137, 54, 0.3)); border-radius: 15px; border: 1px solid rgba(255,255,255,0.2);">
+<div style="color: white; font-size: 36px; font-weight: 800; margin-bottom: 8px; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">⭐ 4.8</div>
+<div style="color: rgba(255,255,255,0.9); font-size: 15px; font-weight: 600;">Rating</div>
+</div>
+<div style="text-align: center; padding: 20px; background: linear-gradient(135deg, rgba(72, 187, 120, 0.3), rgba(56, 161, 105, 0.3)); border-radius: 15px; border: 1px solid rgba(255,255,255,0.2);">
+<div style="color: white; font-size: 36px; font-weight: 800; margin-bottom: 8px; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">✅ 99%</div>
+<div style="color: rgba(255,255,255,0.9); font-size: 15px; font-weight: 600;">Safe</div>
+</div>
+</div>
 </div>
 
-</td>
-</tr>
-</table>
-
 </div>
 
 </div>
-
----
 ---
 
 ## 📸 Feature Screenshots
