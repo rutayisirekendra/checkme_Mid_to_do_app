@@ -148,7 +148,9 @@ Opens download immediately
 </div>
 </div>
 
-</div>---
+</div>
+
+---
 
 ## 📸 Feature Screenshots
 
