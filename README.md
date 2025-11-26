@@ -86,8 +86,6 @@ A premium, multi-platform Flutter productivity app that helps you capture, organ
 
 
 ---
-<!-- Replace the existing download section with this -->
-
 ---
 
 <div align="center">
@@ -143,106 +141,6 @@ A premium, multi-platform Flutter productivity app that helps you capture, organ
 
 ---
 
-### 📲 Installation Guide
-
-<table>
-<tr>
-<td width="33%" align="center">
-
-**1️⃣ Download**
-
-<img src="https://img.icons8.com/fluency/96/download.png" width="64" alt="Download"/>
-
-Click the download button above or scan the QR code
-
-</td>
-<td width="33%" align="center">
-
-**2️⃣ Allow Installation**
-
-<img src="https://img.icons8.com/fluency/96/approval.png" width="64" alt="Allow"/>
-
-Enable "Install from Unknown Sources" when prompted
-
-</td>
-<td width="33%" align="center">
-
-**3️⃣ Install & Enjoy**
-
-<img src="https://img.icons8.com/fluency/96/checked.png" width="64" alt="Install"/>
-
-Open the APK file and tap "Install"
-
-</td>
-</tr>
-</table>
-
----
-
-<details>
-<summary><b>📖 Detailed Installation Instructions (Click to Expand)</b></summary>
-
-<br/>
-
-### For Samsung Devices:
-1. Go to **Settings** → **Biometrics and security** → **Install unknown apps**
-2. Select your **browser** (Chrome/Firefox/Samsung Internet)
-3. Toggle **"Allow from this source"** to ON
-4. Download the APK and tap to install
-5. Follow the on-screen instructions
-
-### For Google Pixel / Stock Android:
-1. Download the APK file
-2. When prompted, tap **"Settings"**
-3. Enable **"Allow from this source"**
-4. Go back and tap **"Install"**
-5. Wait for installation to complete
-6. Tap **"Open"** to launch CheckMe
-
-### For Other Android Devices:
-1. Go to **Settings** → **Security** (or **Privacy**)
-2. Find **"Install unknown apps"** or **"Unknown sources"**
-3. Select your **browser** and enable installation
-4. Download and install the APK
-
-### Troubleshooting:
-- **Play Protect Warning**: This is normal for apps outside Google Play Store. Tap "Install anyway"
-- **Installation Blocked**: Check that you've enabled "Unknown sources" for your browser
-- **App Not Opening**: Restart your device and try again
-- **Need Help?**: Contact us at rwabigwikendra@gmail.com
-
-</details>
-
----
-
-### 🔔 Stay Updated
-
-<p align="center">
-<a href="https://github.com/your-username/checkme-app/releases">
-<img src="https://img.shields.io/badge/⭐_Star_on_GitHub-FFCA28?style=for-the-badge&logo=github&logoColor=black" alt="Star on GitHub"/>
-</a>
-&nbsp;&nbsp;
-<a href="https://github.com/your-username/checkme-app/releases">
-<img src="https://img.shields.io/badge/🔄_Check_for_Updates-4CAF50?style=for-the-badge&logo=refresh&logoColor=white" alt="Check Updates"/>
-</a>
-&nbsp;&nbsp;
-<a href="https://github.com/your-username/checkme-app/releases">
-<img src="https://img.shields.io/badge/📝_View_Changelog-2196F3?style=for-the-badge&logo=book&logoColor=white" alt="Changelog"/>
-</a>
-</p>
-
----
-
-### 📊 Download Statistics
-
-<p align="center">
-<img src="https://img.shields.io/github/downloads/your-username/checkme-app/total?style=flat-square&logo=github&label=Total%20Downloads&color=success" alt="Total Downloads"/>
-<img src="https://img.shields.io/github/v/release/your-username/checkme-app?style=flat-square&logo=semantic-release&label=Latest%20Version" alt="Latest Version"/>
-<img src="https://img.shields.io/github/release-date/your-username/checkme-app?style=flat-square&logo=calendar&label=Last%20Updated" alt="Last Updated"/>
-</p>
-
----
-
 ### 🎁 What's Included
 
 <table>
@@ -277,19 +175,6 @@ Clean, ad-free experience
 </td>
 </tr>
 </table>
-
----
-
-### 🛡️ Safety & Privacy
-
-<p align="center">
-<img src="https://img.shields.io/badge/✅_No_Tracking-success?style=flat-square" alt="No Tracking"/>
-<img src="https://img.shields.io/badge/✅_Open_Source-blue?style=flat-square" alt="Open Source"/>
-<img src="https://img.shields.io/badge/✅_Local_First-orange?style=flat-square" alt="Local First"/>
-<img src="https://img.shields.io/badge/✅_Secure-red?style=flat-square" alt="Secure"/>
-</p>
-
-**Your data stays on your device.** We don't collect, sell, or share any personal information.
 
 </div>
 
