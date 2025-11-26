@@ -98,7 +98,7 @@ A premium, multi-platform Flutter productivity app that helps you capture, organ
 #### 📱 Scan QR Code
 
 <div style="background: white; padding: 30px; border-radius: 25px; display: inline-block; box-shadow: 0 20px 40px rgba(52, 168, 83, 0.3); border: 3px solid #34A853;">
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=280x280&data=https://github.com/rutayisirekendra/checkme_Mid_to_do_app/releases/download/1.0.0/CheckMe_App.apk&bgcolor=FFFFFF&color=34A853&margin=15&qzone=3" alt="Download QR Code" width="280"/>
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=280x280&data=https://github.com/rutayisirekendra/checkme_Mid_to_do_app/releases/tag/download/1.0.0/CheckMe_App.apk&bgcolor=FFFFFF&color=34A853&margin=15&qzone=3" alt="Download QR Code" width="280"/>
 </div>
 
 <br/><br/>
