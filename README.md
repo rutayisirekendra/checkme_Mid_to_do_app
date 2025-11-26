@@ -121,7 +121,7 @@ Opens download immediately
 <div style="position: absolute; top: -50px; right: -50px; width: 120px; height: 120px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
 <div style="position: absolute; bottom: -30px; left: -30px; width: 100px; height: 100px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
 
-<a href="https://github.com/rutayisirekendra/checkme_Mid_to_do_app/releases/download/1.0.0/CheckMe_App.apk" style="text-decoration: none; display: block;">
+<a href="https://github.com/rutayisirekendra/checkme_Mid_to_do_app/releases/tag/download/1.0.0/CheckMe_App.apk" style="text-decoration: none; display: block;">
 <div style="background: white; padding: 30px 50px; border-radius: 60px; transition: all 0.3s ease; border: 4px solid rgba(255,255,255,0.8); box-shadow: 0 15px 35px rgba(0,0,0,0.2); position: relative; z-index: 2;">
 <div style="color: #34A853; font-size: 28px; font-weight: bold; margin-bottom: 10px;">📱 DOWNLOAD NOW</div>
 <div style="color: #666; font-size: 16px; font-weight: 500;">CheckMe v1.0.0 • Secure • Free</div>
