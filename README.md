@@ -90,14 +90,17 @@ A premium, multi-platform Flutter productivity app that helps you capture, organ
 
 <h2>📱 Quick Install</h2>
 
-<!-- QR Code Section -->
-<div style="background: linear-gradient(135deg, #f8fafc, #e2e8f0); padding: 25px; border-radius: 20px; display: inline-block; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); border: 3px solid #e2e8f0; margin-bottom: 20px;">
-<div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 12px 20px; border-radius: 12px; margin: -25px -25px 20px -25px; text-align: center; font-weight: 600; font-size: 16px;">
+<!-- QR Code and Download Section -->
+<div style="display: flex; gap: 30px; justify-content: center; align-items: center; flex-wrap: wrap; background: linear-gradient(135deg, #f8fafc, #e2e8f0); padding: 30px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); border: 3px solid #e2e8f0; max-width: 600px; margin: 0 auto;">
+
+<!-- Left Side - QR Code -->
+<div style="text-align: center;">
+<div style="background: linear-gradient(135deg, #48bb78, #38a169); color: white; padding: 12px 20px; border-radius: 12px; margin-bottom: 20px; text-align: center; font-weight: 600; font-size: 16px;">
 📱 Scan QR Code
 </div>
 
-<div style="background: white; padding: 15px; border-radius: 12px; display: inline-block; box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2); border: 2px solid #667eea;">
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://github.com/rutayisirekendra/checkme_Mid_to_do_app/releases/download/1.0.0/CheckMe_App.apk&bgcolor=FFFFFF&color=667eea&margin=10" alt="Download QR Code" width="180" style="display: block; border-radius: 8px;" />
+<div style="background: white; padding: 15px; border-radius: 12px; display: inline-block; box-shadow: 0 8px 25px rgba(72, 187, 120, 0.2); border: 2px solid #48bb78;">
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://github.com/rutayisirekendra/checkme_Mid_to_do_app/releases/download/1.0.0/CheckMe_App.apk&bgcolor=FFFFFF&color=48bb78&margin=10" alt="Download QR Code" width="160" style="display: block; border-radius: 8px;" />
 </div>
 
 <p style="margin-top: 15px; color: #4a5568; font-weight: 600; font-size: 14px;">
@@ -105,19 +108,30 @@ A premium, multi-platform Flutter productivity app that helps you capture, organ
 </p>
 </div>
 
-<br>
+<!-- Vertical Separator -->
+<div style="width: 2px; height: 120px; background: linear-gradient(to bottom, #e2e8f0, #cbd5e0, #e2e8f0); border-radius: 1px;"></div>
 
-<!-- Download Now Button as Shield Badge -->
-<div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+<!-- Right Side - Download Button -->
+<div style="text-align: center;">
+<div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 12px 20px; border-radius: 12px; margin-bottom: 20px; text-align: center; font-weight: 600; font-size: 16px;">
+💫 Direct Download
+</div>
+
 <a href="https://github.com/rutayisirekendra/checkme_Mid_to_do_app/releases/download/1.0.0/CheckMe_App.apk">
 <img src="https://img.shields.io/badge/⬇️%20Download%20Now-48BB78?style=for-the-badge&logo=android&logoColor=white&labelColor=38A169" alt="Download Now" />
 </a>
+
+<p style="margin-top: 15px; color: #4a5568; font-weight: 600; font-size: 14px;">
+🚀 25 MB • Fast & Secure
+</p>
+</div>
+
 </div>
 
 <br>
 
 <p style="margin-top: 15px; color: #718096; font-size: 14px; font-weight: 600;">
-🚀 Android APK • 25 MB • Fast & Secure
+⭐ Get started in seconds • No registration required
 </p>
 
 </div>
