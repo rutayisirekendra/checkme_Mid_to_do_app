@@ -86,132 +86,71 @@ A premium, multi-platform Flutter productivity app that helps you capture, organ
 
 
 ---
-<!-- ========================= -->
-<!-- 📥 BEAUTIFUL DOWNLOAD PAGE (CLEAN VERSION) -->
-<!-- ========================= -->
+<div style="font-family: 'Inter', sans-serif; color: #e5e7eb; background:#111827; padding:40px; border-radius:16px; max-width:650px; margin:auto;">
 
-<div style="font-family: 'Inter', sans-serif;">
+    <!-- Title -->
+    <h2 style="font-size:30px; font-weight:800; margin-bottom:10px;">
+        ✨ Your Productivity Journey Starts Here
+    </h2>
 
-<h1 style="text-align:center; font-size:42px; font-weight:800; margin-bottom:20px; 
-background:linear-gradient(135deg,#667eea,#764ba2); -webkit-background-clip:text; color:transparent;">
-📥 Download CheckMe
-</h1>
+    <p style="color:#9ca3af; font-size:16px; margin-bottom:30px;">
+        Download the ultimate todo app that makes task management fun and beautiful.
+    </p>
 
-<p style="text-align:center; font-size:18px; max-width:700px; margin:0 auto; color:#555;">
-Beautiful task management meets gamification — Download now and transform your productivity!
-</p>
+    <!-- QR Section -->
+    <h3 style="font-size:20px; font-weight:700; margin-bottom:12px;">📱 Scan & Install</h3>
 
-<!-- Main Download Card -->
-<div style="max-width:1100px; margin:50px auto; padding:50px 30px; 
-background:linear-gradient(135deg,#667eea,#764ba2); border-radius:30px; 
-box-shadow:0 25px 50px rgba(102,126,234,0.3); position:relative; overflow:hidden;">
+    <div style="text-align:center; margin-bottom:10px;">
+        <img src="YOUR_QR_CODE_URL_HERE" alt="QR Code" style="width:220px; border-radius:12px;">
+    </div>
 
-<!-- Decorative circles -->
-<div style="position:absolute; top:-90px; right:-90px; width:230px; height:230px;
-background:radial-gradient(circle,rgba(255,255,255,0.13),transparent 70%); border-radius:50%;"></div>
-<div style="position:absolute; bottom:-80px; left:-80px; width:200px; height:200px;
-background:radial-gradient(circle,rgba(255,255,255,0.10),transparent 70%); border-radius:50%;"></div>
+    <p style="text-align:center; color:#9ca3af; margin-bottom:35px;">
+        📸 Scan to Download Instantly
+    </p>
 
-<h2 style="color:white; font-size:34px; font-weight:700; text-align:center; 
-margin-bottom:15px; text-shadow:0 3px 10px rgba(0,0,0,0.35);">
-✨ Your Productivity Journey Starts Here
-</h2>
+    <!-- Direct Download -->
+    <h3 style="font-size:20px; font-weight:700; margin-bottom:20px;">🪄 Direct Download</h3>
 
-<p style="color:rgba(255,255,255,0.9); font-size:17px; text-align:center; max-width:650px; margin:0 auto;">
-Download the ultimate todo app that makes task management fun and beautiful.
-</p>
+    <!-- Modern Download Button -->
+    <div style="text-align:center; margin-bottom:30px;">
+        <a href="YOUR_DOWNLOAD_LINK_HERE"
+           style="
+           display:inline-block;
+           padding:16px 34px;
+           font-size:18px;
+           font-weight:700;
+           color:white;
+           background:linear-gradient(135deg,#6366f1,#8b5cf6);
+           border-radius:14px;
+           text-decoration:none;
+           box-shadow:0 8px 30px rgba(99,102,241,0.4);
+           transition:0.25s;
+        "
+        onmouseover="this.style.boxShadow='0 12px 40px rgba(139,92,246,0.55)'"
+        onmouseout="this.style.boxShadow='0 8px 30px rgba(99,102,241,0.4)'">
+            ⚡ Download CheckMe (25 MB)
+        </a>
+    </div>
 
-<!-- Grid -->
-<div style="display:grid; grid-template-columns:1fr 1fr; gap:40px; margin-top:50px;">
+    <!-- Info List -->
+    <div style="font-size:15px; color:#d1d5db;">
+        
+        <p style="margin:10px 0;">
+            📦 <strong>25 MB</strong><br>
+            <span style="color:#9ca3af;">Lightweight</span>
+        </p>
 
-<!-- =========================== -->
-<!-- LEFT : QR BOX -->
-<!-- =========================== -->
-<div style="background:rgba(255,255,255,0.95); padding:35px; border-radius:25px; 
-box-shadow:0 20px 40px rgba(0,0,0,0.15); border:2px solid rgba(255,255,255,0.8);">
+        <p style="margin:10px 0;">
+            🤖 <strong>Android 5.0+</strong><br>
+            <span style="color:#9ca3af;">Supported</span>
+        </p>
 
-<!-- Header -->
-<div style="background:linear-gradient(135deg,#4CAF50,#45a049); 
-padding:18px; border-radius:18px; margin:-35px -35px 25px -35px;">
-<h3 style="color:white; text-align:center; margin:0; font-size:22px;">📱 Scan & Install</h3>
-</div>
+        <p style="margin:10px 0;">
+            ⭐ <strong>Version 1.0.0</strong><br>
+            <span style="color:#9ca3af;">Latest</span>
+        </p>
+    </div>
 
-<!-- QR Code -->
-<div style="background:white; padding:25px; border-radius:20px; border:3px solid #4CAF50;
-box-shadow:0 15px 35px rgba(76,175,80,0.25); text-align:center;">
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://github.com/rutayisirekendra/checkme_Mid_to_do_app/releases/download/1.0.0/CheckMe_App.apk&bgcolor=FFFFFF&color=4CAF50&margin=12&qzone=2" 
-style="width:250px; border-radius:12px;" />
-</div>
-
-<div style="background:linear-gradient(135deg,#4CAF50,#45a049); padding:15px; border-radius:14px; text-align:center; margin-top:10px;">
-<p style="color:white; margin:0; font-size:15px; font-weight:600;">📸 Scan to Download Instantly</p>
-</div>
-
-</div>
-
-<!-- =========================== -->
-<!-- RIGHT : DOWNLOAD BUTTON -->
-<!-- =========================== -->
-<div style="background:rgba(255,255,255,0.12); padding:35px; border-radius:25px; 
-backdrop-filter:blur(20px); border:2px solid rgba(255,255,255,0.15); 
-box-shadow:0 20px 40px rgba(0,0,0,0.25); position:relative; overflow:hidden;">
-
-<!-- Title -->
-<div style="background:linear-gradient(135deg,#667eea,#764ba2); padding:18px; 
-border-radius:18px; margin:-35px -35px 30px -35px; text-align:center;">
-<h3 style="color:white; font-size:22px; margin:0; font-weight:700;">
-💫 Direct Download
-</h3>
-</div>
-
-<!-- BEAUTIFUL BUTTON -->
-<a href="https://github.com/rutayisirekendra/checkme_Mid_to_do_app/releases/download/1.0.0/CheckMe_App.apk" 
-style="text-decoration:none; display:block; width:100%; text-align:center;">
-
-<button style="
-width:100%;
-padding:18px 25px;
-font-size:20px;
-font-weight:800;
-border:none;
-border-radius:16px;
-cursor:pointer;
-background:linear-gradient(135deg,#48bb78,#38a169);
-color:white;
-box-shadow:0 12px 25px rgba(56,161,105,0.4), inset 0 2px 3px rgba(255,255,255,0.5);
-transition:0.25s;
-">
-⚡ Download CheckMe (25 MB)
-</button>
-
-</a>
-
-<!-- Specs -->
-<div style="margin-top:25px; display:grid; grid-template-columns:repeat(3,1fr); gap:15px;">
-
-<div style="background:rgba(255,255,255,0.1); padding:18px; border-radius:12px; text-align:center; color:white;">
-<div style="font-size:20px;">📦</div>
-<b>25 MB</b><br>
-<span style="font-size:12px; opacity:0.8;">Lightweight</span>
-</div>
-
-<div style="background:rgba(255,255,255,0.1); padding:18px; border-radius:12px; text-align:center; color:white;">
-<div style="font-size:20px;">🤖</div>
-<b>Android 5.0+</b><br>
-<span style="font-size:12px; opacity:0.8;">Supported</span>
-</div>
-
-<div style="background:rgba(255,255,255,0.1); padding:18px; border-radius:12px; text-align:center; color:white;">
-<div style="font-size:20px;">⭐</div>
-<b>Version 1.0.0</b><br>
-<span style="font-size:12px; opacity:0.8;">Latest</span>
-</div>
-
-</div>
-
-</div>
-
-</div>
 </div>
 
 ---
