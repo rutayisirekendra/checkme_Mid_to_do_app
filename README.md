@@ -86,7 +86,7 @@ A premium, multi-platform Flutter productivity app that helps you capture, organ
 
 
 ---
-## Download Check Me App
+## 📱 Download Check Me App
 <div align="center">
 
 <h2>📱 Quick Install</h2>
