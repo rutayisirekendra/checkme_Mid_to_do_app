@@ -122,7 +122,7 @@ Opens download immediately
 <div style="position: absolute; bottom: -30px; left: -30px; width: 100px; height: 100px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
 
 <a href="https://github.com/rutayisirekendra/checkme_Mid_to_do_app/releases/download/1.0.0/CheckMe_App.apk" style="text-decoration: none; display: block;">
-<div style="background: linear-gradient(135deg, #ffffff, #f8f9fa); padding: 35px 50px; border-radius: 25px; transition: all 0.3s ease; border: 3px solid rgba(255,255,255,0.9); box-shadow: 0 20px 40px rgba(0,0,0,0.15); position: relative; z-index: 2; transform-style: preserve-3d;">
+<div style="background: linear-gradient(135deg, #ffffff, #f8f9fa); padding: 35px 50px; border-radius: 25px; transition: all 0.3s ease; border: 3px solid rgba(255,255,255,0.9); box-shadow: 0 20px 40px rgba(0,0,0,0.15); position: relative; z-index: 2;">
 <div style="color: #34A853; font-size: 32px; font-weight: bold; margin-bottom: 12px; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">🚀 DOWNLOAD CHECKME</div>
 <div style="color: #666; font-size: 18px; font-weight: 500; margin-bottom: 15px;">v1.0.0 • Secure • Free Forever</div>
 <div style="display: flex; justify-content: center; align-items: center; gap: 10px; background: rgba(52, 168, 83, 0.1); padding: 12px 20px; border-radius: 50px; border: 2px solid rgba(52, 168, 83, 0.2);">
@@ -150,6 +150,11 @@ Opens download immediately
 
 </div>
 
+</td>
+</tr>
+</table>
+
+</div>
 ---
 
 ## 📸 Feature Screenshots
