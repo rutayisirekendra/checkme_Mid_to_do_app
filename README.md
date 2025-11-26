@@ -85,9 +85,6 @@ A premium, multi-platform Flutter productivity app that helps you capture, organ
 </div>
 
 ---
-<!-- Replace the download section (around lines 103-156) with this -->
-
----
 
 <div align="center">
 
@@ -266,7 +263,6 @@ Point your camera & tap the notification
 
 </div>
 
----
 ---
 
 ## 📸 Feature Screenshots
