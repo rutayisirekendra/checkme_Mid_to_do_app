@@ -87,12 +87,12 @@ A premium, multi-platform Flutter productivity app that helps you capture, organ
 
 ---
 <!-- ========================= -->
-<!-- 📥 BEAUTIFUL DOWNLOAD PAGE -->
+<!-- 📥 BEAUTIFUL DOWNLOAD PAGE (CLEAN VERSION) -->
 <!-- ========================= -->
 
 <div style="font-family: 'Inter', sans-serif;">
 
-<h1 style="text-align:center; font-size:40px; font-weight:800; margin-bottom:20px; 
+<h1 style="text-align:center; font-size:42px; font-weight:800; margin-bottom:20px; 
 background:linear-gradient(135deg,#667eea,#764ba2); -webkit-background-clip:text; color:transparent;">
 📥 Download CheckMe
 </h1>
@@ -118,7 +118,7 @@ margin-bottom:15px; text-shadow:0 3px 10px rgba(0,0,0,0.35);">
 </h2>
 
 <p style="color:rgba(255,255,255,0.9); font-size:17px; text-align:center; max-width:650px; margin:0 auto;">
-Download the ultimate todo app that makes task management fun and rewarding with beautiful design and gamification.
+Download the ultimate todo app that makes task management fun and beautiful.
 </p>
 
 <!-- Grid -->
@@ -156,7 +156,7 @@ style="width:250px; border-radius:12px;" />
 backdrop-filter:blur(20px); border:2px solid rgba(255,255,255,0.15); 
 box-shadow:0 20px 40px rgba(0,0,0,0.25); position:relative; overflow:hidden;">
 
-<!-- Title bar -->
+<!-- Title -->
 <div style="background:linear-gradient(135deg,#667eea,#764ba2); padding:18px; 
 border-radius:18px; margin:-35px -35px 30px -35px; text-align:center;">
 <h3 style="color:white; font-size:22px; margin:0; font-weight:700;">
@@ -164,32 +164,29 @@ border-radius:18px; margin:-35px -35px 30px -35px; text-align:center;">
 </h3>
 </div>
 
-<!-- MAIN BUTTON -->
-<a href="https://github.com/rutayisirekendra/checkme_Mid_to_do_app/releases/download/1.0.0/CheckMe_App.apk" style="text-decoration:none;">
-<div style="background:white; padding:35px 25px; border-radius:20px; border:3px solid rgba(255,255,255,0.9);
-box-shadow:0 20px 40px rgba(102,126,234,0.35), inset 0 2px 4px rgba(255,255,255,0.6);
-transition:0.3s; cursor:pointer;">
+<!-- BEAUTIFUL BUTTON -->
+<a href="https://github.com/rutayisirekendra/checkme_Mid_to_do_app/releases/download/1.0.0/CheckMe_App.apk" 
+style="text-decoration:none; display:block; width:100%; text-align:center;">
 
-<h3 style="font-size:28px; margin-bottom:10px; font-weight:800; 
-background:linear-gradient(135deg,#667eea,#764ba2); -webkit-background-clip:text; color:transparent;">
-DOWNLOAD CHECKME
-</h3>
+<button style="
+width:100%;
+padding:18px 25px;
+font-size:20px;
+font-weight:800;
+border:none;
+border-radius:16px;
+cursor:pointer;
+background:linear-gradient(135deg,#48bb78,#38a169);
+color:white;
+box-shadow:0 12px 25px rgba(56,161,105,0.4), inset 0 2px 3px rgba(255,255,255,0.5);
+transition:0.25s;
+">
+⚡ Download CheckMe (25 MB)
+</button>
 
-<p style="color:#666; font-size:14px; margin-bottom:20px; font-weight:600;">
-Premium Todo App • v1.0.0 • Free Forever
-</p>
-
-<div style="display:inline-flex; align-items:center; gap:10px; 
-background:linear-gradient(135deg,#48bb78,#38a169); padding:12px 25px; 
-border-radius:50px; border:2px solid white; box-shadow:0 8px 20px rgba(72,187,120,0.3);">
-<span style="font-size:20px;">⚡</span>
-<span style="color:white; font-size:14px; font-weight:700;">INSTANT DOWNLOAD • 25 MB</span>
-</div>
-
-</div>
 </a>
 
-<!-- App Specs -->
+<!-- Specs -->
 <div style="margin-top:25px; display:grid; grid-template-columns:repeat(3,1fr); gap:15px;">
 
 <div style="background:rgba(255,255,255,0.1); padding:18px; border-radius:12px; text-align:center; color:white;">
@@ -207,7 +204,7 @@ border-radius:50px; border:2px solid white; box-shadow:0 8px 20px rgba(72,187,12
 <div style="background:rgba(255,255,255,0.1); padding:18px; border-radius:12px; text-align:center; color:white;">
 <div style="font-size:20px;">⭐</div>
 <b>Version 1.0.0</b><br>
-<span style="font-size:12px; opacity:0.8;">Latest Release</span>
+<span style="font-size:12px; opacity:0.8;">Latest</span>
 </div>
 
 </div>
@@ -217,54 +214,6 @@ border-radius:50px; border:2px solid white; box-shadow:0 8px 20px rgba(72,187,12
 </div>
 </div>
 
-<!-- Feature Grid -->
-<div style="max-width:800px; margin:40px auto; display:grid; grid-template-columns:1fr 1fr; gap:20px;">
-
-<div style="background:rgba(0,0,0,0.05); padding:20px; border-radius:15px; text-align:center;">
-<div style="font-size:24px;">🎮</div>
-<h4>Gamified Tasks</h4>
-<p style="font-size:13px;">Earn rewards and level up</p>
-</div>
-
-<div style="background:rgba(0,0,0,0.05); padding:20px; border-radius:15px; text-align:center;">
-<div style="font-size:24px;">🎨</div>
-<h4>Beautiful UI</h4>
-<p style="font-size:13px;">Clean, modern interface</p>
-</div>
-
-<div style="background:rgba(0,0,0,0.05); padding:20px; border-radius:15px; text-align:center;">
-<div style="font-size:24px;">📊</div>
-<h4>Progress Tracking</h4>
-<p style="font-size:13px;">Track your productivity</p>
-</div>
-
-<div style="background:rgba(0,0,0,0.05); padding:20px; border-radius:15px; text-align:center;">
-<div style="font-size:24px;">🆓</div>
-<h4>Free Forever</h4>
-<p style="font-size:13px;">No ads, no tracking</p>
-</div>
-
-</div>
-
-<!-- Installation Guide -->
-<div style="text-align:center; margin-top:40px;">
-<h3>📋 Installation Guide</h3>
-<ol style="text-align:left; max-width:400px; margin:20px auto; color:#444;">
-<li>Download the APK above</li>
-<li>Enable “Install from unknown sources”</li>
-<li>Open the downloaded file</li>
-<li>Follow on-screen instructions</li>
-<li>Launch CheckMe & enjoy!</li>
-</ol>
-
-<p>
-Need help?  
-<a href="https://github.com/rutayisirekendra/checkme_Mid_to_do_app/wiki">Installation Guide</a> •  
-<a href="https://github.com/rutayisirekendra/checkme_Mid_to_do_app/issues">Report Issue</a>
-</p>
-</div>
-
-</div>
 ---
 
 ## 📸 Feature Screenshots
