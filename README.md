@@ -98,15 +98,15 @@ A premium, multi-platform Flutter productivity app that helps you capture, organ
 #### 📱 Scan QR Code
 
 <div style="background: white; padding: 25px; border-radius: 20px; display: inline-block; box-shadow: 0 15px 35px rgba(52, 168, 83, 0.3); border: 2px solid #34A853;">
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://github.com/rutayisirekendra/checkme-app/releases/latest/download/CkeckMe_App.apk&bgcolor=FFFFFF&color=34A853&margin=10&qzone=2" alt="Download QR Code" width="250"/>
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://github.com/rutayisirekendra/checkme-app/releases/latest&bgcolor=FFFFFF&color=34A853&margin=10&qzone=2" alt="Download QR Code" width="250"/>
 </div>
 
 <br/><br/>
 
 <div style="background: linear-gradient(135deg, #34A853, #0F9D58); padding: 15px; border-radius: 15px; margin-top: 15px;">
 <p style="color: white; margin: 0; font-size: 14px;">
-<strong>📸 Point your camera & tap to download</strong><br/>
-<small>Works with any QR code scanner</small>
+<strong>📸 Scan & Download</strong><br/>
+<small>Opens latest release page</small>
 </p>
 </div>
 
@@ -115,37 +115,46 @@ A premium, multi-platform Flutter productivity app that helps you capture, organ
 
 #### 💾 Direct Download
 
-<div style="background: linear-gradient(135deg, #34A853, #0F9D58); padding: 30px; border-radius: 20px; margin-bottom: 20px;">
-<a href="https://github.com/rutayisirekendra/checkme-app/releases/latest/download/CkeckMe_App.apk" style="text-decoration: none;">
-<div style="background: white; padding: 20px 40px; border-radius: 50px; display: inline-block; transition: transform 0.3s ease;">
-<span style="color: #34A853; font-size: 22px; font-weight: bold;">📱 DOWNLOAD APK</span>
+<div style="background: linear-gradient(135deg, #34A853, #0F9D58); padding: 40px 30px; border-radius: 25px; margin-bottom: 25px; box-shadow: 0 10px 30px rgba(52, 168, 83, 0.2);">
+<a href="https://github.com/rutayisirekendra/checkme-app/releases/latest" style="text-decoration: none; display: block;">
+<div style="background: white; padding: 25px 40px; border-radius: 50px; transition: all 0.3s ease; border: 3px solid rgba(255,255,255,0.5); box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
+<div style="color: #34A853; font-size: 24px; font-weight: bold; margin-bottom: 8px;">📱 DOWNLOAD CHECKME</div>
+<div style="color: #666; font-size: 14px; font-weight: 500;">Latest Version • Secure • Free</div>
 </div>
 </a>
 </div>
 
-<div style="display: flex; justify-content: center; gap: 15px; margin: 20px 0; flex-wrap: wrap;">
-<img src="https://img.shields.io/badge/Version-1.0.0-2196F3?style=for-the-badge&logo=semantic-release&logoColor=white" alt="Version"/>
-<img src="https://img.shields.io/badge/Size-~25_MB-FF9800?style=for-the-badge&logo=files&logoColor=white" alt="Size"/>
-<img src="https://img.shields.io/badge/Android-5.0+-3DDC84?style=for-the-badge&logo=android&logoColor=white" alt="Android Version"/>
+<!-- App Details -->
+<div style="display: flex; justify-content: center; gap: 15px; margin: 25px 0; flex-wrap: wrap;">
+<div style="background: linear-gradient(135deg, #2196F3, #21CBF3); padding: 12px 20px; border-radius: 20px; text-align: center;">
+<div style="color: white; font-size: 12px; font-weight: bold;">VERSION</div>
+<div style="color: white; font-size: 16px; font-weight: bold;">v1.0.0</div>
+</div>
+<div style="background: linear-gradient(135deg, #FF9800, #FFB74D); padding: 12px 20px; border-radius: 20px; text-align: center;">
+<div style="color: white; font-size: 12px; font-weight: bold;">SIZE</div>
+<div style="color: white; font-size: 16px; font-weight: bold;">~25 MB</div>
+</div>
+<div style="background: linear-gradient(135deg, #4CAF50, #66BB6A); padding: 12px 20px; border-radius: 20px; text-align: center;">
+<div style="color: white; font-size: 12px; font-weight: bold;">ANDROID</div>
+<div style="color: white; font-size: 16px; font-weight: bold;">5.0+</div>
+</div>
 </div>
 
-<br/>
-
-**📋 Requirements:**
-
-<div style="background: rgba(52, 168, 83, 0.1); padding: 20px; border-radius: 15px; margin-top: 15px;">
+<!-- Requirements -->
+<div style="background: rgba(52, 168, 83, 0.1); padding: 20px; border-radius: 15px; margin-top: 20px; border: 1px solid rgba(52, 168, 83, 0.3);">
+<h4 style="color: #34A853; margin: 0 0 15px 0; text-align: center;">📋 System Requirements</h4>
 <table style="width: 100%; border: none;">
 <tr>
-<td style="padding: 10px; text-align: left;">📱</td>
-<td style="padding: 10px; text-align: left;"><strong>Android 5.0</strong> (API 21) or higher</td>
+<td style="padding: 8px 10px; text-align: left; width: 40px;">📱</td>
+<td style="padding: 8px 10px; text-align: left;"><strong>Android 5.0+</strong> (API 21 or higher)</td>
 </tr>
 <tr>
-<td style="padding: 10px; text-align: left;">💾</td>
-<td style="padding: 10px; text-align: left;"><strong>50 MB</strong> free storage space</td>
+<td style="padding: 8px 10px; text-align: left;">💾</td>
+<td style="padding: 8px 10px; text-align: left;"><strong>50 MB free space</strong> for installation</td>
 </tr>
 <tr>
-<td style="padding: 10px; text-align: left;">📶</td>
-<td style="padding: 10px; text-align: left;">Internet (for Firebase features)</td>
+<td style="padding: 8px 10px; text-align: left;">📶</td>
+<td style="padding: 8px 10px; text-align: left;">Internet for <strong>Firebase features</strong></td>
 </tr>
 </table>
 </div>
@@ -156,29 +165,31 @@ A premium, multi-platform Flutter productivity app that helps you capture, organ
 
 ---
 
-### 🎁 What's Included
+### 🎁 What You Get
 
 <div style="display: flex; justify-content: center; gap: 20px; margin: 30px 0; flex-wrap: wrap;">
 
-<div style="background: linear-gradient(135deg, #667eea, #764ba2); padding: 25px; border-radius: 15px; text-align: center; min-width: 200px;">
-<h4 style="color: white; margin: 0 0 10px 0;">✨ Features</h4>
-<p style="color: white; margin: 0; font-size: 14px;">All premium features included for free</p>
+<div style="background: linear-gradient(135deg, #667eea, #764ba2); padding: 25px 20px; border-radius: 15px; text-align: center; min-width: 200px; box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);">
+<div style="font-size: 32px; margin-bottom: 10px;">✨</div>
+<h4 style="color: white; margin: 0 0 10px 0;">Premium Features</h4>
+<p style="color: white; margin: 0; font-size: 14px;">All features unlocked for free</p>
 </div>
 
-<div style="background: linear-gradient(135deg, #f093fb, #f5576c); padding: 25px; border-radius: 15px; text-align: center; min-width: 200px;">
-<h4 style="color: white; margin: 0 0 10px 0;">🎮 Gamification</h4>
-<p style="color: white; margin: 0; font-size: 14px;">Full garden system & achievements</p>
+<div style="background: linear-gradient(135deg, #f093fb, #f5576c); padding: 25px 20px; border-radius: 15px; text-align: center; min-width: 200px; box-shadow: 0 8px 25px rgba(240, 147, 251, 0.2);">
+<div style="font-size: 32px; margin-bottom: 10px;">🎮</div>
+<h4 style="color: white; margin: 0 0 10px 0;">Gamification</h4>
+<p style="color: white; margin: 0; font-size: 14px;">Garden system & achievements</p>
 </div>
 
-<div style="background: linear-gradient(135deg, #4facfe, #00f2fe); padding: 25px; border-radius: 15px; text-align: center; min-width: 200px;">
-<h4 style="color: white; margin: 0 0 10px 0;">📱 No Ads</h4>
-<p style="color: white; margin: 0; font-size: 14px;">Clean, ad-free experience</p>
+<div style="background: linear-gradient(135deg, #4facfe, #00f2fe); padding: 25px 20px; border-radius: 15px; text-align: center; min-width: 200px; box-shadow: 0 8px 25px rgba(79, 172, 254, 0.2);">
+<div style="font-size: 32px; margin-bottom: 10px;">🚫</div>
+<h4 style="color: white; margin: 0 0 10px 0;">No Ads</h4>
+<p style="color: white; margin: 0; font-size: 14px;">Clean, uninterrupted experience</p>
 </div>
 
 </div>
 
 </div>
-
 ---
 ## 📸 Feature Screenshots
 
