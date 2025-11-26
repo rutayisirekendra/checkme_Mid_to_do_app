@@ -122,86 +122,34 @@ Opens download immediately
 <div style="position: absolute; bottom: -30px; left: -30px; width: 100px; height: 100px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
 
 <a href="https://github.com/rutayisirekendra/checkme_Mid_to_do_app/releases/download/1.0.0/CheckMe_App.apk" style="text-decoration: none; display: block;">
-<div style="background: white; padding: 30px 50px; border-radius: 60px; transition: all 0.3s ease; border: 4px solid rgba(255,255,255,0.8); box-shadow: 0 15px 35px rgba(0,0,0,0.2); position: relative; z-index: 2;">
-<div style="color: #34A853; font-size: 28px; font-weight: bold; margin-bottom: 10px;">📱 DOWNLOAD NOW</div>
-<div style="color: #666; font-size: 16px; font-weight: 500;">CheckMe v1.0.0 • Secure • Free</div>
+<div style="background: linear-gradient(135deg, #ffffff, #f8f9fa); padding: 35px 50px; border-radius: 25px; transition: all 0.3s ease; border: 3px solid rgba(255,255,255,0.9); box-shadow: 0 20px 40px rgba(0,0,0,0.15); position: relative; z-index: 2; transform-style: preserve-3d;">
+<div style="color: #34A853; font-size: 32px; font-weight: bold; margin-bottom: 12px; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">🚀 DOWNLOAD CHECKME</div>
+<div style="color: #666; font-size: 18px; font-weight: 500; margin-bottom: 15px;">v1.0.0 • Secure • Free Forever</div>
+<div style="display: flex; justify-content: center; align-items: center; gap: 10px; background: rgba(52, 168, 83, 0.1); padding: 12px 20px; border-radius: 50px; border: 2px solid rgba(52, 168, 83, 0.2);">
+<div style="font-size: 20px;">📦</div>
+<div style="color: #34A853; font-size: 14px; font-weight: bold;">APK File • 25 MB • Instant Download</div>
+</div>
 </div>
 </a>
-</div>
 
-<!-- Security Verification -->
-<div style="background: linear-gradient(135deg, #667eea, #764ba2); padding: 25px; border-radius: 20px; margin-bottom: 25px; box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);">
-<div style="display: flex; align-items: center; margin-bottom: 15px;">
-<div style="font-size: 28px; margin-right: 15px;">🔒</div>
-<div>
-<div style="color: white; font-size: 18px; font-weight: bold;">Security Verified</div>
-<div style="color: rgba(255,255,255,0.9); font-size: 14px;">SHA-256 Checksum</div>
+<!-- Download Stats -->
+<div style="display: flex; justify-content: center; gap: 25px; margin-top: 30px; position: relative; z-index: 2;">
+<div style="text-align: center;">
+<div style="color: white; font-size: 24px; font-weight: bold;">1.2K+</div>
+<div style="color: rgba(255,255,255,0.9); font-size: 12px;">Downloads</div>
 </div>
+<div style="text-align: center;">
+<div style="color: white; font-size: 24px; font-weight: bold;">⭐ 4.8</div>
+<div style="color: rgba(255,255,255,0.9); font-size: 12px;">Rating</div>
 </div>
-<div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2);">
-<div style="color: #4CAF50; font-size: 12px; word-break: break-all; text-align: center; font-family: 'Monaco', 'Consolas', monospace; line-height: 1.4;">
-f660b125c4ee0658145025b7443fc297fa9aa5e812b5b474d497ea60cd02d2e5
-</div>
-</div>
-<div style="color: rgba(255,255,255,0.8); font-size: 12px; text-align: center; margin-top: 12px;">
-Verify this hash matches your downloaded file
+<div style="text-align: center;">
+<div style="color: white; font-size: 24px; font-weight: bold;">99%</div>
+<div style="color: rgba(255,255,255,0.9); font-size: 12px;">Safe</div>
 </div>
 </div>
 
-<!-- App Details -->
-<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 30px 0;">
-<div style="background: linear-gradient(135deg, #2196F3, #21CBF3); padding: 20px 15px; border-radius: 20px; text-align: center; box-shadow: 0 8px 20px rgba(33, 150, 243, 0.3);">
-<div style="color: white; font-size: 24px; margin-bottom: 8px;">🚀</div>
-<div style="color: white; font-size: 14px; font-weight: bold;">v1.0.0</div>
-<div style="color: rgba(255,255,255,0.9); font-size: 12px;">Version</div>
-</div>
-<div style="background: linear-gradient(135deg, #FF9800, #FFB74D); padding: 20px 15px; border-radius: 20px; text-align: center; box-shadow: 0 8px 20px rgba(255, 152, 0, 0.3);">
-<div style="color: white; font-size: 24px; margin-bottom: 8px;">💾</div>
-<div style="color: white; font-size: 14px; font-weight: bold;">25 MB</div>
-<div style="color: rgba(255,255,255,0.9); font-size: 12px;">Size</div>
-</div>
-<div style="background: linear-gradient(135deg, #4CAF50, #66BB6A); padding: 20px 15px; border-radius: 20px; text-align: center; box-shadow: 0 8px 20px rgba(76, 175, 80, 0.3);">
-<div style="color: white; font-size: 24px; margin-bottom: 8px;">🤖</div>
-<div style="color: white; font-size: 14px; font-weight: bold;">5.0+</div>
-<div style="color: rgba(255,255,255,0.9); font-size: 12px;">Android</div>
-</div>
-</div>
+</div>---
 
-<!-- Requirements -->
-<div style="background: linear-gradient(135deg, #667eea, #764ba2); padding: 25px; border-radius: 20px; margin-top: 25px; box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);">
-<h4 style="color: white; margin: 0 0 20px 0; text-align: center; font-size: 20px;">📋 System Requirements</h4>
-<div style="display: grid; gap: 12px;">
-<div style="display: flex; align-items: center; background: rgba(255,255,255,0.15); padding: 15px; border-radius: 12px; backdrop-filter: blur(10px);">
-<div style="font-size: 24px; margin-right: 15px;">📱</div>
-<div>
-<div style="color: white; font-weight: bold; font-size: 16px;">Android 5.0+ (API 21)</div>
-<div style="color: rgba(255,255,255,0.8); font-size: 14px;">Compatible with most devices</div>
-</div>
-</div>
-<div style="display: flex; align-items: center; background: rgba(255,255,255,0.15); padding: 15px; border-radius: 12px; backdrop-filter: blur(10px);">
-<div style="font-size: 24px; margin-right: 15px;">💾</div>
-<div>
-<div style="color: white; font-weight: bold; font-size: 16px;">50 MB Storage</div>
-<div style="color: rgba(255,255,255,0.8); font-size: 14px;">Free space required</div>
-</div>
-</div>
-<div style="display: flex; align-items: center; background: rgba(255,255,255,0.15); padding: 15px; border-radius: 12px; backdrop-filter: blur(10px);">
-<div style="font-size: 24px; margin-right: 15px;">📶</div>
-<div>
-<div style="color: white; font-weight: bold; font-size: 16px;">Internet Access</div>
-<div style="color: rgba(255,255,255,0.8); font-size: 14px;">For Firebase features</div>
-</div>
-</div>
-</div>
-</div>
-
-</td>
-</tr>
-</table>
-
-</div>
-
----
 ## 📸 Feature Screenshots
 
 <div align="center">
