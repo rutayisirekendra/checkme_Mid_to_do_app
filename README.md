@@ -86,143 +86,128 @@ A premium, multi-platform Flutter productivity app that helps you capture, organ
 
 
 ---
-# 📥 Download CheckMe
+<!-- ========================= -->
+<!-- 📥 BEAUTIFUL DOWNLOAD PAGE -->
+<!-- ========================= -->
 
-<div align="center">
+<div style="font-family: 'Inter', sans-serif;">
 
-## 🚀 Get CheckMe for Android
+<h1 style="text-align:center; font-size:40px; font-weight:800; margin-bottom:20px; 
+background:linear-gradient(135deg,#667eea,#764ba2); -webkit-background-clip:text; color:transparent;">
+📥 Download CheckMe
+</h1>
 
-**Beautiful task management meets gamification - Download now and transform your productivity!**
+<p style="text-align:center; font-size:18px; max-width:700px; margin:0 auto; color:#555;">
+Beautiful task management meets gamification — Download now and transform your productivity!
+</p>
 
-<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 50px 30px; border-radius: 30px; margin: 40px 0; box-shadow: 0 25px 50px rgba(102, 126, 234, 0.25); position: relative; overflow: hidden;">
+<!-- Main Download Card -->
+<div style="max-width:1100px; margin:50px auto; padding:50px 30px; 
+background:linear-gradient(135deg,#667eea,#764ba2); border-radius:30px; 
+box-shadow:0 25px 50px rgba(102,126,234,0.3); position:relative; overflow:hidden;">
 
-<!-- Background Elements -->
-<div style="position: absolute; top: -80px; right: -80px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%); border-radius: 50%;"></div>
-<div style="position: absolute; bottom: -60px; left: -60px; width: 180px; height: 180px; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%); border-radius: 50%;"></div>
+<!-- Decorative circles -->
+<div style="position:absolute; top:-90px; right:-90px; width:230px; height:230px;
+background:radial-gradient(circle,rgba(255,255,255,0.13),transparent 70%); border-radius:50%;"></div>
+<div style="position:absolute; bottom:-80px; left:-80px; width:200px; height:200px;
+background:radial-gradient(circle,rgba(255,255,255,0.10),transparent 70%); border-radius:50%;"></div>
 
-<h2 style="color: white; font-size: 36px; margin-bottom: 15px; text-shadow: 0 2px 10px rgba(0,0,0,0.2); font-weight: 700;">✨ Your Productivity Journey Starts Here</h2>
-<p style="color: rgba(255,255,255,0.9); font-size: 18px; margin-bottom: 50px; max-width: 600px; line-height: 1.5;">Download the ultimate todo app that makes task management fun and rewarding with beautiful design and gamification features.</p>
+<h2 style="color:white; font-size:34px; font-weight:700; text-align:center; 
+margin-bottom:15px; text-shadow:0 3px 10px rgba(0,0,0,0.35);">
+✨ Your Productivity Journey Starts Here
+</h2>
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1000px; margin: 0 auto; align-items: start;">
+<p style="color:rgba(255,255,255,0.9); font-size:17px; text-align:center; max-width:650px; margin:0 auto;">
+Download the ultimate todo app that makes task management fun and rewarding with beautiful design and gamification.
+</p>
 
-<!-- QR Code Section -->
-<div style="background: rgba(255,255,255,0.95); padding: 35px; border-radius: 25px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); border: 2px solid rgba(255,255,255,0.8); backdrop-filter: blur(10px);">
+<!-- Grid -->
+<div style="display:grid; grid-template-columns:1fr 1fr; gap:40px; margin-top:50px;">
 
-<div style="background: linear-gradient(135deg, #4CAF50, #45a049); padding: 20px; border-radius: 20px 20px 0 0; margin: -35px -35px 30px -35px;">
-<h3 style="color: white; font-size: 22px; margin: 0; font-weight: 600; text-align: center; letter-spacing: 0.5px;">📱 Scan & Install</h3>
+<!-- =========================== -->
+<!-- LEFT : QR BOX -->
+<!-- =========================== -->
+<div style="background:rgba(255,255,255,0.95); padding:35px; border-radius:25px; 
+box-shadow:0 20px 40px rgba(0,0,0,0.15); border:2px solid rgba(255,255,255,0.8);">
+
+<!-- Header -->
+<div style="background:linear-gradient(135deg,#4CAF50,#45a049); 
+padding:18px; border-radius:18px; margin:-35px -35px 25px -35px;">
+<h3 style="color:white; text-align:center; margin:0; font-size:22px;">📱 Scan & Install</h3>
 </div>
 
-<div style="background: white; padding: 25px; border-radius: 20px; display: inline-block; box-shadow: 0 15px 35px rgba(76, 175, 80, 0.2); border: 3px solid #4CAF50; margin-bottom: 25px;">
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://github.com/rutayisirekendra/checkme_Mid_to_do_app/releases/download/1.0.0/CheckMe_App.apk&bgcolor=FFFFFF&color=4CAF50&margin=12&qzone=2" alt="Download QR Code" width="250" style="display: block; border-radius: 12px;"/>
+<!-- QR Code -->
+<div style="background:white; padding:25px; border-radius:20px; border:3px solid #4CAF50;
+box-shadow:0 15px 35px rgba(76,175,80,0.25); text-align:center;">
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://github.com/rutayisirekendra/checkme_Mid_to_do_app/releases/download/1.0.0/CheckMe_App.apk&bgcolor=FFFFFF&color=4CAF50&margin=12&qzone=2" 
+style="width:250px; border-radius:12px;" />
 </div>
 
-<div style="background: linear-gradient(135deg, #4CAF50, #45a049); padding: 18px; border-radius: 15px; text-align: center;">
-<p style="color: white; margin: 0; font-size: 15px; font-weight: 600; letter-spacing: 0.3px;">📸 Point Your Camera • Instant Download</p>
+<div style="background:linear-gradient(135deg,#4CAF50,#45a049); padding:15px; border-radius:14px; text-align:center; margin-top:10px;">
+<p style="color:white; margin:0; font-size:15px; font-weight:600;">📸 Scan to Download Instantly</p>
 </div>
 
 </div>
 
-<!-- Download Button Section -->
-<div style="background: rgba(255,255,255,0.12); padding: 35px; border-radius: 25px; backdrop-filter: blur(20px); border: 2px solid rgba(255,255,255,0.15); box-shadow: 0 20px 40px rgba(0,0,0,0.2); position: relative; overflow: hidden;">
+<!-- =========================== -->
+<!-- RIGHT : DOWNLOAD BUTTON -->
+<!-- =========================== -->
+<div style="background:rgba(255,255,255,0.12); padding:35px; border-radius:25px; 
+backdrop-filter:blur(20px); border:2px solid rgba(255,255,255,0.15); 
+box-shadow:0 20px 40px rgba(0,0,0,0.25); position:relative; overflow:hidden;">
 
-<!-- Pattern Overlay -->
-<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: 
-    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255, 107, 107, 0.08) 0%, transparent 50%);"></div>
-
-<div style="background: linear-gradient(135deg, #667eea, #764ba2); padding: 20px; border-radius: 20px 20px 0 0; margin: -35px -35px 30px -35px; position: relative; z-index: 2;">
-<h3 style="color: white; font-size: 22px; margin: 0; font-weight: 700; text-align: center; text-shadow: 0 2px 6px rgba(0,0,0,0.2);">
+<!-- Title bar -->
+<div style="background:linear-gradient(135deg,#667eea,#764ba2); padding:18px; 
+border-radius:18px; margin:-35px -35px 30px -35px; text-align:center;">
+<h3 style="color:white; font-size:22px; margin:0; font-weight:700;">
 💫 Direct Download
 </h3>
 </div>
 
-<!-- Main Download Button -->
-<a href="https://github.com/rutayisirekendra/checkme_Mid_to_do_app/releases/download/1.0.0/CheckMe_App.apk" style="text-decoration: none; display: block; margin-bottom: 25px; position: relative; z-index: 3;">
-<div style="background: linear-gradient(145deg, #ffffff, #f8faff); padding: 35px 25px; border-radius: 20px; transition: all 0.3s ease; border: 3px solid rgba(255,255,255,0.9); box-shadow: 
-    0 20px 40px rgba(102, 126, 234, 0.3),
-    0 0 0 1px rgba(255,255,255,0.8),
-    inset 0 2px 4px rgba(255,255,255,0.6); cursor: pointer; position: relative; overflow: hidden;">
+<!-- MAIN BUTTON -->
+<a href="https://github.com/rutayisirekendra/checkme_Mid_to_do_app/releases/download/1.0.0/CheckMe_App.apk" style="text-decoration:none;">
+<div style="background:white; padding:35px 25px; border-radius:20px; border:3px solid rgba(255,255,255,0.9);
+box-shadow:0 20px 40px rgba(102,126,234,0.35), inset 0 2px 4px rgba(255,255,255,0.6);
+transition:0.3s; cursor:pointer;">
 
-<!-- Hover Effect -->
-<div style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.08), transparent); transition: left 0.6s ease;"></div>
-
-<div style="position: relative; z-index: 3; text-align: center;">
-<!-- Main Title -->
-<div style="color: #2d3748; font-size: 28px; font-weight: 800; margin-bottom: 12px; letter-spacing: 0.5px; background: linear-gradient(135deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+<h3 style="font-size:28px; margin-bottom:10px; font-weight:800; 
+background:linear-gradient(135deg,#667eea,#764ba2); -webkit-background-clip:text; color:transparent;">
 DOWNLOAD CHECKME
-</div>
+</h3>
 
-<!-- Subtitle -->
-<div style="color: #718096; font-size: 14px; font-weight: 600; margin-bottom: 20px; letter-spacing: 0.2px;">
+<p style="color:#666; font-size:14px; margin-bottom:20px; font-weight:600;">
 Premium Todo App • v1.0.0 • Free Forever
-</div>
+</p>
 
-<!-- Download Badge -->
-<div style="display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, #48bb78, #38a169); padding: 14px 25px; border-radius: 50px; border: 2px solid rgba(255,255,255,0.9); box-shadow: 0 8px 20px rgba(72, 187, 120, 0.3);">
-<div style="font-size: 20px;">⚡</div>
-<div style="color: white; font-size: 14px; font-weight: 700; letter-spacing: 0.3px;">INSTANT DOWNLOAD • 25 MB</div>
-</div>
+<div style="display:inline-flex; align-items:center; gap:10px; 
+background:linear-gradient(135deg,#48bb78,#38a169); padding:12px 25px; 
+border-radius:50px; border:2px solid white; box-shadow:0 8px 20px rgba(72,187,120,0.3);">
+<span style="font-size:20px;">⚡</span>
+<span style="color:white; font-size:14px; font-weight:700;">INSTANT DOWNLOAD • 25 MB</span>
 </div>
 
 </div>
 </a>
 
-<!-- Quick Features -->
-<div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.15); margin-bottom: 20px; backdrop-filter: blur(10px);">
-<div style="color: white; font-size: 13px; line-height: 1.5; text-align: center;">
-<strong>🎯 One-Click Install</strong> • <strong>🔒 100% Safe</strong> • <strong>🚀 No Ads</strong><br>
-Download → Install → Start Organizing!
-</div>
-</div>
-
 <!-- App Specs -->
-<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px;">
-<div style="background: rgba(255,255,255,0.12); padding: 18px 12px; border-radius: 12px; text-align: center; backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.15);">
-<div style="color: white; font-size: 18px; margin-bottom: 6px;">📦</div>
-<div style="color: white; font-size: 13px; font-weight: bold;">25 MB</div>
-<div style="color: rgba(255,255,255,0.8); font-size: 10px;">Lightweight</div>
-</div>
-<div style="background: rgba(255,255,255,0.12); padding: 18px 12px; border-radius: 12px; text-align: center; backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.15);">
-<div style="color: white; font-size: 18px; margin-bottom: 6px;">🤖</div>
-<div style="color: white; font-size: 13px; font-weight: bold;">5.0+</div>
-<div style="color: rgba(255,255,255,0.8); font-size: 10px;">Android</div>
-</div>
-<div style="background: rgba(255,255,255,0.12); padding: 18px 12px; border-radius: 12px; text-align: center; backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.15);">
-<div style="color: white; font-size: 18px; margin-bottom: 6px;">⭐</div>
-<div style="color: white; font-size: 13px; font-weight: bold;">1.0.0</div>
-<div style="color: rgba(255,255,255,0.8); font-size: 10px;">Latest</div>
-</div>
+<div style="margin-top:25px; display:grid; grid-template-columns:repeat(3,1fr); gap:15px;">
+
+<div style="background:rgba(255,255,255,0.1); padding:18px; border-radius:12px; text-align:center; color:white;">
+<div style="font-size:20px;">📦</div>
+<b>25 MB</b><br>
+<span style="font-size:12px; opacity:0.8;">Lightweight</span>
 </div>
 
+<div style="background:rgba(255,255,255,0.1); padding:18px; border-radius:12px; text-align:center; color:white;">
+<div style="font-size:20px;">🤖</div>
+<b>Android 5.0+</b><br>
+<span style="font-size:12px; opacity:0.8;">Supported</span>
 </div>
 
-</div>
-
-<!-- Features Grid -->
-<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 40px; max-width: 800px; margin-left: auto; margin-right: auto;">
-
-<div style="background: rgba(255,255,255,0.08); padding: 20px; border-radius: 15px; text-align: center; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1);">
-<div style="font-size: 24px; margin-bottom: 10px;">🎮</div>
-<div style="color: white; font-size: 16px; font-weight: 600; margin-bottom: 8px;">Gamified Tasks</div>
-<div style="color: rgba(255,255,255,0.8); font-size: 13px;">Earn rewards and level up</div>
-</div>
-
-<div style="background: rgba(255,255,255,0.08); padding: 20px; border-radius: 15px; text-align: center; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1);">
-<div style="font-size: 24px; margin-bottom: 10px;">🎨</div>
-<div style="color: white; font-size: 16px; font-weight: 600; margin-bottom: 8px;">Beautiful UI</div>
-<div style="color: rgba(255,255,255,0.8); font-size: 13px;">Clean, modern interface</div>
-</div>
-
-<div style="background: rgba(255,255,255,0.08); padding: 20px; border-radius: 15px; text-align: center; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1);">
-<div style="font-size: 24px; margin-bottom: 10px;">📊</div>
-<div style="color: white; font-size: 16px; font-weight: 600; margin-bottom: 8px;">Progress Tracking</div>
-<div style="color: rgba(255,255,255,0.8); font-size: 13px;">Monitor your productivity</div>
-</div>
-
-<div style="background: rgba(255,255,255,0.08); padding: 20px; border-radius: 15px; text-align: center; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1);">
-<div style="font-size: 24px; margin-bottom: 10px;">🆓</div>
-<div style="color: white; font-size: 16px; font-weight: 600; margin-bottom: 8px;">Free Forever</div>
-<div style="color: rgba(255,255,255,0.8); font-size: 13px;">No ads, no tracking</div>
+<div style="background:rgba(255,255,255,0.1); padding:18px; border-radius:12px; text-align:center; color:white;">
+<div style="font-size:20px;">⭐</div>
+<b>Version 1.0.0</b><br>
+<span style="font-size:12px; opacity:0.8;">Latest Release</span>
 </div>
 
 </div>
@@ -230,22 +215,54 @@ Download → Install → Start Organizing!
 </div>
 
 </div>
+</div>
 
-<br>
+<!-- Feature Grid -->
+<div style="max-width:800px; margin:40px auto; display:grid; grid-template-columns:1fr 1fr; gap:20px;">
 
-<div align="center">
+<div style="background:rgba(0,0,0,0.05); padding:20px; border-radius:15px; text-align:center;">
+<div style="font-size:24px;">🎮</div>
+<h4>Gamified Tasks</h4>
+<p style="font-size:13px;">Earn rewards and level up</p>
+</div>
 
-### 📋 Installation Guide
+<div style="background:rgba(0,0,0,0.05); padding:20px; border-radius:15px; text-align:center;">
+<div style="font-size:24px;">🎨</div>
+<h4>Beautiful UI</h4>
+<p style="font-size:13px;">Clean, modern interface</p>
+</div>
 
-1. **Download** the APK file above
-2. **Enable** "Install from unknown sources" in Android Settings
-3. **Open** the downloaded file
-4. **Follow** the installation prompts
-5. **Launch** CheckMe and start organizing!
+<div style="background:rgba(0,0,0,0.05); padding:20px; border-radius:15px; text-align:center;">
+<div style="font-size:24px;">📊</div>
+<h4>Progress Tracking</h4>
+<p style="font-size:13px;">Track your productivity</p>
+</div>
 
----
+<div style="background:rgba(0,0,0,0.05); padding:20px; border-radius:15px; text-align:center;">
+<div style="font-size:24px;">🆓</div>
+<h4>Free Forever</h4>
+<p style="font-size:13px;">No ads, no tracking</p>
+</div>
 
-**💡 Need help?** Check out our [Installation Guide](https://github.com/rutayisirekendra/checkme_Mid_to_do_app/wiki) or [Report an Issue](https://github.com/rutayisirekendra/checkme_Mid_to_do_app/issues)
+</div>
+
+<!-- Installation Guide -->
+<div style="text-align:center; margin-top:40px;">
+<h3>📋 Installation Guide</h3>
+<ol style="text-align:left; max-width:400px; margin:20px auto; color:#444;">
+<li>Download the APK above</li>
+<li>Enable “Install from unknown sources”</li>
+<li>Open the downloaded file</li>
+<li>Follow on-screen instructions</li>
+<li>Launch CheckMe & enjoy!</li>
+</ol>
+
+<p>
+Need help?  
+<a href="https://github.com/rutayisirekendra/checkme_Mid_to_do_app/wiki">Installation Guide</a> •  
+<a href="https://github.com/rutayisirekendra/checkme_Mid_to_do_app/issues">Report Issue</a>
+</p>
+</div>
 
 </div>
 ---
