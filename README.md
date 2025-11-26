@@ -215,7 +215,9 @@ Clean interface with Firebase authentication and local data encryption
 
 </div>
 
-</div>---
+</div>
+
+---
 ## 📸 Feature Screenshots
 
 <div align="center">
